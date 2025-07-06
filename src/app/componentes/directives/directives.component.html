@@ -1,0 +1,83 @@
+<!-- directives.component.html -->
+<section class="bg-slate-900 text-black py-16">
+  <div class="max-w-4xl mx-auto px-4 space-y-12">
+    <!-- *ngIf -->
+    <div>
+      <h2 class="text-2xl font-bold mb-2">*ngIf</h2>
+      <p>Este botón muestra/oculta el mensaje:</p>
+      <button class="bg-blue-600 px-4 py-2 rounded mt-2 text-black" (click)="mostrar = !mostrar">
+        {{ mostrar ? 'Mensaje Visible' : 'Mensaje Oculto' }}
+      </button>
+      <p *ngIf="mostrar" class="mt-2 text-green-400">¡El mensaje está visible!</p>
+    </div>
+
+    <!-- *ngFor -->
+    <div>
+      <h2 class="text-2xl font-bold mb-2">*ngFor</h2>
+      <p>Lista de tecnologías estudiadas en idat: </p>
+      <ul class="list-disc list-inside">
+        <li *ngFor="let tech of tecnologias">{{ tech }}</li>
+      </ul>
+    </div>
+
+    <!-- [ngClass] -->
+    <div>
+      <h2 class="text-2xl font-bold mb-2">[ngClass]</h2>
+      <p>Cambia el color según el estado:</p>
+      <button class="mt-4 px-4 py-2 bg-blue-600 text-black rounded hover:bg-blue-500 transition"
+        (click)="toggleEstado()">
+        Cambiar Estado
+      </button>
+      <p [ngClass]="estado ? 'text-green-500' : 'text-red-500'" class="mt-2">
+        El estado es {{ estado ? 'Activo' : 'Inactivo' }}
+      </p>
+      <p *ngIf="estado" class="text-green-500">¡El estado está en <strong>TRUE</strong>!</p>
+      <p *ngIf="!estado" class="text-red-500">El estado está en <strong>FALSE</strong>.</p>
+
+    </div>
+
+    <!-- [ngStyle] -->
+    <div>
+      <h2 class="text-2xl font-bold mb-2">[ngStyle]</h2>
+      <p>El texto cambia de tamaño dinámicamente:</p>
+      <input type="range" min="14" max="40" [(ngModel)]="tamanoTexto" class="w-full mt-5" />
+      <p [ngStyle]="{ fontSize: tamanoTexto + 'px' }" class="mt-7">
+        Tamaño actual: {{ tamanoTexto }} px
+      </p>
+    </div>
+
+    <!-- Directiva personalizada con ngModel -->
+    <div class="mt-6">
+      <h2 class="text-2xl font-bold mb-2">Directiva personalizada con [(ngModel)]</h2>
+
+      <!-- Control ngModel -->
+      <label class="flex items-center space-x-2 mb-3">
+        <input type="checkbox" [(ngModel)]="resaltado" class="form-checkbox text-blue-600" />
+        <span>Activar resaltado</span>
+      </label>
+
+      <!-- Texto que cambia de estilo dinámicamente -->
+      <p class="p-3 rounded transition-all duration-300"
+        [ngClass]="{ 'bg-yellow-300 text-black': resaltado,
+                     'bg-slate-800 text-black': !resaltado 
+        }">
+        Este texto se resalta dinámicamente con [(ngModel)]
+      </p>
+    </div>
+
+    <div class="mt-6 ">
+      <h2 class="text-2xl font-bold mb-2">ngModel Bidireccional</h2>
+
+      <label class="items-center ">
+        Escribe tu nombre:
+      </label>
+      <input type="text" [(ngModel)]="nombre"
+        class="mt-1 p-2 rounded bg-slate-700 text-black border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+
+      <p class="mt-3 text-lg text-slate-200">
+        Hola, <span class="font-bold">{{ nombre || 'visitante' }}</span> 👋
+      </p>
+    </div>
+  </div>
+
+</section>

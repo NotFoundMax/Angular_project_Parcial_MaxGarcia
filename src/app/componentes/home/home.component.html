@@ -1,0 +1,57 @@
+<!-- Sección Hero -->
+<section id="inicio" class="bg-slate-900 text-black py-20">
+  <div class="max-w-4xl mx-auto text-center px-6">
+    <h1 class="text-4xl font-bold mb-1">Descubre nuestras nuevas experiencias</h1>
+    <p class="text-slate-300 text-lg mb-6">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi minima iure accusantium ad incidunt omnis explicabo itaque aspernatur.
+    </p>
+    <button 
+      (click)="navegarASeccion('productos')" 
+      class="bg-indigo-600 hover:bg-indigo-500 px-6 py-3 rounded text-white font-semibold transition">
+      Conoce más
+    </button>
+  </div>
+</section>
+
+<!-- Sección Nosotros -->
+<section id="nosotros" class="bg-slate-800 text-slate-100 py-20">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 px-6">
+    <img src="https://picsum.photos/800/800" alt="imagen de prueba" class="w-full md:w-1/2 rounded-lg shadow-md">
+    <div class="md:w-1/2">
+      <h2 class="text-3xl font-bold mb-4">¿Quiénes Somos?</h2>
+      <p class="text-slate-300 leading-relaxed">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero consectetur sunt delectus at odio. Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quod ipsa eveniet delectus sit neque, incidunt soluta! Dolor neque eligendi sint quod blanditiis. Aperiam accusamus similique cupiditate fugiat quod. Minus!
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Sección Productos -->
+<section id="productos" class="bg-slate-900 text-black py-20 px-6">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold mb-10 text-center">Nuestros Productos</h2>
+    <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+      <div class="bg-slate-800 p-4 rounded-lg shadow-lg text-center" *ngFor="let product of productos">
+        <img [src]="product.imagen" [alt]="product.nombre" class="h-80 w-full object-cover mb-4 rounded">
+        <h3 class="text-xl font-semibold">{{ product.nombre }}</h3>
+        <p class="text-slate-400 mt-2">{{ product.descripcion }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección Blog -->
+<section id="blog" class="bg-slate-800 text-black py-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-10 text-center">Nuestro Blog</h2>
+    <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+      <div class="bg-slate-700 p-4 rounded-lg shadow-lg text-center" *ngFor="let post of postsBlog">
+        <img [src]="post.imagen" [alt]="post.titulo" class="h-40 w-full object-cover rounded mb-4">
+        <h3 class="text-xl font-semibold mb-2">{{ post.titulo }}</h3>
+        <p class="text-slate-300">{{ post.resumen }}</p>
+        <a [href]="post.enlace" class="inline-block mt-4 text-indigo-400 hover:underline">Leer más</a>
+      </div>
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,62 @@
+<section class="p-6 bg-slate-900 min-h-screen rounded-xl shadow-md">
+  <h2 class="text-2xl font-semibold text-slate-100 mb-4 text-center">Lista de Clientes</h2>
+
+  <button 
+    (click)="abrirModalCrear()"
+    class="mb-4 bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-500 transition">
+    Crear Nuevo Cliente
+  </button>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-slate-800 border border-slate-700 rounded-lg shadow-sm">
+      <thead class="bg-slate-700 text-slate-200 text-sm uppercase">
+        <tr>
+          <th class="py-3 px-4 text-left">ID</th>
+          <th class="py-3 px-4 text-left">Nombre</th>
+          <th class="py-3 px-4 text-left">Apellido</th>
+          <th class="py-3 px-4 text-left">Email</th>
+          <th class="py-3 px-4 text-left">Teléfono</th>
+          <th class="py-3 px-4 text-left">Fecha de Nacimiento</th>
+          <th class="py-3 px-4 text-left">Acciones</th>
+        </tr>
+      </thead>
+      <tbody class="text-slate-100 text-sm">
+        <tr *ngFor="let cliente of clientes" class="border-t border-slate-700 hover:bg-slate-700">
+          <td class="py-2 px-4">{{ cliente.id }}</td>
+          <td class="py-2 px-4">{{ cliente.nombre }}</td>
+          <td class="py-2 px-4">{{ cliente.apellido }}</td>
+          <td class="py-2 px-4">{{ cliente.correo }}</td>
+          <td class="py-2 px-4">{{ cliente.telefono }}</td>
+          <td class="py-2 px-4">{{ cliente.fechaNacimiento }}</td>
+          <td class="py-2 px-4">
+            <div class="flex flex-wrap gap-2">
+              <button (click)="verCliente(cliente)" class="bg-indigo-500 text-white px-3 py-1 rounded hover:bg-indigo-400 text-xs">Ver</button>
+              <button (click)="editarCliente(cliente)" class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-400 text-xs">Editar</button>
+              <button (click)="borrarCliente(cliente)" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-400 text-xs">Borrar</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+<app-ver-cliente 
+  [cliente]="clienteSeleccionado" 
+  [visible]="mostrarModalVer"
+  (cerrar)="cerrarModalVer()">
+</app-ver-cliente>
+
+<app-crear-cliente 
+  [visible]="mostrarModalCrear"
+  [cliente]="nuevoCliente"
+  (guardar)="guardarNuevoCliente()"
+  (cancelar)="cancelarNuevoCliente()">
+</app-crear-cliente>
+
+<app-editar-cliente 
+  [visible]="mostrarModalEditar"
+  [cliente]="clienteEditando"
+  (guardar)="guardarEdicion()"
+  (cancelar)="cerrarModalEditar()">
+</app-editar-cliente>
