@@ -1,0 +1,16 @@
+<div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-20 z-50" *ngIf="visible">
+  <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md text-slate-100">
+    <h3 class="text-xl font-semibold mb-4">Detalles del Cliente</h3>
+    <ng-container *ngIf="producto">
+      <p><strong>ID:</strong> {{ producto?.id }}</p>
+      <p><strong>Titulo:</strong> {{ producto?.title }}</p>
+      <p><strong>Descripcion:</strong> {{ producto?.description }}</p>
+      <p><strong>Precio:</strong> {{ producto?.price }}</p>
+      <p><strong>Stock:</strong> {{ producto?.count }}</p>
+      <p><strong>Imagen URL:</strong> {{ producto?.image }}</p>
+    </ng-container>
+    <div class="mt-4 text-right">
+      <button (click)="cerrar.emit()" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-500">Cerrar</button>
+    </div>
+  </div>
+</div>

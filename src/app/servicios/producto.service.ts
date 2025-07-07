@@ -5,7 +5,10 @@ import { Observable } from 'rxjs';
 export interface Producto {
   id: number;
   title: string;
+  description: string;
   price: number;
+  count: number;
+  image: string;
 }
 
 @Injectable({

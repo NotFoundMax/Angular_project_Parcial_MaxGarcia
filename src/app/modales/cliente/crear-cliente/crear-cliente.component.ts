@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
-import { Cliente } from '../../modelos/cliente.model';
+import { Cliente } from '../../../modelos/cliente.model';
 
 @Component({
   selector: 'app-crear-cliente',

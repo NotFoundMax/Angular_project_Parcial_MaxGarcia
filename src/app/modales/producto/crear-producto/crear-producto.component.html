@@ -1,0 +1,44 @@
+<div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50" *ngIf="visible">
+  <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md text-slate-100">
+    <h3 class="text-xl font-semibold mb-4">Crear Nuevo Producto</h3>
+    
+      <form (ngSubmit)="guardar.emit(producto)" class="space-y-4">
+        <label class="block">
+          <span class="text-slate-200">Nombre:</span>
+          <input [(ngModel)]="producto.title" name="Titulo" required
+            class="w-full bg-slate-600 border border-slate-500 rounded px-3 py-2 mt-1 text-black" />
+        </label>
+
+        <label class="block">
+          <span class="text-slate-200">Descripción:</span>
+          <input [(ngModel)]="producto.description" name="Descripcion" required
+            class="w-full bg-slate-600 border border-slate-500 rounded px-3 py-2 mt-1 text-black" />
+        </label>
+
+        <label class="block">
+          <span class="text-slate-200">precio:</span>
+          <input [(ngModel)]="producto.price" name="precio" type="email" required
+            class="w-full bg-slate-600 border border-slate-500 rounded px-3 py-2 mt-1 text-black" />
+        </label>
+
+        <label class="block">
+          <span class="text-slate-200">Stock:</span>
+          <input [(ngModel)]="producto.count" name="Stock" required
+            class="w-full bg-slate-600 border border-slate-500 rounded px-3 py-2 mt-1 text-black" />
+        </label>
+
+        <label class="block">
+          <span class="text-slate-200">Imagen URL:</span>
+          <input [(ngModel)]="producto.image" name="imagen_url" required type="date"
+            class="w-full bg-slate-600 border border-slate-500 rounded px-3 py-2 mt-1 text-black" />
+        </label>
+
+        <div class="pt-4 flex justify-end gap-2">
+          <button type="submit"
+            class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500">Guardar</button>
+          <button type="button" (click)="cancelar.emit()"
+            class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-400">Cancelar</button>
+        </div>
+    </form>
+  </div>
+</div>

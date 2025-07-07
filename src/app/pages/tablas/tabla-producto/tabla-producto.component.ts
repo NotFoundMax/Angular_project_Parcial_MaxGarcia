@@ -1,5 +1,7 @@
 // Componente para mostrar la tabla de productos con acciones
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ProductoService } from 'src/app/servicios/producto.service';
 import Swal from 'sweetalert2';
 
 export interface Producto {
@@ -16,27 +18,34 @@ export interface Producto {
   templateUrl: './tabla-producto.component.html',
   styleUrls: ['./tabla-producto.component.css']
 })
-export class TablaProductoComponent {
 
-  // Lista de productos de ejemplo
-  productos: Producto[] = [
-    {
-      id: 1,
-      title: 'Producto 1',
-      description: 'Descripción del producto 1',
-      price: 100,
-      count: 10,
-      image: 'https://via.placeholder.com/50'
-    },
-    {
-      id: 2,
-      title: 'Producto 2',
-      description: 'Descripción del producto 2',
-      price: 200,
-      count: 5,
-      image: 'https://via.placeholder.com/50'
-    }
-  ];
+export class TablaProductoComponent implements OnInit, OnDestroy{
+
+  productos: Producto[] = [];
+  cargando: boolean = true;
+  error: string | null = null;
+  private subscription: Subscription | null = null;
+
+  constructor(private productoService: ProductoService) {}
+
+  ngOnInit() {
+    this.subscription = this.productoService.getProductos().subscribe({
+      next: (data) => {
+        this.productos = data;
+        this.cargando = false;
+      },
+      error: (err) => {
+        this.error = 'Error al cargar productos';
+        this.cargando = false;
+        console.error(err);
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    this.subscription?.unsubscribe();
+  }
+  
 
   // Variables para los modales
   mostrarModalVer = false;
@@ -136,3 +145,6 @@ export class TablaProductoComponent {
     });
   }
 }
+
+
+
