@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './componentes/header/header.component';
-import { TablasComponent } from './pages/tablas/tabla.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './componentes/footer/footer/footer.component';
@@ -16,6 +15,13 @@ import { ProductGridComponent } from './componentes/product/product-grid/product
 import { VerClienteComponent } from './modales/ver-cliente/ver-cliente.component';
 import { CrearClienteComponent } from './modales/crear-cliente/crear-cliente.component';
 import { EditarClienteComponent } from './modales/editar-cliente/editar-cliente.component';
+import { ListaProductosComponent } from './componentes/lista-productos/lista-productos.component';
+import { HttpClientModule } from '@angular/common/http';
+import { TablaProductoComponent } from './pages/tablas/tabla-producto/tabla-producto.component';
+import { TablaClienteComponent } from './pages/tablas/tabla-cliente/tabla-cliente.component';
+import { TablasComponent } from './pages/tablas/tablas.component';
+
+
 
 
 
@@ -36,13 +42,18 @@ import { EditarClienteComponent } from './modales/editar-cliente/editar-cliente.
     VerClienteComponent,
     CrearClienteComponent,
     EditarClienteComponent,
-
-
+    ListaProductosComponent,
+    TablasComponent,
+    TablaProductoComponent,
+    TablaClienteComponent,
+   
+  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
     
   ],
   providers: [],

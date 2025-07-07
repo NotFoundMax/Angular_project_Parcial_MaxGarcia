@@ -1,16 +1,16 @@
 // Componente para mostrar la tabla de clientes con acciones
 import { Component } from '@angular/core';
-import { Cliente } from '../../modelos/cliente.model';
+import { Cliente } from '../../../modelos/cliente.model';
 import Swal from 'sweetalert2';
 
 
 @Component({
-  selector: 'app-tablas',
-  templateUrl: './tabla.component.html',
-  styleUrls: ['./tabla.component.css']
+  selector: 'app-tabla-cliente',
+  templateUrl: './tabla-cliente.component.html',
+  styleUrls: ['./tabla-cliente.component.css']
 })
 
-export class TablasComponent {
+export class TablaClienteComponent {
 
   // Lista de clientes de ejemplo
   clientes: Cliente[] = [

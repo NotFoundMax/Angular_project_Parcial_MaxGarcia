@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { TablasComponent } from './pages/tablas/tabla.component';
+import { TablasComponent } from './pages/tablas/tablas.component';
 import { DirectivesComponent } from './pages/directives/directives.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { FetchingComponent } from './pages/fetching/fetching.component';

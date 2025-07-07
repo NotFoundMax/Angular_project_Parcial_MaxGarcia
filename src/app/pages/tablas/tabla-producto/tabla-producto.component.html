@@ -1,0 +1,43 @@
+<section class="p-6 bg-slate-900 min-h-0 rounded-xl shadow-md">
+  <h2 class="text-2xl font-semibold text-slate-100 mb-4 text-center">Lista de Productos</h2>
+  <button 
+    (click)="abrirModalCrear()"
+    class="mb-4 bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-500 transition">
+    Crear Nuevo Producto
+  </button>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-slate-800 border border-slate-700 rounded-lg shadow-sm">
+      <thead class="bg-slate-700 text-slate-200 text-sm uppercase">
+        <tr>
+          <th class="py-3 px-4 text-left">ID</th>
+          <th class="py-3 px-4 text-left">nombre</th>
+          <th class="py-3 px-4 text-left">descripcion</th>
+          <th class="py-3 px-4 text-left">precio</th>
+          <th class="py-3 px-4 text-left">stock</th>
+          <th class="py-3 px-4 text-left">imagen</th>
+          <th class="py-3 px-4 text-left">Acciones</th>
+        </tr>
+      </thead>
+      <tbody class="text-slate-100 text-sm">
+        <tr *ngFor="let producto of productos" class="border-t border-slate-700 hover:bg-slate-700">
+          <td class="py-2 px-4">{{ producto.id }}</td>
+          <td class="py-2 px-4">{{ producto.title }}</td>
+          <td class="py-2 px-4">{{ producto.description }}</td>
+          <td class="py-2 px-4">{{ producto.price }}</td>
+          <td class="py-2 px-4">{{ producto.count }}</td>
+          <td class="py-2 px-4">{{ producto.image }}</td>
+          <td class="py-2 px-4">
+            <div class="flex flex-wrap gap-2">
+              <button (click)="verProducto(producto)" class="bg-indigo-500 text-white px-3 py-1 rounded hover:bg-indigo-400 text-xs">Ver</button>
+              <button (click)="editarProducto(producto)" class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-400 text-xs">Editar</button>
+              <button (click)="borrarProducto(producto)" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-400 text-xs">Borrar</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</section>
+

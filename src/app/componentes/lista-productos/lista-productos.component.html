@@ -1,0 +1,13 @@
+<div *ngIf="cargando">
+  <p>Cargando productos...</p>
+</div>
+
+<div *ngIf="error">
+  <p style="color: red;">{{ error }}</p>
+</div>
+
+<ul *ngIf="!cargando && !error">
+  <li *ngFor="let producto of productos">
+    <strong>{{ producto.title }}</strong> - S/.{{ producto.price }}
+  </li>
+</ul>

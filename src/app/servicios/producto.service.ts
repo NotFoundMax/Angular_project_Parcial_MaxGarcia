@@ -1,30 +1,22 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { Producto } from '../modelos/producto.model';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+export interface Producto {
+  id: number;
+  title: string;
+  price: number;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductoService {
-  private productos: Producto[] = [
-    { id: 1, nombre: 'Manzanilla', precio: 5, stock: 100 },
-    { id: 2, nombre: 'Menta', precio: 6, stock: 80 },
-    { id: 3, nombre: 'Eucalipto', precio: 7, stock: 120 }
-  ];
+  private urlApi = 'https://fakestoreapi.com/products';
 
-  private productosSubject = new BehaviorSubject<Producto[]>(this.productos);
+  constructor(private http: HttpClient) {}
 
-  obtenerProductos(): Observable<Producto[]> {
-    return this.productosSubject.asObservable();
-  }
-
-  agregarProducto(producto: Producto) {
-    this.productos.push(producto);
-    this.productosSubject.next(this.productos); // actualiza la lista
-  }
-
-  eliminarProducto(id: number) {
-    this.productos = this.productos.filter(p => p.id !== id);
-    this.productosSubject.next(this.productos);
+  getProductos(): Observable<Producto[]> {
+    return this.http.get<Producto[]>(this.urlApi);
   }
 }
