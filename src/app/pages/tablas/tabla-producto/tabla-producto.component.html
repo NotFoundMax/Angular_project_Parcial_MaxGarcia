@@ -41,3 +41,23 @@
 
 </section>
 
+
+<app-ver-producto 
+  [producto]="productoSeleccionado" 
+  [visible]="mostrarModalVer"
+  (cerrar)="cerrarModalVer()">
+</app-ver-producto>
+
+<app-crear-producto 
+  [visible]="mostrarModalCrear"
+  [producto]="nuevoProducto"
+  (guardar)="guardarNuevoProducto()"
+  (cancelar)="cancelarNuevoProducto()">
+</app-crear-producto>
+
+<app-editar-producto 
+  [visible]="mostrarModalEditar"
+  [producto]="productoEditando"
+  (guardar)="guardarEdicion()"
+  (cancelar)="cerrarModalEditar()">
+</app-editar-producto>

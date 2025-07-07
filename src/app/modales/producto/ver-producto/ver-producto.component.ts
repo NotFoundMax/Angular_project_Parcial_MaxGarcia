@@ -10,5 +10,4 @@ export class VerProductoComponent {
   @Input() producto!: Producto | null;
   @Input() visible: boolean = false;
   @Output() cerrar = new EventEmitter<void>();
-
 }

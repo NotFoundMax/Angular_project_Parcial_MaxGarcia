@@ -13,7 +13,6 @@ const routes: Routes = [
   { path: 'directives', component: DirectivesComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'tablas', component: TablasComponent },
-  { path: 'fetching', component: FetchingComponent },
   { path: '**', redirectTo: 'home' },
   { path: '', component: HomeComponent }, // ruta por defecto
 ];

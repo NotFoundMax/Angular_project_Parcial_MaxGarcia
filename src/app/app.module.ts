@@ -22,6 +22,7 @@ import { TablaClienteComponent } from './pages/tablas/tabla-cliente/tabla-client
 import { TablasComponent } from './pages/tablas/tablas.component';
 import { CrearProductoComponent } from './modales/producto/crear-producto/crear-producto.component';
 import { EditarProductoComponent } from './modales/producto/editar-producto/editar-producto.component';
+import { VerProductoComponent } from './modales/producto/ver-producto/ver-producto.component';
 
 
 
@@ -42,6 +43,7 @@ import { EditarProductoComponent } from './modales/producto/editar-producto/edit
     ProductCardComponent,
     ProductGridComponent,
     VerClienteComponent,
+    VerProductoComponent,
     CrearClienteComponent,
     EditarClienteComponent,
     ListaProductosComponent,
