@@ -7,6 +7,7 @@ import { DirectivesComponent } from './pages/directives/directives.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { FetchingComponent } from './pages/fetching/fetching.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'gallery', component: GalleryComponent },
   { path: 'tablas', component: TablasComponent },
   { path: 'checkout', component: CheckoutComponent },
+  { path: 'contact', component: ContactComponent },
   { path: '**', redirectTo: 'home' }
 ];
 
