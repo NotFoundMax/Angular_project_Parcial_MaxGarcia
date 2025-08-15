@@ -14,12 +14,21 @@ header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Cart button styles */
+.cart-button {
+  @apply bg-white/10 border border-white/20 hover:bg-white/20 transition-all duration-200;
+}
+
+.cart-button:hover {
+  transform: scale(1.05);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .galaxy-text {
     font-size: 1.25rem;
   }
-  
+
   .btn-cosmic {
     @apply px-4 py-2 text-xs;
   }
