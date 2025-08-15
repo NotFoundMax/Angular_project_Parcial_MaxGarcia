@@ -12,7 +12,6 @@ import Swal from 'sweetalert2';
 export class AuthComponent implements OnInit {
   isLoading = false;
   returnUrl = '/';
-  showUserSelection = false;
 
   loginData = {
     email: '',
@@ -85,16 +84,4 @@ export class AuthComponent implements OnInit {
     }
   }
 
-  // Método para login rápido con usuarios de prueba
-  quickLogin(email: string): void {
-    const passwords: { [key: string]: string } = {
-      'admin@stellarx.space': 'admin123',
-      'manager@stellarx.space': 'manager123',
-      'ventas@stellarx.space': 'ventas123',
-      'usuario@stellarx.space': 'usuario123'
-    };
-
-    this.loginData.email = email;
-    this.loginData.password = passwords[email];
-  }
 }
