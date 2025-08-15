@@ -1,1 +1,139 @@
-<p>contact works!</p>
+<div class="min-h-screen pt-24 pb-12 px-6">
+  <div class="max-w-4xl mx-auto">
+    <!-- Header de la página -->
+    <div class="text-center mb-12 fade-in-up">
+      <h1 class="text-4xl md:text-5xl font-bold galaxy-text font-['Orbitron'] mb-4">
+        Contacto Intergaláctico
+      </h1>
+      <p class="text-xl text-slate-400 max-w-2xl mx-auto">
+        Envía tu mensaje a través del cosmos. Nuestro equipo espacial te responderá 
+        desde las estrellas más cercanas.
+      </p>
+    </div>
+
+    <!-- Formulario de contacto -->
+    <div class="cosmic-card max-w-2xl mx-auto p-8 fade-in-up">
+      <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" class="space-y-6">
+        
+        <!-- Campo Nombre -->
+        <div class="space-y-2">
+          <label for="nombre" class="block text-sm font-medium text-slate-300">
+            <span class="flex items-center">
+              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+              </svg>
+              Nombre Completo
+            </span>
+          </label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            [(ngModel)]="contactForm.nombre"
+            required
+            minlength="2"
+            class="w-full px-4 py-3 cosmic-input border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-indigo-400 transition-all duration-300"
+            placeholder="Tu nombre completo...">
+          <div *ngIf="contactForm.controls?.['nombre']?.invalid && contactForm.controls?.['nombre']?.touched" class="text-red-400 text-sm">
+            El nombre es requerido y debe tener al menos 2 caracteres.
+          </div>
+        </div>
+
+        <!-- Campo Correo -->
+        <div class="space-y-2">
+          <label for="correo" class="block text-sm font-medium text-slate-300">
+            <span class="flex items-center">
+              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              Correo Electrónico
+            </span>
+          </label>
+          <input
+            type="email"
+            id="correo"
+            name="correo"
+            [(ngModel)]="contactForm.correo"
+            required
+            email
+            class="w-full px-4 py-3 cosmic-input border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-indigo-400 transition-all duration-300"
+            placeholder="tu@email.com">
+          <div *ngIf="contactForm.controls?.['correo']?.invalid && contactForm.controls?.['correo']?.touched" class="text-red-400 text-sm">
+            Por favor, ingresa un correo electrónico válido.
+          </div>
+        </div>
+
+        <!-- Campo Mensaje -->
+        <div class="space-y-2">
+          <label for="mensaje" class="block text-sm font-medium text-slate-300">
+            <span class="flex items-center">
+              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+              </svg>
+              Mensaje
+            </span>
+          </label>
+          <textarea
+            id="mensaje"
+            name="mensaje"
+            [(ngModel)]="contactForm.mensaje"
+            required
+            minlength="10"
+            rows="5"
+            class="w-full px-4 py-3 cosmic-input border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-indigo-400 transition-all duration-300 resize-none"
+            placeholder="Escribe tu mensaje aquí... ¿Qué experiencia espacial te interesa? ¿Tienes alguna pregunta sobre nuestros viajes cósmicos?"></textarea>
+          <div *ngIf="contactForm.controls?.['mensaje']?.invalid && contactForm.controls?.['mensaje']?.touched" class="text-red-400 text-sm">
+            El mensaje es requerido y debe tener al menos 10 caracteres.
+          </div>
+        </div>
+
+        <!-- Botón de envío -->
+        <div class="pt-4">
+          <button
+            type="submit"
+            [disabled]="!contactForm.valid"
+            class="w-full btn-cosmic text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed hover:transform hover:scale-105">
+            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+            </svg>
+            Enviar Mensaje al Cosmos
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Información adicional -->
+    <div class="grid md:grid-cols-3 gap-6 mt-12 fade-in-up">
+      <div class="cosmic-card p-6 text-center">
+        <div class="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold text-white mb-2">Email Cósmico</h3>
+        <p class="text-slate-400">contacto@stellarx.space</p>
+      </div>
+
+      <div class="cosmic-card p-6 text-center">
+        <div class="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold text-white mb-2">Tiempo de Respuesta</h3>
+        <p class="text-slate-400">24-48 horas terrestres</p>
+      </div>
+
+      <div class="cosmic-card p-6 text-center">
+        <div class="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold text-white mb-2">Ubicación</h3>
+        <p class="text-slate-400">Estación Orbital StellarX</p>
+      </div>
+    </div>
+  </div>
+</div>
