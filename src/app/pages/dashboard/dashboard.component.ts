@@ -14,6 +14,7 @@ Chart.register(...registerables);
 })
 export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   currentUser: User | null = null;
+  currentDate = new Date();
   private userSubscription!: Subscription;
   
   // Charts
@@ -228,5 +229,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     if (hour < 12) return 'Buenos días';
     if (hour < 18) return 'Buenas tardes';
     return 'Buenas noches';
+  }
+
+  // Getter para UserRole enum (para usar en template)
+  get UserRole() {
+    return UserRole;
   }
 }
