@@ -30,10 +30,13 @@ import { HasRoleDirective } from './directives/has-role.directive';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AuthComponent } from './pages/auth/auth.component';
 import { ToastComponent } from './componentes/toast/toast.component';
+import { DomSanitizer } from '@angular/platform-browser'; // Angular provee proteccion integrada XSS 
+
 
 
 @NgModule({
   declarations: [
+    
     AppComponent,
     HeaderComponent,
     TablasComponent,
@@ -71,4 +74,9 @@ import { ToastComponent } from './componentes/toast/toast.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+  constructor(private sanitizer: DomSanitizer) {
+    // Angular provee proteccion integrada XSS 
+  }
+}
