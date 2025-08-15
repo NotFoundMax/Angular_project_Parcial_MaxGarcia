@@ -1,0 +1,36 @@
+/* Estilos optimizados para el home sin animaciones pesadas */
+
+/* Fondo del hero con gradiente simple */
+#inicio {
+  background: radial-gradient(ellipse at top, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+              radial-gradient(ellipse at bottom, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .text-6xl {
+    font-size: 2.5rem;
+  }
+  
+  .text-8xl {
+    font-size: 3rem;
+  }
+  
+  .cosmic-card {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Transiciones simples para elementos hover */
+.cosmic-card:hover {
+  transition: transform 0.2s ease;
+}
+
+/* Efectos hover básicos para las cards de experiencias */
+.cosmic-card img {
+  transition: transform 0.3s ease;
+}
+
+.cosmic-card:hover img {
+  transform: scale(1.05);
+}

@@ -25,11 +25,6 @@ import { EditarProductoComponent } from './modales/producto/editar-producto/edit
 import { VerProductoComponent } from './modales/producto/ver-producto/ver-producto.component';
 
 
-
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,15 +42,11 @@ import { VerProductoComponent } from './modales/producto/ver-producto/ver-produc
     CrearClienteComponent,
     EditarClienteComponent,
     ListaProductosComponent,
-    TablasComponent,
     TablaProductoComponent,
     TablaClienteComponent,
     CrearProductoComponent,
     EditarProductoComponent,
     
-    
-   
-  
   ],
   imports: [
     BrowserModule,

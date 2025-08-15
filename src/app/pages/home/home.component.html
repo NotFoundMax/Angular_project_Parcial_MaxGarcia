@@ -1,57 +1,244 @@
-<!-- Sección Hero -->
-<section id="inicio" class="bg-slate-900 text-black py-20">
-  <div class="max-w-4xl mx-auto text-center px-6">
-    <h1 class="text-4xl font-bold mb-1">Descubre nuestras nuevas experiencias</h1>
-    <p class="text-slate-300 text-lg mb-6">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi minima iure accusantium ad incidunt omnis explicabo itaque aspernatur.
+<!-- Hero Section - Universo de Experiencias -->
+<section id="inicio" class="relative min-h-screen flex items-center justify-center pt-20">
+  <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/20 to-blue-900/20"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto text-center px-6 fade-in-up">
+    <!-- Título principal -->
+    <h1 class="text-6xl md:text-8xl font-bold mb-6 galaxy-text font-['Orbitron']">
+      EXPLORA EL
+      <span class="block bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 bg-clip-text text-transparent">
+        UNIVERSO
+      </span>
+    </h1>
+    
+    <p class="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+      Descubre experiencias extraordinarias más allá de las estrellas. 
+      Tu aventura galáctica comienza aquí, donde los sueños se convierten en realidad cósmica.
     </p>
-    <button 
-      (click)="navegarASeccion('productos')" 
-      class="bg-indigo-600 hover:bg-indigo-500 px-6 py-3 rounded text-white font-semibold transition">
-      Conoce más
-    </button>
+
+    <!-- Estadísticas rápidas -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10 max-w-4xl mx-auto">
+      <div *ngFor="let stat of estadisticas" class="cosmic-card p-4 text-center">
+        <div class="text-3xl mb-2">{{stat.icono}}</div>
+        <div class="text-2xl font-bold text-white">{{stat.numero}}</div>
+        <div class="text-sm text-slate-400">{{stat.descripcion}}</div>
+      </div>
+    </div>
+
+    <!-- Botones de acción -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <button 
+        (click)="navegarASeccion('productos')" 
+        class="btn-cosmic text-white font-bold">
+        🚀 Iniciar Exploración
+      </button>
+      <button class="px-8 py-4 rounded-full border border-white/30 text-white font-semibold 
+                     hover:bg-white/10 transition-colors duration-300">
+        🎬 Ver Experiencias
+      </button>
+    </div>
+  </div>
+
+  <!-- Indicador de scroll simple -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+    <svg class="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+    </svg>
   </div>
 </section>
 
-<!-- Sección Nosotros -->
-<section id="nosotros" class="bg-slate-800 text-slate-100 py-20">
-  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 px-6">
-    <img src="https://picsum.photos/800/800" alt="imagen de prueba" class="w-full md:w-1/2 rounded-lg shadow-md">
-    <div class="md:w-1/2">
-      <h2 class="text-3xl font-bold mb-4">¿Quiénes Somos?</h2>
-      <p class="text-slate-300 leading-relaxed">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero consectetur sunt delectus at odio. Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quod ipsa eveniet delectus sit neque, incidunt soluta! Dolor neque eligendi sint quod blanditiis. Aperiam accusamus similique cupiditate fugiat quod. Minus!
+<!-- Sección Nosotros - Misión Espacial -->
+<section id="nosotros" class="py-20 bg-gradient-to-b from-slate-900/50 to-indigo-900/30">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="relative">
+        <div class="cosmic-card p-2">
+          <img src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=600&h=600&fit=crop" 
+               alt="Exploración espacial" 
+               class="w-full rounded-lg">
+        </div>
+      </div>
+      
+      <div class="space-y-6">
+        <div class="inline-block px-4 py-2 bg-indigo-500/20 rounded-full text-indigo-300 text-sm font-medium">
+          🌟 Nuestra Misión
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold galaxy-text font-['Orbitron']">
+          Pioneros de la Exploración Cósmica
+        </h2>
+        <p class="text-lg text-slate-300 leading-relaxed">
+          Somos los arquitectos de experiencias extraordinarias que desafían los límites del universo conocido. 
+          Desde 2020, hemos conectado a más de 50,000 exploradores con aventuras que transforman vidas y 
+          expanden la consciencia hacia las infinitas posibilidades del cosmos.
+        </p>
+        <div class="space-y-4">
+          <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center text-sm">
+              ✓
+            </div>
+            <span class="text-slate-300">Tecnología de vanguardia espacial</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center text-sm">
+              ✓
+            </div>
+            <span class="text-slate-300">Experiencias 100% seguras y certificadas</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center text-sm">
+              ✓
+            </div>
+            <span class="text-slate-300">Guías astronautas profesionales</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección Experiencias Espaciales -->
+<section id="productos" class="py-20 bg-gradient-to-b from-indigo-900/30 to-purple-900/20">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <div class="inline-block px-4 py-2 bg-purple-500/20 rounded-full text-purple-300 text-sm font-medium mb-4">
+        🌌 Catálogo Galáctico
+      </div>
+      <h2 class="text-4xl md:text-5xl font-bold galaxy-text font-['Orbitron'] mb-6">
+        Experiencias Extraordinarias
+      </h2>
+      <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+        Cada experiencia ha sido diseñada para llevarte más allá de lo imaginable
       </p>
     </div>
-  </div>
-</section>
 
-<!-- Sección Productos -->
-<section id="productos" class="bg-slate-900 text-black py-20 px-6">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-3xl font-bold mb-10 text-center">Nuestros Productos</h2>
-    <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-      <div class="bg-slate-800 p-4 rounded-lg shadow-lg text-center" *ngFor="let product of productos">
-        <img [src]="product.imagen" [alt]="product.nombre" class="h-80 w-full object-cover mb-4 rounded">
-        <h3 class="text-xl font-semibold">{{ product.nombre }}</h3>
-        <p class="text-slate-400 mt-2">{{ product.descripcion }}</p>
+    <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div class="cosmic-card group cursor-pointer" *ngFor="let experience of productos">
+        <div class="relative overflow-hidden">
+          <img [src]="experience.imagen" 
+               [alt]="experience.nombre" 
+               class="w-full h-64 object-cover">
+          
+          <!-- Etiqueta de precio -->
+          <div class="absolute top-4 right-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-3 py-1 rounded-full font-bold text-sm">
+            {{experience.precio}}
+          </div>
+          
+          <!-- Información adicional -->
+          <div class="absolute bottom-4 left-4 right-4">
+            <div class="flex items-center justify-between text-white text-sm">
+              <span class="bg-indigo-500/80 px-2 py-1 rounded">{{experience.duracion}}</span>
+              <span class="bg-purple-500/80 px-2 py-1 rounded">{{experience.categoria}}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white mb-3">
+            {{experience.nombre}}
+          </h3>
+          <p class="text-slate-400 mb-4 leading-relaxed">
+            {{experience.descripcion}}
+          </p>
+          
+          <!-- Rating -->
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-1">
+              <span *ngFor="let star of getStarArray(experience.rating)" class="text-yellow-400">⭐</span>
+              <span class="text-slate-400 text-sm ml-2">{{experience.rating}}</span>
+            </div>
+            <button class="text-indigo-400 hover:text-indigo-300 font-medium text-sm transition-colors">
+              Explorar →
+            </button>
+          </div>
+        </div>
       </div>
+    </div>
+
+    <!-- Call to action -->
+    <div class="text-center mt-12">
+      <button class="btn-cosmic text-white font-bold">
+        🔭 Ver Todas las Experiencias
+      </button>
     </div>
   </div>
 </section>
 
-<!-- Sección Blog -->
-<section id="blog" class="bg-slate-800 text-black py-20">
+<!-- Sección Blog Cósmico -->
+<section id="blog" class="py-20 bg-gradient-to-b from-purple-900/20 to-slate-900/50">
   <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-3xl font-bold mb-10 text-center">Nuestro Blog</h2>
-    <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-      <div class="bg-slate-700 p-4 rounded-lg shadow-lg text-center" *ngFor="let post of postsBlog">
-        <img [src]="post.imagen" [alt]="post.titulo" class="h-40 w-full object-cover rounded mb-4">
-        <h3 class="text-xl font-semibold mb-2">{{ post.titulo }}</h3>
-        <p class="text-slate-300">{{ post.resumen }}</p>
-        <a [href]="post.enlace" class="inline-block mt-4 text-indigo-400 hover:underline">Leer más</a>
+    <div class="text-center mb-16">
+      <div class="inline-block px-4 py-2 bg-cyan-500/20 rounded-full text-cyan-300 text-sm font-medium mb-4">
+        📡 Transmisiones Galácticas
       </div>
+      <h2 class="text-4xl md:text-5xl font-bold galaxy-text font-['Orbitron'] mb-6">
+        Últimas Noticias del Cosmos
+      </h2>
+      <p class="text-xl text-slate-300">
+        Mantente al día con los descubrimientos más fascinantes del universo
+      </p>
+    </div>
+
+    <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <article class="cosmic-card overflow-hidden cursor-pointer" *ngFor="let post of postsBlog">
+        <div class="relative">
+          <img [src]="post.imagen" 
+               [alt]="post.titulo" 
+               class="w-full h-48 object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+        </div>
+        
+        <div class="p-6">
+          <div class="flex items-center justify-between text-sm text-slate-400 mb-3">
+            <span>{{post.autor}}</span>
+            <span>{{post.fecha}}</span>
+          </div>
+          
+          <h3 class="text-xl font-bold text-white mb-3">
+            {{post.titulo}}
+          </h3>
+          
+          <p class="text-slate-400 mb-4 leading-relaxed">
+            {{post.resumen}}
+          </p>
+          
+          <a [href]="post.enlace" 
+             class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors">
+            Leer transmisión completa
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
+<!-- Sección Newsletter Cósmica -->
+<section class="py-20 bg-gradient-to-r from-indigo-900/50 via-purple-900/50 to-pink-900/50 relative">
+  <div class="relative z-10 max-w-4xl mx-auto text-center px-6">
+    <h2 class="text-4xl md:text-5xl font-bold galaxy-text font-['Orbitron'] mb-6">
+      Únete a la Comunidad Galáctica
+    </h2>
+    <p class="text-xl text-slate-300 mb-8">
+      Recibe transmisiones exclusivas sobre nuevas experiencias, descubrimientos cósmicos y ofertas especiales
+    </p>
+    
+    <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+      <input 
+        type="email" 
+        placeholder="tu.email@galaxia.com"
+        class="flex-1 px-6 py-4 bg-white/10 border border-white/20 rounded-full 
+               focus:outline-none focus:border-indigo-400 transition-colors
+               text-white placeholder-white/60"
+      />
+      <button type="submit" class="btn-cosmic whitespace-nowrap">
+        🚀 Suscribirme
+      </button>
+    </form>
+    
+    <p class="text-sm text-slate-400 mt-4">
+      * No spam intergaláctico. Solo contenido de alta calidad cósmica.
+    </p>
+  </div>
+</section>

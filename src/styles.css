@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+/* Variables del tema espacial */
+:root {
+  --space-bg: #0a0a0f;
+  --nebula-purple: #6366f1;
+  --cosmic-blue: #0891b2;
+  --star-white: #f8fafc;
+  --galaxy-purple: #8b5cf6;
+  --deep-space: #1e1b4b;
+  --asteroid-gray: #64748b;
+  --nova-gold: #fbbf24;
+}
+
+/* Reset y base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: linear-gradient(135deg, #0a0a0f 0%, #1e1b4b 50%, #0f0f23 100%);
+  color: var(--star-white);
+  overflow-x: hidden;
+}
+
+/* Botones con diseño espacial pero sin animaciones pesadas */
+.btn-cosmic {
+  @apply px-8 py-4 rounded-full font-semibold transition-colors duration-300;
+  background: linear-gradient(45deg, var(--nebula-purple), var(--cosmic-blue));
+  border: 2px solid transparent;
+}
+
+.btn-cosmic:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Cards con diseño espacial simple */
+.cosmic-card {
+  @apply rounded-xl overflow-hidden;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.cosmic-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+/* Texto con gradiente estático */
+.galaxy-text {
+  background: linear-gradient(45deg, #f8fafc, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Navegación simple */
+.nav-cosmic {
+  background: rgba(10, 10, 15, 0.9);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+/* Scrollbar personalizado simple */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--space-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--nebula-purple);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--galaxy-purple);
+}
+
+/* Animación simple de entrada */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .btn-cosmic {
+    @apply px-6 py-3 text-sm;
+  }
+}
