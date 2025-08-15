@@ -29,6 +29,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { HasRoleDirective } from './directives/has-role.directive';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AuthComponent } from './pages/auth/auth.component';
+import { ToastComponent } from './componentes/toast/toast.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { AuthComponent } from './pages/auth/auth.component';
     ContactComponent,
     HasRoleDirective,
     DashboardComponent,
-    AuthComponent
+    AuthComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,

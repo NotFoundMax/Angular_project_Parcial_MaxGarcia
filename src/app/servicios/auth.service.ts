@@ -46,8 +46,7 @@ export class AuthService {
       email: 'usuario@stellarx.space',
       password: 'usuario123',
       roles: [UserRole.USUARIO],
-      isActive: true,
-      avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face'
+      isActive: true
     }
   ];
 

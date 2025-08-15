@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from '../../servicios/cart.service';
 import { Subscription } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-gallery',
@@ -31,7 +32,15 @@ export class GalleryComponent implements OnInit, OnDestroy {
     if (this.cartCount > 0) {
       this.router.navigate(['/checkout']);
     } else {
-      alert('🛒 Tu carrito espacial está vacío\n\n¡Agrega algunas experiencias para comenzar tu aventura!');
+      Swal.fire({
+        title: 'Tu carrito espacial está vacío',
+        text: '¡Agrega algunas experiencias para comenzar tu aventura!',
+        icon: 'info',
+        confirmButtonText: 'Entendido',
+        confirmButtonColor: '#6366f1',
+        background: '#1e293b',
+        color: '#f1f5f9'
+      });
     }
   }
 }

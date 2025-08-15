@@ -50,12 +50,26 @@ export class CartService {
     return true;
   }
 
-  // Remover producto del carrito
+  // Remover producto del carrito por ID
   removeFromCart(itemId: string): void {
     const currentItems = this.cartItems.value;
     const updatedItems = currentItems.filter(item => item.id !== itemId);
     this.cartItems.next(updatedItems);
     this.updateCartCount();
+  }
+
+  // Remover producto del carrito por nombre
+  removeByProductName(productName: string): boolean {
+    const currentItems = this.cartItems.value;
+    const itemToRemove = currentItems.find(item => item.nombre === productName);
+
+    if (itemToRemove) {
+      const updatedItems = currentItems.filter(item => item.nombre !== productName);
+      this.cartItems.next(updatedItems);
+      this.updateCartCount();
+      return true;
+    }
+    return false;
   }
 
   // Obtener todos los items del carrito

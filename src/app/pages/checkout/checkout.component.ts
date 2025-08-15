@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CartService, CartItem } from '../../servicios/cart.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import Swal from 'sweetalert2';
 
 interface ContactInfo {
   fullName: string;
@@ -175,12 +176,26 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 
     console.log('Procesando pago:', paymentData);
 
-    // Mostrar mensaje de éxito
-    alert(`🚀 ¡Pago procesado exitosamente!\n\nGracias ${this.contactInfo.fullName}, tu experiencia espacial ha sido confirmada.\n\nTotal pagado: S/. ${this.getFinalTotal().toFixed(2)}\n\n¡Prepárate para la aventura de tu vida!`);
-
-    // Limpiar carrito y redirigir
-    this.cartService.clearCart();
-    this.router.navigate(['/gallery']);
+    // Mostrar mensaje de éxito con SweetAlert
+    Swal.fire({
+      title: '🚀 ¡Pago Procesado Exitosamente!',
+      html: `
+        <div class="text-center">
+          <p class="mb-3">Gracias <strong>${this.contactInfo.fullName}</strong>, tu experiencia espacial ha sido confirmada.</p>
+          <p class="mb-3">Total pagado: <strong class="text-yellow-400">S/. ${this.getFinalTotal().toFixed(2)}</strong></p>
+          <p>¡Prepárate para la aventura de tu vida!</p>
+        </div>
+      `,
+      icon: 'success',
+      confirmButtonText: 'Continuar Exploración',
+      confirmButtonColor: '#6366f1',
+      background: '#1e293b',
+      color: '#f1f5f9'
+    }).then(() => {
+      // Limpiar carrito y redirigir
+      this.cartService.clearCart();
+      this.router.navigate(['/gallery']);
+    });
   }
 
   // Subir captura de pago
@@ -197,12 +212,26 @@ export class CheckoutComponent implements OnInit, OnDestroy {
       if (file) {
         console.log('Archivo seleccionado:', file.name);
         
-        // Simulación de procesamiento
-        alert(`📸 ¡Captura recibida!\n\nHemos recibido tu captura de pago por S/. ${this.getFinalTotal().toFixed(2)}\n\nEstamos verificando tu pago. Te contactaremos a ${this.contactInfo.email} en las próximas 24 horas.\n\n¡Gracias por elegir STELLARX!`);
-        
-        // Limpiar carrito y redirigir
-        this.cartService.clearCart();
-        this.router.navigate(['/gallery']);
+        // Simulación de procesamiento con SweetAlert
+        Swal.fire({
+          title: '📸 ¡Captura Recibida!',
+          html: `
+            <div class="text-center">
+              <p class="mb-3">Hemos recibido tu captura de pago por <strong class="text-yellow-400">S/. ${this.getFinalTotal().toFixed(2)}</strong></p>
+              <p class="mb-3">Estamos verificando tu pago. Te contactaremos a <strong>${this.contactInfo.email}</strong> en las próximas 24 horas.</p>
+              <p>¡Gracias por elegir STELLARX!</p>
+            </div>
+          `,
+          icon: 'success',
+          confirmButtonText: 'Entendido',
+          confirmButtonColor: '#6366f1',
+          background: '#1e293b',
+          color: '#f1f5f9'
+        }).then(() => {
+          // Limpiar carrito y redirigir
+          this.cartService.clearCart();
+          this.router.navigate(['/gallery']);
+        });
       }
     };
     
