@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // Interfaz para definir la estructura de un producto
@@ -22,9 +22,12 @@ export class ProductCardComponent {
     imagen: ''
   };
 
+  // Emite el evento para abrir el modal
+  @Output() abrirModal = new EventEmitter<Producto>();
+
   // Método para manejar el evento de "Ver producto"
   verProducto() {
-    console.log(`Ver detalles del producto: ${this.producto.nombre}`);
+    this.abrirModal.emit(this.producto);
   }
 
   // Método para manejar el evento de "Agregar al carrito"
