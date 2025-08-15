@@ -1,5 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CartService } from '../../servicios/cart.service';
+import { AuthService } from '../../servicios/auth.service';
+import { User } from '../../modelos/user.model';
+import { UserRole } from '../../modelos/user-role.enum';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -11,10 +14,13 @@ import { Subscription } from 'rxjs';
 export class HeaderComponent implements OnInit, OnDestroy {
   cartCount = 0;
   showCartModal = false;
+  currentUser: User | null = null;
   private cartCountSubscription: Subscription = new Subscription();
+  private userSubscription: Subscription = new Subscription();
 
   constructor(
     private cartService: CartService,
+    private authService: AuthService,
     private router: Router
   ) {}
 
@@ -22,10 +28,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.cartCountSubscription = this.cartService.cartCount$.subscribe(count => {
       this.cartCount = count;
     });
+
+    this.userSubscription = this.authService.currentUser$.subscribe(user => {
+      this.currentUser = user;
+    });
   }
 
   ngOnDestroy(): void {
     this.cartCountSubscription.unsubscribe();
+    this.userSubscription.unsubscribe();
   }
 
   toggleCartModal(): void {
@@ -44,5 +55,49 @@ export class HeaderComponent implements OnInit, OnDestroy {
   goToCheckout(): void {
     this.closeCartModal();
     this.router.navigate(['/checkout']);
+  }
+
+  // Métodos para verificar roles
+  hasRole(role: UserRole): boolean {
+    return this.authService.hasRole(role);
+  }
+
+  hasAnyRole(roles: UserRole[]): boolean {
+    return this.authService.hasAnyRole(roles);
+  }
+
+  isAuthenticated(): boolean {
+    return this.authService.isAuthenticated();
+  }
+
+  // Método para logout
+  logout(): void {
+    this.authService.logout();
+  }
+
+  // Método para ir a login
+  goToLogin(): void {
+    this.router.navigate(['/auth/login']);
+  }
+
+  // Getter para UserRole enum (para usar en template)
+  get UserRole() {
+    return UserRole;
+  }
+
+  // Método para obtener el saludo según el rol
+  getGreeting(): string {
+    if (!this.currentUser) return '';
+    
+    const firstName = this.currentUser.nombre.split(' ')[0];
+    if (this.hasRole(UserRole.ADMINISTRADOR)) {
+      return `Hola, ${firstName} (Admin)`;
+    } else if (this.hasRole(UserRole.MANAGER)) {
+      return `Hola, ${firstName} (Manager)`;
+    } else if (this.hasRole(UserRole.VENTAS)) {
+      return `Hola, ${firstName} (Ventas)`;
+    } else {
+      return `Hola, ${firstName}`;
+    }
   }
 }
