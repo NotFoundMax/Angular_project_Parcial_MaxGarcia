@@ -32,15 +32,22 @@
     
     <!-- Botones de acción con textos actualizados -->
     <div class="flex gap-3">
-      <button 
+      <button
         (click)="verProducto()"
         class="flex-1 cosmic-btn-secondary text-sm py-2 px-4">
         Ver más
       </button>
-      <button 
+      <button
         (click)="agregarAlCarrito()"
-        class="flex-1 btn-cosmic text-sm py-2 px-4">
-        Agregar
+        [class]="isInCart() ? 'flex-1 bg-green-600 hover:bg-green-700 text-white text-sm py-2 px-4 rounded-full transition-all duration-300' : 'flex-1 btn-cosmic text-sm py-2 px-4'"
+        [disabled]="isInCart()">
+        <span *ngIf="!isInCart()">Agregar</span>
+        <span *ngIf="isInCart()" class="flex items-center justify-center">
+          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+          En Carrito
+        </span>
       </button>
     </div>
   </div>
