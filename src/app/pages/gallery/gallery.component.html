@@ -19,8 +19,15 @@
     
     <!-- Botones de acción -->
     <div class="flex justify-center gap-4 flex-wrap">
-      <button class="cosmic-btn-secondary px-6 py-3 font-medium">
+      <button
+        (click)="goToCart()"
+        class="cosmic-btn-secondary px-6 py-3 font-medium relative">
         🛒 Ver Carrito Espacial
+        <span
+          *ngIf="cartCount > 0"
+          class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-bold animate-pulse">
+          {{ cartCount }}
+        </span>
       </button>
     </div>
   </div>
