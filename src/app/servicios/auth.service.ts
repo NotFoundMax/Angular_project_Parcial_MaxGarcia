@@ -51,15 +51,6 @@ export class AuthService {
     },
     {
       id: '5',
-      nombre: 'Sofia López',
-      email: 'super@stellarx.space',
-      password: 'super123',
-      roles: [UserRole.ADMINISTRADOR, UserRole.VENTAS],
-      isActive: true,
-      avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face'
-    },
-    {
-      id: '6',
       nombre: 'David Martín',
       email: 'manager.ventas@stellarx.space',
       password: 'managerventas123',

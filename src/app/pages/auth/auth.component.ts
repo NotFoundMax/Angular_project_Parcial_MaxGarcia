@@ -91,7 +91,6 @@ export class AuthComponent implements OnInit {
       'manager@stellarx.space': 'manager123',
       'ventas@stellarx.space': 'ventas123',
       'usuario@stellarx.space': 'usuario123',
-      'super@stellarx.space': 'super123',
       'manager.ventas@stellarx.space': 'managerventas123'
     };
 
