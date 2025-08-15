@@ -7,5 +7,4 @@ export interface User {
   password: string;
   roles: UserRole[];
   isActive: boolean;
-  avatarUrl?: string;
 }

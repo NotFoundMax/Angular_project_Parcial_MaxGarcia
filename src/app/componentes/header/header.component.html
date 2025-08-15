@@ -140,12 +140,12 @@
           <div class="flex items-center space-x-3">
             <div class="w-8 h-8 bg-indigo-500 rounded-full flex items-center justify-center" 
                  *ngIf="currentUser">
-              <img [src]="currentUser.avatarUrl" 
+              <img 
                    [alt]="currentUser.nombre" 
                    class="w-full h-full rounded-full object-cover" 
-                   *ngIf="currentUser.avatarUrl">
+                   >
               <span class="text-white font-bold text-sm" 
-                    *ngIf="!currentUser.avatarUrl">
+                    >
                 {{ currentUser.nombre.charAt(0) }}
               </span>
             </div>

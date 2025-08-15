@@ -19,10 +19,10 @@
               <div class="text-white font-medium">{{ currentDate | date:'short' }}</div>
             </div>
             <div class="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center" *ngIf="currentUser">
-              <img [src]="currentUser.avatarUrl" [alt]="currentUser.nombre" 
+              <img 
                    class="w-full h-full rounded-full object-cover" 
-                   *ngIf="currentUser.avatarUrl">
-              <span class="text-white font-bold text-lg" *ngIf="!currentUser.avatarUrl">
+                   >
+              <span class="text-white font-bold text-lg" >
                 {{ currentUser.nombre.charAt(0) }}
               </span>
             </div>
