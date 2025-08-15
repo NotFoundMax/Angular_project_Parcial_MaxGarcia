@@ -27,6 +27,7 @@ import { CartModalComponent } from './componentes/cart-modal/cart-modal.componen
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { HasRoleDirective } from './directives/has-role.directive';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { HasRoleDirective } from './directives/has-role.directive';
     CartModalComponent,
     CheckoutComponent,
     ContactComponent,
-    HasRoleDirective
+    HasRoleDirective,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
