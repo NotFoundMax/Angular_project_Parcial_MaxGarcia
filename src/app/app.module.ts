@@ -58,7 +58,8 @@ import { ToastComponent } from './componentes/toast/toast.component';
     ContactComponent,
     HasRoleDirective,
     DashboardComponent,
-    AuthComponent
+    AuthComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,
