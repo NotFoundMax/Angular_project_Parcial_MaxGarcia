@@ -17,9 +17,9 @@ import { CrearClienteComponent } from './modales/cliente/crear-cliente/crear-cli
 import { EditarClienteComponent } from './modales/cliente/editar-cliente/editar-cliente.component';
 import { ListaProductosComponent } from './componentes/lista-productos/lista-productos.component';
 import { HttpClientModule } from '@angular/common/http';
-import { TablaProductoComponent } from './pages/tablas/tabla-producto/tabla-producto.component';
-import { TablaClienteComponent } from './pages/tablas/tabla-cliente/tabla-cliente.component';
-import { TablasComponent } from './pages/tablas/tablas.component';
+import { TablaProductoComponent } from './pages/inner/tablas/tabla-producto/tabla-producto.component';
+import { TablaClienteComponent } from './pages/inner/tablas/tabla-cliente/tabla-cliente.component';
+import { TablasComponent } from './pages/inner/tablas/tablas.component';
 import { CrearProductoComponent } from './modales/producto/crear-producto/crear-producto.component';
 import { EditarProductoComponent } from './modales/producto/editar-producto/editar-producto.component';
 import { VerProductoComponent } from './modales/producto/ver-producto/ver-producto.component';
