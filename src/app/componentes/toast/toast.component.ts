@@ -47,4 +47,8 @@ export class ToastComponent implements OnInit, OnDestroy {
       default: return `${baseClass} border-indigo-500 bg-indigo-500/10`;
     }
   }
+
+  trackByToastId(index: number, toast: Toast): string {
+    return toast.id;
+  }
 }
