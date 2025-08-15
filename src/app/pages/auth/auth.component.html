@@ -38,7 +38,7 @@
             required
             email
             class="w-full px-4 py-3 cosmic-input border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-indigo-400 transition-all duration-300"
-            placeholder="tu@stellarx.space">
+            placeholder="tu&#64;stellarx.space">
           <div *ngIf="loginForm.controls?.['email']?.invalid && loginForm.controls?.['email']?.touched" class="text-red-400 text-sm mt-1">
             Por favor, ingresa un email válido.
           </div>
@@ -68,65 +68,77 @@
           </div>
         </div>
 
-        <!-- Botón de Login -->
-        <button
-          type="submit"
-          [disabled]="!loginForm.valid || isLoading"
-          class="w-full btn-cosmic text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed">
-          <span *ngIf="!isLoading" class="flex items-center">
+        <!-- Botones de Login y Cambiar Usuario -->
+        <div class="space-y-3">
+          <button
+            type="submit"
+            [disabled]="!loginForm.valid || isLoading"
+            class="w-full btn-cosmic text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed">
+            <span *ngIf="!isLoading" class="flex items-center">
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
+              </svg>
+              Iniciar Sesión
+            </span>
+            <span *ngIf="isLoading" class="flex items-center">
+              <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              Verificando...
+            </span>
+          </button>
+
+          <button
+            type="button"
+            (click)="showUserSelection = !showUserSelection"
+            class="w-full cosmic-btn-secondary text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center">
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
             </svg>
-            Iniciar Sesión
-          </span>
-          <span *ngIf="isLoading" class="flex items-center">
-            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-            </svg>
-            Verificando...
-          </span>
-        </button>
+            {{ showUserSelection ? 'Ocultar' : 'Cambiar de Usuario' }}
+          </button>
+        </div>
       </form>
     </div>
 
-    <!-- Usuarios de Prueba -->
-    <div class="cosmic-card p-6">
+    <!-- Usuarios de Prueba (mostrar/ocultar) -->
+    <div class="cosmic-card p-6" *ngIf="showUserSelection">
       <h3 class="text-lg font-semibold text-white mb-4 text-center">Usuarios de Prueba</h3>
       <div class="grid grid-cols-1 gap-2">
         <button
           (click)="quickLogin('admin@stellarx.space')"
           class="cosmic-btn-secondary p-3 rounded-lg text-left transition-all duration-300 hover:scale-105">
-          <div class="font-medium">👑 Administrador</div>
+          <div class="font-medium">Administrador</div>
           <div class="text-sm text-slate-400">admin&#64;stellarx.space</div>
         </button>
         
         <button
           (click)="quickLogin('manager@stellarx.space')"
           class="cosmic-btn-secondary p-3 rounded-lg text-left transition-all duration-300 hover:scale-105">
-          <div class="font-medium">🏢 Manager</div>
+          <div class="font-medium">Manager</div>
           <div class="text-sm text-slate-400">manager&#64;stellarx.space</div>
         </button>
         
         <button
           (click)="quickLogin('ventas@stellarx.space')"
           class="cosmic-btn-secondary p-3 rounded-lg text-left transition-all duration-300 hover:scale-105">
-          <div class="font-medium">💼 Ventas</div>
+          <div class="font-medium">Ventas</div>
           <div class="text-sm text-slate-400">ventas&#64;stellarx.space</div>
         </button>
         
         <button
           (click)="quickLogin('usuario@stellarx.space')"
           class="cosmic-btn-secondary p-3 rounded-lg text-left transition-all duration-300 hover:scale-105">
-          <div class="font-medium">👤 Usuario</div>
+          <div class="font-medium">Usuario</div>
           <div class="text-sm text-slate-400">usuario&#64;stellarx.space</div>
         </button>
         
         <button
-          (click)="quickLogin('super@stellarx.space')"
+          (click)="quickLogin('manager.ventas@stellarx.space')"
           class="cosmic-btn-secondary p-3 rounded-lg text-left transition-all duration-300 hover:scale-105">
-          <div class="font-medium">⭐ Super (Admin + Ventas)</div>
-          <div class="text-sm text-slate-400">super&#64;stellarx.space</div>
+          <div class="font-medium">Manager + Ventas</div>
+          <div class="text-sm text-slate-400">manager.ventas&#64;stellarx.space</div>
         </button>
       </div>
     </div>
