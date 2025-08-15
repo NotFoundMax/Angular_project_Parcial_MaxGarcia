@@ -189,33 +189,34 @@
 
       <!-- Usuario no autenticado -->
       <ng-container *ngIf="!isAuthenticated()">
-        <a routerLink="/home" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">🏠 Inicio</a>
-        <a routerLink="/contact" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">📞 Contacto</a>
+        <a routerLink="/home" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Inicio</a>
+        <a routerLink="/gallery" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Experiencias</a>
+        <a routerLink="/contact" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Contacto</a>
       </ng-container>
 
       <!-- Usuario normal -->
       <ng-container *ngIf="hasRole(UserRole.USUARIO) && !hasAnyRole([UserRole.ADMINISTRADOR, UserRole.MANAGER, UserRole.VENTAS])">
-        <a routerLink="/home" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">🏠 Inicio</a>
-        <a routerLink="/gallery" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">🌌 Experiencias</a>
-        <a routerLink="/contact" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">📞 Contacto</a>
+        <a routerLink="/home" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Inicio</a>
+        <a routerLink="/gallery" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Experiencias</a>
+        <a routerLink="/contact" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Contacto</a>
       </ng-container>
 
       <!-- Administrador -->
       <ng-container *ngIf="hasRole(UserRole.ADMINISTRADOR)">
-        <a routerLink="/dashboard" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">📊 Dashboard</a>
-        <a routerLink="/tablas" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">⚡ Panel</a>
-        <a routerLink="/directives" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">📋 Directivas</a>
+        <a routerLink="/dashboard" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Dashboard</a>
+        <a routerLink="/tablas" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Panel</a>
+        <a routerLink="/directives" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Directivas</a>
       </ng-container>
 
       <!-- Manager -->
       <ng-container *ngIf="hasRole(UserRole.MANAGER) && !hasRole(UserRole.ADMINISTRADOR)">
-        <a routerLink="/dashboard" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">📊 Dashboard</a>
-        <a routerLink="/tablas" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">⚡ Panel</a>
+        <a routerLink="/dashboard" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Dashboard</a>
+        <a routerLink="/tablas" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Panel</a>
       </ng-container>
 
       <!-- Ventas -->
       <ng-container *ngIf="hasRole(UserRole.VENTAS) && !hasAnyRole([UserRole.ADMINISTRADOR, UserRole.MANAGER])">
-        <a routerLink="/dashboard" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">📊 Dashboard</a>
+        <a routerLink="/dashboard" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Dashboard</a>
       </ng-container>
 
       <!-- Checkout para usuarios con carrito -->
