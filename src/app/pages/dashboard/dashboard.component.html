@@ -16,7 +16,7 @@
           <div class="flex items-center space-x-4">
             <div class="text-right">
               <div class="text-sm text-slate-400">Última actualización</div>
-              <div class="text-white font-medium">{{ new Date() | date:'short' }}</div>
+              <div class="text-white font-medium">{{ currentDate | date:'short' }}</div>
             </div>
             <div class="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center" *ngIf="currentUser">
               <img [src]="currentUser.avatarUrl" [alt]="currentUser.nombre" 
@@ -156,7 +156,7 @@
     </div>
 
     <!-- Tabla de Usuarios Recientes (solo para administradores) -->
-    <div class="mt-8" *appHasRole="['administrador', 'manager']">
+    <div class="mt-8" *appHasRole="[UserRole.ADMINISTRADOR, UserRole.MANAGER]">
       <div class="cosmic-card p-6">
         <h3 class="text-xl font-semibold text-white mb-4">Actividad Reciente del Sistema</h3>
         <div class="overflow-x-auto">
