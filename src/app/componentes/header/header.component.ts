@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CartService } from '../../servicios/cart.service';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -12,7 +13,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   showCartModal = false;
   private cartCountSubscription: Subscription = new Subscription();
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.cartCountSubscription = this.cartService.cartCount$.subscribe(count => {
@@ -25,10 +29,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   toggleCartModal(): void {
+    if (this.cartCount === 0) {
+      // Si el carrito está vacío, ir directamente a la galería
+      this.router.navigate(['/gallery']);
+      return;
+    }
     this.showCartModal = !this.showCartModal;
   }
 
   closeCartModal(): void {
     this.showCartModal = false;
+  }
+
+  goToCheckout(): void {
+    this.closeCartModal();
+    this.router.navigate(['/checkout']);
   }
 }
