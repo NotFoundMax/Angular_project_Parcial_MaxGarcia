@@ -1,15 +1,15 @@
 // Configuración de rutas principales
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { TablasComponent } from './pages/tablas/tablas.component';
-import { DirectivesComponent } from './pages/directives/directives.component';
-import { GalleryComponent } from './pages/gallery/gallery.component';
-import { FetchingComponent } from './pages/fetching/fetching.component';
+import { HomeComponent } from './pages/outer/home/home.component';
+import { TablasComponent } from './pages/inner/tablas/tablas.component';
+import { DirectivesComponent } from './pages/inner/directives/directives.component';
+import { GalleryComponent } from './pages/outer/gallery/gallery.component';
+import { FetchingComponent } from './pages/inner/fetching/fetching.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
-import { ContactComponent } from './pages/contact/contact.component';
-import { AuthComponent } from './pages/auth/auth.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ContactComponent } from './pages/outer/contact/contact.component';
+import { AuthComponent } from './pages/outer/auth/auth.component';
+import { DashboardComponent } from './pages/inner/dashboard/dashboard.component';
 
 // Guards
 import { AuthGuard } from './guards/auth.guard';
