@@ -1,0 +1,45 @@
+/* Cosmic button styles for table actions */
+.cosmic-btn-view {
+  background: linear-gradient(45deg, var(--cosmic-blue), var(--nebula-purple));
+  border: 1px solid rgba(8, 145, 178, 0.3);
+}
+
+.cosmic-btn-view:hover {
+  background: linear-gradient(45deg, #0891b2, #6366f1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(8, 145, 178, 0.3);
+}
+
+.cosmic-btn-edit {
+  background: linear-gradient(45deg, var(--nova-gold), #f59e0b);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.cosmic-btn-edit:hover {
+  background: linear-gradient(45deg, #fbbf24, #f59e0b);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+}
+
+.cosmic-btn-delete {
+  background: linear-gradient(45deg, #ef4444, #dc2626);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.cosmic-btn-delete:hover {
+  background: linear-gradient(45deg, #dc2626, #b91c1c);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* Import cosmic variables */
+:host {
+  --space-bg: #0a0a0f;
+  --nebula-purple: #6366f1;
+  --cosmic-blue: #0891b2;
+  --star-white: #f8fafc;
+  --galaxy-purple: #8b5cf6;
+  --deep-space: #1e1b4b;
+  --asteroid-gray: #64748b;
+  --nova-gold: #fbbf24;
+}
