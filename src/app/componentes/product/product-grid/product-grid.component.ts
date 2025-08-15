@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from '../product-card/product-card.component';
+import { CartService } from '../../../servicios/cart.service';
 
 // Interfaz para definir la estructura de un producto
 interface Producto {
@@ -18,6 +19,8 @@ export class ProductGridComponent {
   // Variables para el modal
   mostrarModal = false;
   productoSeleccionado: Producto | null = null;
+
+  constructor(private cartService: CartService) {}
   // Lista de experiencias espaciales
   productos: Producto[] = [
     {
@@ -91,10 +94,20 @@ export class ProductGridComponent {
   // Método para comprar el producto
   comprarProducto() {
     if (this.productoSeleccionado) {
-      console.log(`Comprando: ${this.productoSeleccionado.nombre}`);
-      // Aquí iría la lógica de compra
-      alert(`¡Has agregado "${this.productoSeleccionado.nombre}" al carrito!`);
-      this.cerrarModal();
+      const success = this.cartService.addToCart(this.productoSeleccionado);
+      if (success) {
+        console.log(`Comprando: ${this.productoSeleccionado.nombre}`);
+        alert(`¡Has agregado "${this.productoSeleccionado.nombre}" al carrito espacial!`);
+        this.cerrarModal();
+      } else {
+        alert(`La experiencia "${this.productoSeleccionado.nombre}" ya está en tu carrito espacial.\n\n¡No puedes agregar la misma experiencia dos veces!`);
+      }
     }
+  }
+
+  // Verificar si el producto ya está en el carrito
+  isProductInCart(): boolean {
+    if (!this.productoSeleccionado) return false;
+    return this.cartService.isInCart(this.productoSeleccionado.nombre);
   }
 }
