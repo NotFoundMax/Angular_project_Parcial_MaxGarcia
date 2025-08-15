@@ -21,7 +21,10 @@ export class ProductGridComponent {
   mostrarModal = false;
   productoSeleccionado: Producto | null = null;
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private toastService: ToastService
+  ) {}
   // Lista de experiencias espaciales
   productos: Producto[] = [
     {
