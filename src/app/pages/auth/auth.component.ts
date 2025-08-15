@@ -12,7 +12,8 @@ import Swal from 'sweetalert2';
 export class AuthComponent implements OnInit {
   isLoading = false;
   returnUrl = '/';
-  
+  showUserSelection = false;
+
   loginData = {
     email: '',
     password: ''
