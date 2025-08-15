@@ -1,1 +1,134 @@
-<p>auth works!</p>
+<div class="min-h-screen flex items-center justify-center py-12 px-6">
+  <div class="max-w-md w-full space-y-8">
+    <!-- Header -->
+    <div class="text-center">
+      <div class="cosmic-logo mx-auto mb-6">
+        <svg class="w-16 h-16 mx-auto" viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="18" fill="rgba(139,92,246,0.3)" stroke="rgba(99,102,241,0.5)" stroke-width="2"/>
+          <circle cx="20" cy="20" r="8" fill="var(--star-white)" opacity="0.9"/>
+          <circle cx="20" cy="20" r="3" fill="var(--nebula-purple)"/>
+        </svg>
+      </div>
+      <h2 class="text-3xl font-bold galaxy-text font-['Orbitron']">
+        Portal de Acceso
+      </h2>
+      <p class="mt-2 text-slate-400">
+        Ingresa a la estación espacial StellarX
+      </p>
+    </div>
+
+    <!-- Formulario de Login -->
+    <div class="cosmic-card p-8">
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="space-y-6">
+        <!-- Email -->
+        <div>
+          <label for="email" class="block text-sm font-medium text-slate-300 mb-2">
+            <span class="flex items-center">
+              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              Email
+            </span>
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            [(ngModel)]="loginData.email"
+            required
+            email
+            class="w-full px-4 py-3 cosmic-input border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-indigo-400 transition-all duration-300"
+            placeholder="tu@stellarx.space">
+          <div *ngIf="loginForm.controls?.['email']?.invalid && loginForm.controls?.['email']?.touched" class="text-red-400 text-sm mt-1">
+            Por favor, ingresa un email válido.
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div>
+          <label for="password" class="block text-sm font-medium text-slate-300 mb-2">
+            <span class="flex items-center">
+              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+              </svg>
+              Contraseña
+            </span>
+          </label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            [(ngModel)]="loginData.password"
+            required
+            minlength="6"
+            class="w-full px-4 py-3 cosmic-input border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-indigo-400 transition-all duration-300"
+            placeholder="Tu contraseña">
+          <div *ngIf="loginForm.controls?.['password']?.invalid && loginForm.controls?.['password']?.touched" class="text-red-400 text-sm mt-1">
+            La contraseña debe tener al menos 6 caracteres.
+          </div>
+        </div>
+
+        <!-- Botón de Login -->
+        <button
+          type="submit"
+          [disabled]="!loginForm.valid || isLoading"
+          class="w-full btn-cosmic text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed">
+          <span *ngIf="!isLoading" class="flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
+            </svg>
+            Iniciar Sesión
+          </span>
+          <span *ngIf="isLoading" class="flex items-center">
+            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Verificando...
+          </span>
+        </button>
+      </form>
+    </div>
+
+    <!-- Usuarios de Prueba -->
+    <div class="cosmic-card p-6">
+      <h3 class="text-lg font-semibold text-white mb-4 text-center">Usuarios de Prueba</h3>
+      <div class="grid grid-cols-1 gap-2">
+        <button
+          (click)="quickLogin('admin@stellarx.space')"
+          class="cosmic-btn-secondary p-3 rounded-lg text-left transition-all duration-300 hover:scale-105">
+          <div class="font-medium">👑 Administrador</div>
+          <div class="text-sm text-slate-400">admin@stellarx.space</div>
+        </button>
+        
+        <button
+          (click)="quickLogin('manager@stellarx.space')"
+          class="cosmic-btn-secondary p-3 rounded-lg text-left transition-all duration-300 hover:scale-105">
+          <div class="font-medium">🏢 Manager</div>
+          <div class="text-sm text-slate-400">manager@stellarx.space</div>
+        </button>
+        
+        <button
+          (click)="quickLogin('ventas@stellarx.space')"
+          class="cosmic-btn-secondary p-3 rounded-lg text-left transition-all duration-300 hover:scale-105">
+          <div class="font-medium">💼 Ventas</div>
+          <div class="text-sm text-slate-400">ventas@stellarx.space</div>
+        </button>
+        
+        <button
+          (click)="quickLogin('usuario@stellarx.space')"
+          class="cosmic-btn-secondary p-3 rounded-lg text-left transition-all duration-300 hover:scale-105">
+          <div class="font-medium">👤 Usuario</div>
+          <div class="text-sm text-slate-400">usuario@stellarx.space</div>
+        </button>
+        
+        <button
+          (click)="quickLogin('super@stellarx.space')"
+          class="cosmic-btn-secondary p-3 rounded-lg text-left transition-all duration-300 hover:scale-105">
+          <div class="font-medium">⭐ Super (Admin + Ventas)</div>
+          <div class="text-sm text-slate-400">super@stellarx.space</div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
