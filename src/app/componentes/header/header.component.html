@@ -23,12 +23,17 @@
           <a routerLink="/home"
              routerLinkActive="nav-active"
              class="nav-link px-4 py-2 rounded-lg">
-            🏠 Inicio
+            Inicio
+          </a>
+          <a routerLink="/gallery"
+             routerLinkActive="nav-active"
+             class="nav-link px-4 py-2 rounded-lg">
+            Experiencias
           </a>
           <a routerLink="/contact"
              routerLinkActive="nav-active"
              class="nav-link px-4 py-2 rounded-lg">
-            📞 Contacto
+            Contacto
           </a>
         </ng-container>
 
@@ -37,59 +42,59 @@
           <a routerLink="/home"
              routerLinkActive="nav-active"
              class="nav-link px-4 py-2 rounded-lg">
-            🏠 Inicio
+            Inicio
           </a>
           <a routerLink="/gallery"
              routerLinkActive="nav-active"
              class="nav-link px-4 py-2 rounded-lg">
-            🌌 Experiencias
+            Experiencias
           </a>
           <a routerLink="/contact"
              routerLinkActive="nav-active"
              class="nav-link px-4 py-2 rounded-lg">
-            📞 Contacto
+            Contacto
           </a>
         </ng-container>
 
         <!-- Navegación para administradores -->
         <ng-container *ngIf="hasRole(UserRole.ADMINISTRADOR)">
-          <a routerLink="/dashboard" 
+          <a routerLink="/dashboard"
              routerLinkActive="nav-active"
              class="nav-link px-4 py-2 rounded-lg">
-            📊 Dashboard
+            Dashboard
           </a>
-          <a routerLink="/tablas" 
+          <a routerLink="/tablas"
              routerLinkActive="nav-active"
              class="nav-link px-4 py-2 rounded-lg">
-            ⚡ Panel
+            Panel
           </a>
           <a routerLink="/directives"
              routerLinkActive="nav-active"
              class="nav-link px-4 py-2 rounded-lg">
-            📋 Directivas
+            Directivas
           </a>
         </ng-container>
 
         <!-- Navegación para managers -->
         <ng-container *ngIf="hasRole(UserRole.MANAGER) && !hasRole(UserRole.ADMINISTRADOR)">
-          <a routerLink="/dashboard" 
+          <a routerLink="/dashboard"
              routerLinkActive="nav-active"
              class="nav-link px-4 py-2 rounded-lg">
-            📊 Dashboard
+            Dashboard
           </a>
-          <a routerLink="/tablas" 
+          <a routerLink="/tablas"
              routerLinkActive="nav-active"
              class="nav-link px-4 py-2 rounded-lg">
-            ⚡ Panel
+            Panel
           </a>
         </ng-container>
 
         <!-- Navegación para ventas (solo dashboard) -->
         <ng-container *ngIf="hasRole(UserRole.VENTAS) && !hasAnyRole([UserRole.ADMINISTRADOR, UserRole.MANAGER])">
-          <a routerLink="/dashboard" 
+          <a routerLink="/dashboard"
              routerLinkActive="nav-active"
              class="nav-link px-4 py-2 rounded-lg">
-            📊 Dashboard
+            Dashboard
           </a>
         </ng-container>
       </div>
