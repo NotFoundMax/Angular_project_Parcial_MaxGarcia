@@ -95,22 +95,34 @@ export class ProductGridComponent {
     this.productoSeleccionado = null;
   }
 
-  // Método para comprar el producto
+  // Método para comprar/remover el producto
   comprarProducto() {
     if (this.productoSeleccionado) {
-      const success = this.cartService.addToCart(this.productoSeleccionado);
-      if (success) {
-        console.log(`Comprando: ${this.productoSeleccionado.nombre}`);
-        this.toastService.success(
-          '🚀 ¡Experiencia Agregada!',
-          `"${this.productoSeleccionado.nombre}" ha sido añadida a tu carrito espacial.`
-        );
-        this.cerrarModal();
+      if (this.isProductInCart()) {
+        // Si está en el carrito, lo removemos
+        const removed = this.cartService.removeByProductName(this.productoSeleccionado.nombre);
+        if (removed) {
+          this.toastService.info(
+            '🗑️ Experiencia Removida',
+            `"${this.productoSeleccionado.nombre}" ha sido quitada de tu carrito espacial.`
+          );
+        }
       } else {
-        this.toastService.warning(
-          '⚠️ Ya en Carrito',
-          `La experiencia "${this.productoSeleccionado.nombre}" ya está en tu carrito espacial.`
-        );
+        // Si no está en el carrito, lo agregamos
+        const success = this.cartService.addToCart(this.productoSeleccionado);
+        if (success) {
+          console.log(`Comprando: ${this.productoSeleccionado.nombre}`);
+          this.toastService.success(
+            '🚀 ¡Experiencia Agregada!',
+            `"${this.productoSeleccionado.nombre}" ha sido añadida a tu carrito espacial.`
+          );
+          this.cerrarModal();
+        } else {
+          this.toastService.warning(
+            '⚠️ Ya en Carrito',
+            `La experiencia "${this.productoSeleccionado.nombre}" ya está en tu carrito espacial.`
+          );
+        }
       }
     }
   }
