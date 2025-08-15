@@ -71,4 +71,8 @@ import { ToastComponent } from './componentes/toast/toast.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(private sanitizer: DomSanitizer) {
+    // Angular provides built-in XSS protection
+  }
+}
