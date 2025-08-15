@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { CartService } from '../../../servicios/cart.service';
+import { ToastService } from '../../../servicios/toast.service';
 
 // Interfaz para definir la estructura de un producto
 interface Producto {
