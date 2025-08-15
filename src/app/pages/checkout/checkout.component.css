@@ -1,0 +1,121 @@
+/* Checkout page specific styles */
+
+/* Custom radio button styling */
+input[type="radio"] {
+  accent-color: var(--nebula-purple);
+  transform: scale(1.2);
+}
+
+/* Payment option hover effects */
+.cursor-pointer:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
+/* Card logos styling */
+img[alt="Visa"], img[alt="Mastercard"], img[alt="Yape"], img[alt="Plin"] {
+  filter: brightness(1.1);
+  transition: all 0.2s ease;
+}
+
+img[alt="Visa"]:hover, img[alt="Mastercard"]:hover, img[alt="Yape"]:hover, img[alt="Plin"]:hover {
+  filter: brightness(1.3);
+  transform: scale(1.05);
+}
+
+/* Form input animations */
+.cosmic-input:focus {
+  animation: inputGlow 0.3s ease-in-out;
+}
+
+@keyframes inputGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  }
+}
+
+/* QR Code container styling */
+.bg-white {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Order summary sticky positioning */
+.sticky {
+  max-height: calc(100vh - 6rem);
+  overflow-y: auto;
+}
+
+/* Payment button disabled state */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+button:disabled:hover {
+  transform: none !important;
+  opacity: 0.6;
+}
+
+/* Required field asterisk */
+.text-red-400 {
+  animation: pulse 2s infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .sticky {
+    position: static;
+    max-height: none;
+  }
+  
+  .lg\\:grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+  
+  .text-4xl {
+    font-size: 2rem;
+  }
+  
+  .md\\:text-5xl {
+    font-size: 2.5rem;
+  }
+}
+
+/* Security badge animation */
+.bg-green-500\\/10 {
+  animation: securityGlow 3s ease-in-out infinite;
+}
+
+@keyframes securityGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.2);
+  }
+}
+
+/* Import cosmic variables */
+:host {
+  --space-bg: #0a0a0f;
+  --nebula-purple: #6366f1;
+  --cosmic-blue: #0891b2;
+  --star-white: #f8fafc;
+  --galaxy-purple: #8b5cf6;
+  --deep-space: #1e1b4b;
+  --asteroid-gray: #64748b;
+  --nova-gold: #fbbf24;
+}
