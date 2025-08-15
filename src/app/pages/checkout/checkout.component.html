@@ -127,8 +127,8 @@
               <label class="flex items-center justify-between w-full cursor-pointer">
                 <span class="text-white font-medium">Pago por Celular</span>
                 <div class="flex space-x-2">
-                  <img src="https://logos-world.net/wp-content/uploads/2023/03/Yape-Logo.png" alt="Yape" class="h-6 w-auto">
-                  <div class="h-6 w-12 bg-white rounded flex items-center justify-center text-xs font-bold text-purple-600">PLIN</div>
+                  <img src="assets/img/yape-logo.png" alt="Yape" class="h-10 w-auto">
+                  
                 </div>
               </label>
             </div>
@@ -215,7 +215,7 @@
             Escanea este código QR con tu aplicación Yape o Plin
           </p>
           <p class="text-slate-500 text-sm">
-            Total a pagar: <span class="text-amber-400 font-bold">S/. {{ getCartTotal() | number:'1.2-2' }}</span>
+            Total a pagar: <span class="text-amber-400 font-bold">S/. {{ getCartTotal() + getTaxes() | number:'1.2-2' }}</span>
           </p>
         </div>
       </div>

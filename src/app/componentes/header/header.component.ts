@@ -114,10 +114,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   // Método para login rápido
   quickLogin(email: string): void {
     const passwords: { [key: string]: string } = {
-      'admin@stellarx.space': 'admin123',
-      'manager@stellarx.space': 'manager123',
-      'ventas@stellarx.space': 'ventas123',
-      'usuario@stellarx.space': 'usuario123'
+      'admin@correo.com': 'admin123',
+      'manager@correo.com': 'manager123',
+      'ventas@correo.com': 'ventas123',
+      'usuario@correo.com': 'usuario123'
     };
 
     const password = passwords[email];

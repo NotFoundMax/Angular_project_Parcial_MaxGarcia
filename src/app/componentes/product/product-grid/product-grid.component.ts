@@ -30,55 +30,55 @@ export class ProductGridComponent {
     {
       nombre: 'Experiencia 1',
       descripcion: 'Viaje inmersivo a las constelaciones más lejanas del universo conocido.',
-      precio: 12050,
+      precio: 120050,
       imagen: 'https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=300&h=200&fit=crop'
     },
     {
       nombre: 'Experiencia 2',
       descripcion: 'Caminata lunar con tecnología de gravedad artificial avanzada.',
-      precio: 18099,
+      precio: 180099,
       imagen: 'https://images.pexels.com/photos/21287308/pexels-photo-21287308.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop'
     },
     {
       nombre: 'Experiencia 3',
       descripcion: 'Observación de auroras boreales desde el espacio exterior.',
-      precio: 9575,
+      precio: 95075,
       imagen: 'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=300&h=200&fit=crop'
     },
     {
       nombre: 'Experiencia 4',
       descripcion: 'Exploración de nebulosas y nacimiento de nuevas estrellas.',
-      precio: 7599,
+      precio: 75099,
       imagen: 'https://images.unsplash.com/photo-1502134249126-9f3755a50d78?w=300&h=200&fit=crop'
     },
     {
       nombre: 'Experiencia 5',
       descripcion: 'Aventura épica en la superficie del planeta Marte.',
-      precio: 25000,
+      precio: 250000,
       imagen: 'https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=300&h=200&fit=crop'
     },
     {
       nombre: 'Experiencia 6',
       descripcion: 'Visita a la Estación Espacial Internacional con actividades científicas.',
-      precio: 32050,
+      precio: 320050,
       imagen: 'https://images.pexels.com/photos/2152/sky-earth-space-working.jpg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop'
     },
     {
       nombre: 'Experiencia 7',
       descripcion: 'Tour por los anillos de Saturno con vistas espectaculares.',
-      precio: 19999,
+      precio: 190999,
       imagen: 'https://images.unsplash.com/photo-1457364983758-510f8afa9f5f?w=300&h=200&fit=crop'
     },
     {
       nombre: 'Experiencia 8',
       descripcion: 'Encuentro con meteoros y lluvia de estrellas en tiempo real.',
-      precio: 14025,
+      precio: 140025,
       imagen: 'https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?w=300&h=200&fit=crop'
     },
     {
       nombre: 'Experiencia 9',
       descripcion: 'Expedición a los confines de la Vía Láctea y más allá.',
-      precio: 45000,
+      precio: 450000,
       imagen: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop'
     }
   ];
