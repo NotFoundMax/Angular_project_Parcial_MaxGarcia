@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AuthService } from '../../servicios/auth.service';
+import { AuthService } from '../../../servicios/auth.service';
 import Swal from 'sweetalert2';
 
 @Component({
