@@ -3,7 +3,7 @@
   <div class="max-w-4xl mx-auto px-4 space-y-12">
     <!-- *ngIf -->
     <div>
-      <h2 class="text-2xl font-bold mb-2 galaxy-text">🎯 *ngIf</h2>
+      <h2 class="text-2xl font-bold mb-2 galaxy-text">*ngIf</h2>
       <p class="text-slate-300">Este botón muestra/oculta el mensaje:</p>
       <button class="btn-cosmic px-4 py-2 rounded-full mt-2 text-white transition-all duration-300" (click)="mostrar = !mostrar">
         {{ mostrar ? 'Mensaje Visible' : 'Mensaje Oculto' }}
@@ -13,7 +13,7 @@
 
     <!-- *ngFor -->
     <div>
-      <h2 class="text-2xl font-bold mb-2 galaxy-text">🔄 *ngFor</h2>
+      <h2 class="text-2xl font-bold mb-2 galaxy-text">*ngFor</h2>
       <p class="text-slate-300">Lista de tecnologías estudiadas en IDAT: </p>
       <ul class="list-disc list-inside text-slate-200 space-y-1 ml-4">
         <li *ngFor="let tech of tecnologias" class="hover:text-indigo-300 transition-colors">✨ {{ tech }}</li>
@@ -22,7 +22,7 @@
 
     <!-- [ngClass] -->
     <div>
-      <h2 class="text-2xl font-bold mb-2 galaxy-text">🎨 [ngClass]</h2>
+      <h2 class="text-2xl font-bold mb-2 galaxy-text">[ngClass]</h2>
       <p class="text-slate-300">Cambia el color según el estado:</p>
       <button class="mt-4 px-4 py-2 btn-cosmic text-white rounded-full hover:bg-blue-500 transition-all duration-300"
         (click)="toggleEstado()">
@@ -38,17 +38,17 @@
 
     <!-- [ngStyle] -->
     <div>
-      <h2 class="text-2xl font-bold mb-2 galaxy-text">📏 [ngStyle]</h2>
+      <h2 class="text-2xl font-bold mb-2 galaxy-text">[ngStyle]</h2>
       <p class="text-slate-300">El texto cambia de tamaño dinámicamente:</p>
       <input type="range" min="14" max="40" [(ngModel)]="tamanoTexto" class="w-full mt-5" />
       <p [ngStyle]="{ fontSize: tamanoTexto + 'px' }" class="mt-7 text-indigo-300 font-semibold">
-        🔤 Tamaño actual: {{ tamanoTexto }} px
+        Tamaño actual: {{ tamanoTexto }} px
       </p>
     </div>
 
     <!-- Directiva personalizada con ngModel -->
     <div class="mt-6">
-      <h2 class="text-2xl font-bold mb-2 galaxy-text">⚙️ Directiva personalizada con [(ngModel)]</h2>
+      <h2 class="text-2xl font-bold mb-2 galaxy-text">Directiva personalizada con [(ngModel)]</h2>
 
       <!-- Control ngModel -->
       <label class="flex items-center space-x-2 mb-3 text-slate-300 cursor-pointer hover:text-white transition-colors">
@@ -61,15 +61,15 @@
         [ngClass]="{ 'bg-gradient-to-r from-yellow-400 to-amber-500 text-black border-yellow-400': resaltado,
                      'bg-slate-800 text-slate-200 border-slate-600': !resaltado
         }">
-        ✨ Este texto se resalta dinámicamente con [(ngModel)]
+        Este texto se resalta dinámicamente con [(ngModel)]
       </p>
     </div>
 
     <div class="mt-6 ">
-      <h2 class="text-2xl font-bold mb-2 galaxy-text">🔄 ngModel Bidireccional</h2>
+      <h2 class="text-2xl font-bold mb-2 galaxy-text">ngModel Bidireccional</h2>
 
       <label class="block text-slate-300 mb-2">
-        👤 Escribe tu nombre:
+        Escribe tu nombre:
       </label>
       <input type="text" [(ngModel)]="nombre"
         class="cosmic-input mt-1 p-3 rounded-lg bg-slate-800 text-white border border-indigo-500/30 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-400 transition-all duration-300 w-full max-w-md" />
