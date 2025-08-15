@@ -101,10 +101,16 @@ export class ProductGridComponent {
       const success = this.cartService.addToCart(this.productoSeleccionado);
       if (success) {
         console.log(`Comprando: ${this.productoSeleccionado.nombre}`);
-        alert(`¡Has agregado "${this.productoSeleccionado.nombre}" al carrito espacial!`);
+        this.toastService.success(
+          '🚀 ¡Experiencia Agregada!',
+          `"${this.productoSeleccionado.nombre}" ha sido añadida a tu carrito espacial.`
+        );
         this.cerrarModal();
       } else {
-        alert(`La experiencia "${this.productoSeleccionado.nombre}" ya está en tu carrito espacial.\n\n¡No puedes agregar la misma experiencia dos veces!`);
+        this.toastService.warning(
+          '⚠️ Ya en Carrito',
+          `La experiencia "${this.productoSeleccionado.nombre}" ya está en tu carrito espacial.`
+        );
       }
     }
   }
