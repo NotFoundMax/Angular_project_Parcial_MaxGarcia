@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   showCartModal = false;
   currentUser: User | null = null;
   showUserSelection = false;
+  showLoginOptions = false;
   private cartCountSubscription: Subscription = new Subscription();
   private userSubscription: Subscription = new Subscription();
 
@@ -42,7 +43,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   toggleCartModal(): void {
     if (this.cartCount === 0) {
-      // Si el carrito está vac��o, ir directamente a la galería
+      // Si el carrito está vacío, ir directamente a la galería
       this.router.navigate(['/gallery']);
       return;
     }
@@ -76,8 +77,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.authService.logout();
   }
 
+  // Método para mostrar opciones de login
+  toggleLoginOptions(): void {
+    this.showLoginOptions = !this.showLoginOptions;
+    this.showUserSelection = false;
+  }
+
   // Método para ir a login
   goToLogin(): void {
+    this.showLoginOptions = false;
+    this.showUserSelection = false;
     this.router.navigate(['/auth/login']);
   }
 
