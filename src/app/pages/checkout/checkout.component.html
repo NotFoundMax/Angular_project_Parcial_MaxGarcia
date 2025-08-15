@@ -78,8 +78,7 @@
           <div class="space-y-4">
             <!-- Credit Card Option -->
             <div class="flex items-center p-4 border border-slate-600 rounded-lg cursor-pointer hover:border-indigo-400 transition-colors"
-                 [class.border-indigo-400]="selectedPaymentMethod === 'credit'"
-                 [class.bg-indigo-500/10]="selectedPaymentMethod === 'credit'">
+                 [ngClass]="{'border-indigo-400': selectedPaymentMethod === 'credit', 'bg-indigo-500/10': selectedPaymentMethod === 'credit'}">
               <input 
                 type="radio" 
                 name="paymentMethod" 
@@ -97,8 +96,7 @@
 
             <!-- Debit Card Option -->
             <div class="flex items-center p-4 border border-slate-600 rounded-lg cursor-pointer hover:border-indigo-400 transition-colors"
-                 [class.border-indigo-400]="selectedPaymentMethod === 'debit'"
-                 [class.bg-indigo-500/10]="selectedPaymentMethod === 'debit'">
+                 [ngClass]="{'border-indigo-400': selectedPaymentMethod === 'debit', 'bg-indigo-500/10': selectedPaymentMethod === 'debit'}">
               <input 
                 type="radio" 
                 name="paymentMethod" 
@@ -116,8 +114,7 @@
 
             <!-- Mobile Payment Option -->
             <div class="flex items-center p-4 border border-slate-600 rounded-lg cursor-pointer hover:border-indigo-400 transition-colors"
-                 [class.border-indigo-400]="selectedPaymentMethod === 'mobile'"
-                 [class.bg-indigo-500/10]="selectedPaymentMethod === 'mobile'">
+                 [ngClass]="{'border-indigo-400': selectedPaymentMethod === 'mobile', 'bg-indigo-500/10': selectedPaymentMethod === 'mobile'}">
               <input 
                 type="radio" 
                 name="paymentMethod" 
@@ -264,7 +261,7 @@
             *ngIf="selectedPaymentMethod !== 'mobile'"
             (click)="processPayment()"
             [disabled]="!isFormValid()"
-            [class]="isFormValid() ? 'w-full btn-cosmic py-4 rounded-full transition-all duration-300 text-white font-medium' : 'w-full bg-slate-600 text-slate-400 py-4 rounded-full cursor-not-allowed'"
+            [ngClass]="isFormValid() ? 'w-full btn-cosmic py-4 rounded-full transition-all duration-300 text-white font-medium' : 'w-full bg-slate-600 text-slate-400 py-4 rounded-full cursor-not-allowed'"
             class="text-lg">
             🚀 Pagar Ahora
           </button>
@@ -273,7 +270,7 @@
             *ngIf="selectedPaymentMethod === 'mobile'"
             (click)="uploadPaymentScreenshot()"
             [disabled]="!isContactInfoValid()"
-            [class]="isContactInfoValid() ? 'w-full btn-cosmic py-4 rounded-full transition-all duration-300 text-white font-medium' : 'w-full bg-slate-600 text-slate-400 py-4 rounded-full cursor-not-allowed'"
+            [ngClass]="isContactInfoValid() ? 'w-full btn-cosmic py-4 rounded-full transition-all duration-300 text-white font-medium' : 'w-full bg-slate-600 text-slate-400 py-4 rounded-full cursor-not-allowed'"
             class="text-lg">
             📸 Adjuntar Captura de Pago
           </button>
