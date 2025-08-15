@@ -33,7 +33,7 @@ export class ProductGridComponent {
       nombre: 'Experiencia 2',
       descripcion: 'Caminata lunar con tecnología de gravedad artificial avanzada.',
       precio: 180.99,
-      imagen: 'https://images.unsplash.com/photo-1518066431836-dcf0a105c4ea?w=300&h=200&fit=crop'
+      imagen: 'https://images.pexels.com/photos/21287308/pexels-photo-21287308.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop'
     },
     {
       nombre: 'Experiencia 3',

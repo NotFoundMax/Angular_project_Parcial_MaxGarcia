@@ -17,40 +17,151 @@
 
       <!-- Navegación principal -->
       <div class="hidden md:flex items-center space-x-8">
-        <a routerLink="/home" 
-           routerLinkActive="nav-active"
-           class="nav-link px-4 py-2 rounded-lg">
-          🏠 Inicio
-        </a>
         
-        <a routerLink="/gallery" 
-           routerLinkActive="nav-active"
-           class="nav-link px-4 py-2 rounded-lg">
-          🌌 Experiencias
-        </a>
-        
-        <a routerLink="/tablas" 
-           routerLinkActive="nav-active"
-           class="nav-link px-4 py-2 rounded-lg">
-          ⚡ Panel
-        </a>
-        
-        <a routerLink="/directives"
-           routerLinkActive="nav-active"
-           class="nav-link px-4 py-2 rounded-lg">
-          📋 Directivas
-        </a>
+        <!-- Navegación para usuarios no autenticados -->
+        <ng-container *ngIf="!isAuthenticated()">
+          <a routerLink="/home"
+             routerLinkActive="nav-active"
+             class="nav-link px-4 py-2 rounded-lg">
+            Inicio
+          </a>
+          <a routerLink="/gallery"
+             routerLinkActive="nav-active"
+             class="nav-link px-4 py-2 rounded-lg">
+            Experiencias
+          </a>
+          <a routerLink="/contact"
+             routerLinkActive="nav-active"
+             class="nav-link px-4 py-2 rounded-lg">
+            Contacto
+          </a>
+        </ng-container>
+
+        <!-- Navegación para usuarios normales -->
+        <ng-container *ngIf="hasRole(UserRole.USUARIO) && !hasAnyRole([UserRole.ADMINISTRADOR, UserRole.MANAGER, UserRole.VENTAS])">
+          <a routerLink="/home"
+             routerLinkActive="nav-active"
+             class="nav-link px-4 py-2 rounded-lg">
+            Inicio
+          </a>
+          <a routerLink="/gallery"
+             routerLinkActive="nav-active"
+             class="nav-link px-4 py-2 rounded-lg">
+            Experiencias
+          </a>
+          <a routerLink="/contact"
+             routerLinkActive="nav-active"
+             class="nav-link px-4 py-2 rounded-lg">
+            Contacto
+          </a>
+        </ng-container>
+
+        <!-- Navegación para administradores -->
+        <ng-container *ngIf="hasRole(UserRole.ADMINISTRADOR)">
+          <a routerLink="/dashboard"
+             routerLinkActive="nav-active"
+             class="nav-link px-4 py-2 rounded-lg">
+            Dashboard
+          </a>
+          <a routerLink="/tablas"
+             routerLinkActive="nav-active"
+             class="nav-link px-4 py-2 rounded-lg">
+            Panel
+          </a>
+          <a routerLink="/directives"
+             routerLinkActive="nav-active"
+             class="nav-link px-4 py-2 rounded-lg">
+            Directivas
+          </a>
+        </ng-container>
+
+        <!-- Navegación para managers -->
+        <ng-container *ngIf="hasRole(UserRole.MANAGER) && !hasRole(UserRole.ADMINISTRADOR)">
+          <a routerLink="/dashboard"
+             routerLinkActive="nav-active"
+             class="nav-link px-4 py-2 rounded-lg">
+            Dashboard
+          </a>
+          <a routerLink="/tablas"
+             routerLinkActive="nav-active"
+             class="nav-link px-4 py-2 rounded-lg">
+            Panel
+          </a>
+        </ng-container>
+
+        <!-- Navegación para ventas (solo dashboard) -->
+        <ng-container *ngIf="hasRole(UserRole.VENTAS) && !hasAnyRole([UserRole.ADMINISTRADOR, UserRole.MANAGER])">
+          <a routerLink="/dashboard"
+             routerLinkActive="nav-active"
+             class="nav-link px-4 py-2 rounded-lg">
+            Dashboard
+          </a>
+        </ng-container>
       </div>
 
       <!-- Acciones del usuario -->
       <div class="flex items-center space-x-4">
-        <!-- Botón de login -->
-        <button class="btn-cosmic text-white text-sm font-medium">
-          👤 Login
-        </button>
+        
+        <!-- Si no está autenticado -->
+        <ng-container *ngIf="!isAuthenticated()">
+          <div class="flex items-center space-x-3">
+            <button
+              (click)="toggleLoginOptions()"
+              class="btn-cosmic text-white text-sm font-medium">
+              Login
+            </button>
 
-        <!-- Carrito de compras -->
+            <!-- Opciones de login que aparecen al hacer click -->
+            <div *ngIf="showLoginOptions" class="flex space-x-2">
+              <button
+                (click)="goToLogin()"
+                class="cosmic-btn-secondary text-white text-sm font-medium py-2 px-4 rounded-lg">
+                Portal
+              </button>
+
+              <button
+                (click)="showUserSelection = !showUserSelection"
+                class="cosmic-btn-secondary text-white text-sm font-medium py-2 px-4 rounded-lg">
+                Cambiar Usuario
+              </button>
+            </div>
+          </div>
+        </ng-container>
+
+        <!-- Si está autenticado -->
+        <ng-container *ngIf="isAuthenticated()">
+          <!-- Mensaje de bienvenida para roles administrativos -->
+          <div *ngIf="hasAnyRole([UserRole.ADMINISTRADOR, UserRole.MANAGER, UserRole.VENTAS])" 
+               class="hidden lg:block text-sm text-slate-300">
+            {{ getGreeting() }}
+          </div>
+
+          <!-- Avatar del usuario -->
+          <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 bg-indigo-500 rounded-full flex items-center justify-center" 
+                 *ngIf="currentUser">
+              <img [src]="currentUser.avatarUrl" 
+                   [alt]="currentUser.nombre" 
+                   class="w-full h-full rounded-full object-cover" 
+                   *ngIf="currentUser.avatarUrl">
+              <span class="text-white font-bold text-sm" 
+                    *ngIf="!currentUser.avatarUrl">
+                {{ currentUser.nombre.charAt(0) }}
+              </span>
+            </div>
+
+            <!-- Botón de logout -->
+            <button
+              (click)="logout()"
+              class="cosmic-btn-secondary text-sm py-2 px-4 rounded-lg">
+              🚪 Salir
+            </button>
+          </div>
+        </ng-container>
+
+        <!-- Carrito de compras (solo para usuarios normales) -->
         <button
+          *ngIf="hasRole(UserRole.USUARIO) && !hasAnyRole([UserRole.ADMINISTRADOR, UserRole.MANAGER, UserRole.VENTAS])"
           (click)="toggleCartModal()"
           class="cart-button relative text-white p-2 rounded-lg hover:bg-white/10 transition-colors">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -75,19 +186,87 @@
 
     <!-- Navegación móvil -->
     <div class="md:hidden mt-4 space-y-2 border-t border-white/10 pt-4">
-      <a routerLink="/home" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">🏠 Inicio</a>
-      <a routerLink="/gallery" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">🌌 Experiencias</a>
-      <a routerLink="/tablas" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">⚡ Panel</a>
-      <a routerLink="/directives" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">📋 Directivas</a>
-      <a routerLink="/checkout" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors relative" *ngIf="cartCount > 0">
+
+      <!-- Usuario no autenticado -->
+      <ng-container *ngIf="!isAuthenticated()">
+        <a routerLink="/home" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Inicio</a>
+        <a routerLink="/gallery" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Experiencias</a>
+        <a routerLink="/contact" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Contacto</a>
+      </ng-container>
+
+      <!-- Usuario normal -->
+      <ng-container *ngIf="hasRole(UserRole.USUARIO) && !hasAnyRole([UserRole.ADMINISTRADOR, UserRole.MANAGER, UserRole.VENTAS])">
+        <a routerLink="/home" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Inicio</a>
+        <a routerLink="/gallery" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Experiencias</a>
+        <a routerLink="/contact" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Contacto</a>
+      </ng-container>
+
+      <!-- Administrador -->
+      <ng-container *ngIf="hasRole(UserRole.ADMINISTRADOR)">
+        <a routerLink="/dashboard" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Dashboard</a>
+        <a routerLink="/tablas" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Panel</a>
+        <a routerLink="/directives" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Directivas</a>
+      </ng-container>
+
+      <!-- Manager -->
+      <ng-container *ngIf="hasRole(UserRole.MANAGER) && !hasRole(UserRole.ADMINISTRADOR)">
+        <a routerLink="/dashboard" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Dashboard</a>
+        <a routerLink="/tablas" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Panel</a>
+      </ng-container>
+
+      <!-- Ventas -->
+      <ng-container *ngIf="hasRole(UserRole.VENTAS) && !hasAnyRole([UserRole.ADMINISTRADOR, UserRole.MANAGER])">
+        <a routerLink="/dashboard" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Dashboard</a>
+      </ng-container>
+
+      <!-- Checkout para usuarios con carrito -->
+      <a routerLink="/checkout" 
+         class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors relative" 
+         *ngIf="cartCount > 0 && hasRole(UserRole.USUARIO)">
         🛒 Checkout
         <span class="absolute top-1 right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">{{ cartCount }}</span>
       </a>
     </div>
   </nav>
 
-  <!-- Cart Modal -->
+  <!-- User Selection Dropdown -->
+  <div *ngIf="showUserSelection && !isAuthenticated()"
+       class="absolute top-20 right-6 w-80 cosmic-card p-4 z-50 border border-white/20">
+    <h3 class="text-lg font-semibold text-white mb-4 text-center">Seleccionar Usuario</h3>
+    <div class="grid grid-cols-1 gap-2">
+      <button
+        (click)="quickLogin('admin@stellarx.space')"
+        class="cosmic-btn-secondary p-3 rounded-lg text-left transition-all duration-300 hover:scale-105">
+        <div class="font-medium">Administrador</div>
+        <div class="text-sm text-slate-400">admin&#64;stellarx.space</div>
+      </button>
+
+      <button
+        (click)="quickLogin('manager@stellarx.space')"
+        class="cosmic-btn-secondary p-3 rounded-lg text-left transition-all duration-300 hover:scale-105">
+        <div class="font-medium">Manager</div>
+        <div class="text-sm text-slate-400">manager&#64;stellarx.space</div>
+      </button>
+
+      <button
+        (click)="quickLogin('ventas@stellarx.space')"
+        class="cosmic-btn-secondary p-3 rounded-lg text-left transition-all duration-300 hover:scale-105">
+        <div class="font-medium">Ventas</div>
+        <div class="text-sm text-slate-400">ventas&#64;stellarx.space</div>
+      </button>
+
+      <button
+        (click)="quickLogin('usuario@stellarx.space')"
+        class="cosmic-btn-secondary p-3 rounded-lg text-left transition-all duration-300 hover:scale-105">
+        <div class="font-medium">Usuario</div>
+        <div class="text-sm text-slate-400">usuario&#64;stellarx.space</div>
+      </button>
+    </div>
+  </div>
+
+  <!-- Cart Modal (solo para usuarios normales) -->
   <app-cart-modal
+    *ngIf="hasRole(UserRole.USUARIO)"
     [isVisible]="showCartModal"
     (close)="closeCartModal()">
   </app-cart-modal>

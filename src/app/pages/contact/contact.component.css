@@ -1,0 +1,62 @@
+/* Estilos específicos para el componente de contacto */
+
+/* Animación para elementos del formulario */
+.fade-in-up {
+  animation-delay: 0.1s;
+}
+
+.fade-in-up:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.fade-in-up:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* Hover effects para los inputs */
+.cosmic-input:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+}
+
+/* Focus styles mejorados */
+.cosmic-input:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2), 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo para el botón deshabilitado */
+button:disabled {
+  background: rgba(75, 85, 99, 0.5) !important;
+  transform: none !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cosmic-card {
+    padding: 1.5rem;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  .btn-cosmic {
+    padding: 1rem 2rem;
+  }
+}
+
+/* Error message animation */
+.text-red-400 {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

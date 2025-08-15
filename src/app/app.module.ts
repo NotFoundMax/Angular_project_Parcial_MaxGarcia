@@ -25,6 +25,10 @@ import { EditarProductoComponent } from './modales/producto/editar-producto/edit
 import { VerProductoComponent } from './modales/producto/ver-producto/ver-producto.component';
 import { CartModalComponent } from './componentes/cart-modal/cart-modal.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { HasRoleDirective } from './directives/has-role.directive';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AuthComponent } from './pages/auth/auth.component';
 
 
 @NgModule({
@@ -49,7 +53,11 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
     CrearProductoComponent,
     EditarProductoComponent,
     CartModalComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ContactComponent,
+    HasRoleDirective,
+    DashboardComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
