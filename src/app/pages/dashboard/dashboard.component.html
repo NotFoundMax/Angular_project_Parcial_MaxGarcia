@@ -1,1 +1,204 @@
-<p>dashboard works!</p>
+<div class="min-h-screen pt-24 pb-12 px-6">
+  <div class="max-w-7xl mx-auto">
+    
+    <!-- Header del Dashboard -->
+    <div class="mb-8">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+        <div>
+          <h1 class="text-3xl md:text-4xl font-bold galaxy-text font-['Orbitron'] mb-2">
+            Dashboard Cósmico
+          </h1>
+          <p class="text-slate-400" *ngIf="currentUser">
+            {{ getGreeting() }}, {{ currentUser.nombre }}. Aquí tienes el resumen de tu estación espacial.
+          </p>
+        </div>
+        <div class="mt-4 md:mt-0">
+          <div class="flex items-center space-x-4">
+            <div class="text-right">
+              <div class="text-sm text-slate-400">Última actualización</div>
+              <div class="text-white font-medium">{{ new Date() | date:'short' }}</div>
+            </div>
+            <div class="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center" *ngIf="currentUser">
+              <img [src]="currentUser.avatarUrl" [alt]="currentUser.nombre" 
+                   class="w-full h-full rounded-full object-cover" 
+                   *ngIf="currentUser.avatarUrl">
+              <span class="text-white font-bold text-lg" *ngIf="!currentUser.avatarUrl">
+                {{ currentUser.nombre.charAt(0) }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cards de Métricas -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      
+      <!-- Total de Usuarios -->
+      <div class="cosmic-card p-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-slate-400 text-sm font-medium">Total Usuarios</p>
+            <p class="text-2xl font-bold text-white">{{ formatNumber(dashboardData.totalUsers) }}</p>
+            <p class="text-green-400 text-sm">
+              <span class="flex items-center">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+                </svg>
+                +12% este mes
+              </span>
+            </p>
+          </div>
+          <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Total de Ventas -->
+      <div class="cosmic-card p-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-slate-400 text-sm font-medium">Ventas del Mes</p>
+            <p class="text-2xl font-bold text-white">{{ formatNumber(dashboardData.totalSales) }}</p>
+            <p class="text-green-400 text-sm">
+              <span class="flex items-center">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+                </svg>
+                +8% vs mes anterior
+              </span>
+            </p>
+          </div>
+          <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ingresos -->
+      <div class="cosmic-card p-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-slate-400 text-sm font-medium">Ingresos Totales</p>
+            <p class="text-2xl font-bold text-white">{{ formatCurrency(dashboardData.totalRevenue) }}</p>
+            <p class="text-green-400 text-sm">
+              <span class="flex items-center">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+                </svg>
+                +15% este trimestre
+              </span>
+            </p>
+          </div>
+          <div class="w-12 h-12 bg-yellow-500 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Experiencias Activas -->
+      <div class="cosmic-card p-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-slate-400 text-sm font-medium">Experiencias Activas</p>
+            <p class="text-2xl font-bold text-white">{{ dashboardData.activeExperiences }}</p>
+            <p class="text-blue-400 text-sm">
+              <span class="flex items-center">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/>
+                </svg>
+                Todas operativas
+              </span>
+            </p>
+          </div>
+          <div class="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gráficos -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      
+      <!-- Gráfico de Ventas -->
+      <div class="cosmic-card p-6">
+        <h3 class="text-xl font-semibold text-white mb-4">Ventas Mensuales</h3>
+        <div class="h-64">
+          <canvas id="salesChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Gráfico de Popularidad de Experiencias -->
+      <div class="cosmic-card p-6">
+        <h3 class="text-xl font-semibold text-white mb-4">Popularidad de Experiencias</h3>
+        <div class="h-64">
+          <canvas id="trafficChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Gráfico de Tráfico Diario -->
+      <div class="cosmic-card p-6 lg:col-span-2">
+        <h3 class="text-xl font-semibold text-white mb-4">Tráfico Diario (Últimos 14 días)</h3>
+        <div class="h-64">
+          <canvas id="revenueChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabla de Usuarios Recientes (solo para administradores) -->
+    <div class="mt-8" *appHasRole="['administrador', 'manager']">
+      <div class="cosmic-card p-6">
+        <h3 class="text-xl font-semibold text-white mb-4">Actividad Reciente del Sistema</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-white/10">
+                <th class="text-left py-3 px-4 text-slate-400 font-medium">Usuario</th>
+                <th class="text-left py-3 px-4 text-slate-400 font-medium">Acción</th>
+                <th class="text-left py-3 px-4 text-slate-400 font-medium">Fecha</th>
+                <th class="text-left py-3 px-4 text-slate-400 font-medium">Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-white/5">
+                <td class="py-3 px-4 text-white">Ana García</td>
+                <td class="py-3 px-4 text-slate-300">Inicio de sesión</td>
+                <td class="py-3 px-4 text-slate-400">Hace 5 min</td>
+                <td class="py-3 px-4">
+                  <span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs">Activo</span>
+                </td>
+              </tr>
+              <tr class="border-b border-white/5">
+                <td class="py-3 px-4 text-white">Miguel Torres</td>
+                <td class="py-3 px-4 text-slate-300">Compra - Experiencia 2</td>
+                <td class="py-3 px-4 text-slate-400">Hace 12 min</td>
+                <td class="py-3 px-4">
+                  <span class="bg-blue-500/20 text-blue-400 px-2 py-1 rounded text-xs">Completado</span>
+                </td>
+              </tr>
+              <tr class="border-b border-white/5">
+                <td class="py-3 px-4 text-white">Laura Rodríguez</td>
+                <td class="py-3 px-4 text-slate-300">Actualización de perfil</td>
+                <td class="py-3 px-4 text-slate-400">Hace 1 hora</td>
+                <td class="py-3 px-4">
+                  <span class="bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded text-xs">Procesando</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
