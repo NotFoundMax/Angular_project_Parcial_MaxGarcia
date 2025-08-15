@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
 import { CartService, CartItem } from '../../servicios/cart.service';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -13,7 +14,10 @@ export class CartModalComponent implements OnInit, OnDestroy {
   cartItems: CartItem[] = [];
   private cartSubscription: Subscription = new Subscription();
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.cartSubscription = this.cartService.cartItems$.subscribe(items => {
@@ -38,8 +42,8 @@ export class CartModalComponent implements OnInit, OnDestroy {
   }
 
   proceedToCheckout(): void {
-    // Aquí iría la lógica para proceder al pago
-    alert('🚀 Redirigiendo al proceso de pago...\n\n¡Prepárate para tu aventura espacial!');
+    // Redirigir a la página de checkout
     this.closeModal();
+    this.router.navigate(['/checkout']);
   }
 }
