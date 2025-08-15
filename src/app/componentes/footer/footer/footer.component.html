@@ -1,7 +1,42 @@
 <footer class="relative bg-gradient-to-b from-slate-900/80 to-black">
   <div class="relative z-10 max-w-7xl mx-auto px-6 py-16">
+    <!-- Newsletter horizontal section -->
+    <div class="cosmic-card p-8 mb-12">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-6">
+          <h3 class="text-2xl md:text-3xl font-bold galaxy-text font-['Orbitron'] mb-2">
+            🌌 Transmisiones Espaciales
+          </h3>
+          <p class="text-slate-300 text-lg max-w-2xl mx-auto">
+            Únete a nuestra comunidad galáctica y recibe las últimas noticias del cosmos directamente en tu terminal.
+          </p>
+        </div>
+        <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto" (ngSubmit)="subscribeToNewsletter($event)">
+          <input
+            #emailInput
+            type="email"
+            placeholder="tu@email.space"
+            required
+            class="flex-1 px-6 py-4 bg-white/10 border border-white/20 rounded-full
+                   focus:outline-none focus:border-indigo-400
+                   text-white placeholder-white/60 transition-colors"
+          />
+          <button
+            type="submit"
+            class="px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-500
+                   rounded-full font-medium text-white hover:from-indigo-600
+                   hover:to-purple-600 transition-colors whitespace-nowrap">
+            🚀 Suscribirme
+          </button>
+        </form>
+        <p class="text-sm text-slate-400 text-center mt-4">
+          * No spam intergaláctico. Solo contenido de alta calidad cósmica.
+        </p>
+      </div>
+    </div>
+
     <!-- Sección principal del footer -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
       
       <!-- Columna 1: Información de la empresa -->
       <div class="space-y-4">
@@ -79,12 +114,12 @@
         </ul>
       </div>
 
-      <!-- Columna 4: Contacto y Newsletter -->
+      <!-- Columna 3: Contacto -->
       <div class="space-y-6">
         <h5 class="text-lg font-semibold text-white mb-4 flex items-center">
           <span class="mr-2">📡</span> Centro de Comunicaciones
         </h5>
-        
+
         <!-- Información de contacto -->
         <div class="space-y-3 text-slate-400">
           <div class="flex items-center space-x-3">
@@ -99,30 +134,6 @@
             <span class="text-indigo-400">✉️</span>
             <span class="text-sm">contact&#64;stellarx.space</span>
           </div>
-        </div>
-
-        <!-- Newsletter compacto -->
-        <div class="cosmic-card p-4">
-          <h6 class="text-white font-medium mb-3">🌟 Transmisiones Espaciales</h6>
-          <p class="text-slate-400 text-sm mb-4">
-            Recibe las últimas noticias del cosmos directamente en tu terminal.
-          </p>
-          <form class="space-y-3">
-            <input 
-              type="email" 
-              placeholder="tu&#64;email.space"
-              class="w-full px-3 py-2 bg-white/5 border border-white/20 rounded-lg 
-                     focus:outline-none focus:border-indigo-400 
-                     text-white placeholder-white/60 text-sm transition-colors"
-            />
-            <button 
-              type="submit" 
-              class="w-full py-2 bg-gradient-to-r from-indigo-500 to-purple-500 
-                     rounded-lg font-medium text-white text-sm hover:from-indigo-600 
-                     hover:to-purple-600 transition-colors">
-              Suscribirme
-            </button>
-          </form>
         </div>
       </div>
     </div>
