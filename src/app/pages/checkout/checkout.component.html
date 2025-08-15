@@ -77,61 +77,61 @@
 
           <div class="space-y-4">
             <!-- Credit Card Option -->
-            <label class="flex items-center p-4 border border-slate-600 rounded-lg cursor-pointer hover:border-indigo-400 transition-colors"
-                   [class.border-indigo-400]="selectedPaymentMethod === 'credit'"
-                   [class.bg-indigo-500/10]="selectedPaymentMethod === 'credit'">
+            <div class="flex items-center p-4 border border-slate-600 rounded-lg cursor-pointer hover:border-indigo-400 transition-colors"
+                 [class.border-indigo-400]="selectedPaymentMethod === 'credit'"
+                 [class.bg-indigo-500/10]="selectedPaymentMethod === 'credit'">
               <input 
                 type="radio" 
                 name="paymentMethod" 
                 value="credit"
                 [(ngModel)]="selectedPaymentMethod"
                 class="mr-4 text-indigo-600 focus:ring-indigo-500">
-              <div class="flex items-center justify-between w-full">
+              <label class="flex items-center justify-between w-full cursor-pointer">
                 <span class="text-white font-medium">Tarjeta de Crédito</span>
                 <div class="flex space-x-2">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/200px-Visa_Inc._logo.svg.png" alt="Visa" class="h-6 w-auto">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/200px-MasterCard_Logo.svg.png" alt="Mastercard" class="h-6 w-auto">
                 </div>
-              </div>
-            </label>
+              </label>
+            </div>
 
             <!-- Debit Card Option -->
-            <label class="flex items-center p-4 border border-slate-600 rounded-lg cursor-pointer hover:border-indigo-400 transition-colors"
-                   [class.border-indigo-400]="selectedPaymentMethod === 'debit'"
-                   [class.bg-indigo-500/10]="selectedPaymentMethod === 'debit'">
+            <div class="flex items-center p-4 border border-slate-600 rounded-lg cursor-pointer hover:border-indigo-400 transition-colors"
+                 [class.border-indigo-400]="selectedPaymentMethod === 'debit'"
+                 [class.bg-indigo-500/10]="selectedPaymentMethod === 'debit'">
               <input 
                 type="radio" 
                 name="paymentMethod" 
                 value="debit"
                 [(ngModel)]="selectedPaymentMethod"
                 class="mr-4 text-indigo-600 focus:ring-indigo-500">
-              <div class="flex items-center justify-between w-full">
+              <label class="flex items-center justify-between w-full cursor-pointer">
                 <span class="text-white font-medium">Tarjeta de Débito</span>
                 <div class="flex space-x-2">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/200px-Visa_Inc._logo.svg.png" alt="Visa" class="h-6 w-auto">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/200px-MasterCard_Logo.svg.png" alt="Mastercard" class="h-6 w-auto">
                 </div>
-              </div>
-            </label>
+              </label>
+            </div>
 
             <!-- Mobile Payment Option -->
-            <label class="flex items-center p-4 border border-slate-600 rounded-lg cursor-pointer hover:border-indigo-400 transition-colors"
-                   [class.border-indigo-400]="selectedPaymentMethod === 'mobile'"
-                   [class.bg-indigo-500/10]="selectedPaymentMethod === 'mobile'">
+            <div class="flex items-center p-4 border border-slate-600 rounded-lg cursor-pointer hover:border-indigo-400 transition-colors"
+                 [class.border-indigo-400]="selectedPaymentMethod === 'mobile'"
+                 [class.bg-indigo-500/10]="selectedPaymentMethod === 'mobile'">
               <input 
                 type="radio" 
                 name="paymentMethod" 
                 value="mobile"
                 [(ngModel)]="selectedPaymentMethod"
                 class="mr-4 text-indigo-600 focus:ring-indigo-500">
-              <div class="flex items-center justify-between w-full">
+              <label class="flex items-center justify-between w-full cursor-pointer">
                 <span class="text-white font-medium">Pago por Celular</span>
                 <div class="flex space-x-2">
                   <img src="https://logos-world.net/wp-content/uploads/2023/03/Yape-Logo.png" alt="Yape" class="h-6 w-auto">
                   <img src="https://play-lh.googleusercontent.com/Q-7Cp3fF9A4cS_5_JG3Qo0oLqLt8LqXY-hg4cXB8v4a7eXl5gx2T-pKwxAVL0QpEWE" alt="Plin" class="h-6 w-auto bg-white rounded">
                 </div>
-              </div>
-            </label>
+              </label>
+            </div>
           </div>
         </div>
 
