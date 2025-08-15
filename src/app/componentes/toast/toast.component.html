@@ -1,7 +1,7 @@
 <!-- Toast Container - Fixed position bottom-right -->
 <div class="fixed bottom-6 right-6 z-[9999] space-y-4 max-w-sm">
-  <div 
-    *ngFor="let toast of toasts; trackBy: (index: any, item: Toast) => item.id"
+  <div
+    *ngFor="let toast of toasts; trackBy: trackByToastId"
     [class]="getToastClass(toast.type)"
     class="p-4 rounded-lg shadow-lg backdrop-blur-sm animate-slide-in-right">
     
