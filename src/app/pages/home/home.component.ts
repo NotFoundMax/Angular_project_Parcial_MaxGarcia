@@ -30,16 +30,16 @@ export class HomeComponent {
       nombre: 'Viaje a las Estrellas', 
       descripcion: 'Una experiencia inmersiva para explorar constelaciones lejanas y descubrir secretos del universo', 
       imagen: 'https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=400&h=400&fit=crop',
-      precio: '$2,999',
+      precio: 'S/.299,900',
       duracion: '7 días',
       categoria: 'Exploración Galáctica',
       rating: 4.9
     },
-    { 
-      nombre: 'Caminata Lunar', 
-      descripcion: 'Experimenta la gravedad lunar y camina por cráteres mientras observas la Tierra desde el espacio', 
-      imagen: 'https://images.unsplash.com/photo-1518066431836-dcf0a105c4ea?w=400&h=400&fit=crop',
-      precio: '$4,599',
+    {
+      nombre: 'Caminata Lunar',
+      descripcion: 'Experimenta la gravedad lunar y camina por cráteres mientras observas la Tierra desde el espacio',
+      imagen: 'https://images.pexels.com/photos/3779214/pexels-photo-3779214.jpeg?w=400&h=400&fit=crop',
+      precio: 'S/.459,900',
       duracion: '3 días',
       categoria: 'Aventura Lunar',
       rating: 4.8
@@ -48,7 +48,7 @@ export class HomeComponent {
       nombre: 'Aurora Boreal Espacial', 
       descripcion: 'Observa las auroras desde el espacio exterior en una experiencia única y mágica', 
       imagen: 'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=400&h=400&fit=crop',
-      precio: '$1,899',
+      precio: 'S/.189,900',
       duracion: '2 días',
       categoria: 'Fenómenos Cósmicos',
       rating: 5.0
@@ -57,7 +57,7 @@ export class HomeComponent {
       nombre: 'Estación Espacial ISS', 
       descripcion: 'Vive como un astronauta en la Estación Espacial Internacional con actividades científicas', 
       imagen: 'https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=400&h=400&fit=crop',
-      precio: '$12,999',
+      precio: 'S/.1,299,900',
       duracion: '14 días',
       categoria: 'Ciencia Espacial',
       rating: 4.7
@@ -66,7 +66,7 @@ export class HomeComponent {
       nombre: 'Nebulosa del Águila', 
       descripcion: 'Explora la majestuosa Nebulosa del Águila y presencia el nacimiento de nuevas estrellas', 
       imagen: 'https://images.unsplash.com/photo-1502134249126-9f3755a50d78?w=400&h=400&fit=crop',
-      precio: '$8,499',
+      precio: 'S/.849,900',
       duracion: '10 días',
       categoria: 'Exploración Profunda',
       rating: 4.9
@@ -75,7 +75,7 @@ export class HomeComponent {
       nombre: 'Marte Expedición', 
       descripcion: 'Una aventura épica al planeta rojo con exploración de cañones y montañas marcianas', 
       imagen: 'https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=400&h=400&fit=crop',
-      precio: '$25,999',
+      precio: 'S/.2,599,900',
       duracion: '30 días',
       categoria: 'Planeta Rojo',
       rating: 4.6
