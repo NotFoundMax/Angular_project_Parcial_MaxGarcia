@@ -134,6 +134,59 @@ body {
   @apply bg-slate-800 text-white;
 }
 
+/* Cosmic Modal Styles */
+.cosmic-modal {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 27, 75, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.cosmic-input {
+  background: rgba(30, 41, 59, 0.8);
+  transition: all 0.3s ease;
+}
+
+.cosmic-input:focus {
+  background: rgba(30, 41, 59, 1);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.cosmic-btn-save {
+  background: linear-gradient(45deg, #10b981, #059669);
+  color: white;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.cosmic-btn-save:hover {
+  background: linear-gradient(45deg, #059669, #047857);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.cosmic-btn-cancel {
+  background: linear-gradient(45deg, #ef4444, #dc2626);
+  color: white;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.cosmic-btn-cancel:hover {
+  background: linear-gradient(45deg, #dc2626, #b91c1c);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.cosmic-btn-close {
+  background: linear-gradient(45deg, #6b7280, #4b5563);
+  color: white;
+  border: 1px solid rgba(107, 114, 128, 0.3);
+}
+
+.cosmic-btn-close:hover {
+  background: linear-gradient(45deg, #4b5563, #374151);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(107, 114, 128, 0.3);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .btn-cosmic {
@@ -146,5 +199,9 @@ body {
 
   .cosmic-select {
     @apply text-sm px-3 py-2;
+  }
+
+  .cosmic-modal {
+    @apply mx-4;
   }
 }
