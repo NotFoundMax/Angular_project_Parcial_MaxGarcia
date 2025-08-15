@@ -25,6 +25,7 @@ import { EditarProductoComponent } from './modales/producto/editar-producto/edit
 import { VerProductoComponent } from './modales/producto/ver-producto/ver-producto.component';
 import { CartModalComponent } from './componentes/cart-modal/cart-modal.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
     CrearProductoComponent,
     EditarProductoComponent,
     CartModalComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
