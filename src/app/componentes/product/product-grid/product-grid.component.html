@@ -1,5 +1,79 @@
 <div class="container mx-auto py-9">
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-    <app-product-card *ngFor="let producto of productos" [producto]="producto"></app-product-card>
+    <app-product-card
+      *ngFor="let producto of productos"
+      [producto]="producto"
+      (abrirModal)="abrirModalDetalle($event)">
+    </app-product-card>
+  </div>
+
+  <!-- Modal de detalles del producto -->
+  <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50" *ngIf="mostrarModal">
+    <div class="cosmic-modal bg-slate-900 rounded-xl shadow-2xl w-full max-w-4xl mx-4 border border-indigo-500/30 overflow-hidden">
+      <!-- Contenido del modal en 2 columnas -->
+      <div class="grid md:grid-cols-2 gap-0 h-full">
+        <!-- Columna izquierda - Imagen -->
+        <div class="relative">
+          <img [src]="productoSeleccionado?.imagen"
+               [alt]="productoSeleccionado?.nombre"
+               class="w-full h-full object-cover min-h-[400px] md:min-h-[500px]">
+          <!-- Overlay con gradiente -->
+          <div class="absolute inset-0 bg-gradient-to-r from-transparent to-slate-900/50"></div>
+        </div>
+
+        <!-- Columna derecha - Contenido -->
+        <div class="p-8 flex flex-col justify-between">
+          <div>
+            <!-- Título -->
+            <h2 class="text-3xl font-bold galaxy-text font-['Orbitron'] mb-4">
+              {{ productoSeleccionado?.nombre }}
+            </h2>
+
+            <!-- Descripción -->
+            <p class="text-slate-300 text-lg leading-relaxed mb-6">
+              {{ productoSeleccionado?.descripcion }}
+            </p>
+
+            <!-- Precio -->
+            <div class="mb-8">
+              <span class="text-slate-400 text-sm">Precio de la experiencia:</span>
+              <div class="text-4xl font-bold text-transparent bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text">
+                S/. {{ productoSeleccionado?.precio }}
+              </div>
+            </div>
+
+            <!-- Características adicionales -->
+            <div class="space-y-3 mb-8">
+              <div class="flex items-center space-x-2 text-slate-300">
+                <span class="text-green-400">✓</span>
+                <span>Experiencia 100% segura y certificada</span>
+              </div>
+              <div class="flex items-center space-x-2 text-slate-300">
+                <span class="text-green-400">✓</span>
+                <span>Guía experto incluido</span>
+              </div>
+              <div class="flex items-center space-x-2 text-slate-300">
+                <span class="text-green-400">✓</span>
+                <span>Equipo especializado proporcionado</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Botones de acción -->
+          <div class="flex gap-4">
+            <button
+              (click)="cerrarModal()"
+              class="cosmic-btn-close px-6 py-3 rounded-full transition-all duration-300">
+              ← Atrás
+            </button>
+            <button
+              (click)="comprarProducto()"
+              class="flex-1 btn-cosmic px-6 py-3 rounded-full transition-all duration-300">
+              🛒 Comprar Experiencia
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
