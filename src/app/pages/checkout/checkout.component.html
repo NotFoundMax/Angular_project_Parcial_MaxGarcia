@@ -1,0 +1,297 @@
+<!-- Checkout Page -->
+<section class="min-h-screen bg-gradient-to-b from-slate-900 to-indigo-900/30 py-20 pt-24">
+  <div class="max-w-6xl mx-auto px-6">
+    <!-- Page Header -->
+    <div class="text-center mb-12">
+      <div class="inline-block px-4 py-2 bg-purple-500/20 rounded-full text-purple-300 text-sm font-medium mb-4">
+        🚀 Finalizar Compra
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold galaxy-text font-['Orbitron'] mb-4">
+        Resumen de Compra
+      </h1>
+      <p class="text-slate-300 text-lg">
+        ¡Estás a un paso de vivir experiencias extraordinarias!
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12">
+      <!-- Left Column - Forms -->
+      <div class="space-y-8">
+        <!-- Contact Information -->
+        <div class="cosmic-card p-6">
+          <h2 class="text-2xl font-bold text-white mb-6 flex items-center">
+            <span class="mr-3">👤</span>
+            Información de Contacto
+          </h2>
+          
+          <form class="space-y-4">
+            <!-- Full Name -->
+            <div>
+              <label class="block text-slate-300 mb-2 font-medium">
+                Nombre Completo <span class="text-red-400">*</span>
+              </label>
+              <input 
+                type="text" 
+                [(ngModel)]="contactInfo.fullName"
+                name="fullName"
+                required
+                class="cosmic-input w-full bg-slate-800 border border-indigo-500/30 rounded-lg px-4 py-3 text-white focus:border-indigo-400 focus:outline-none transition-all duration-300"
+                placeholder="Ingresa tu nombre completo">
+            </div>
+
+            <!-- Email -->
+            <div>
+              <label class="block text-slate-300 mb-2 font-medium">
+                Correo Electrónico <span class="text-red-400">*</span>
+              </label>
+              <input 
+                type="email" 
+                [(ngModel)]="contactInfo.email"
+                name="email"
+                required
+                class="cosmic-input w-full bg-slate-800 border border-indigo-500/30 rounded-lg px-4 py-3 text-white focus:border-indigo-400 focus:outline-none transition-all duration-300"
+                placeholder="correo@ejemplo.com">
+            </div>
+
+            <!-- Phone -->
+            <div>
+              <label class="block text-slate-300 mb-2 font-medium">
+                Número Telefónico <span class="text-slate-500">(opcional)</span>
+              </label>
+              <input 
+                type="tel" 
+                [(ngModel)]="contactInfo.phone"
+                name="phone"
+                class="cosmic-input w-full bg-slate-800 border border-indigo-500/30 rounded-lg px-4 py-3 text-white focus:border-indigo-400 focus:outline-none transition-all duration-300"
+                placeholder="+51 999 999 999">
+            </div>
+          </form>
+        </div>
+
+        <!-- Payment Method -->
+        <div class="cosmic-card p-6">
+          <h2 class="text-2xl font-bold text-white mb-6 flex items-center">
+            <span class="mr-3">💳</span>
+            Método de Pago
+          </h2>
+
+          <div class="space-y-4">
+            <!-- Credit Card Option -->
+            <label class="flex items-center p-4 border border-slate-600 rounded-lg cursor-pointer hover:border-indigo-400 transition-colors"
+                   [class.border-indigo-400]="selectedPaymentMethod === 'credit'"
+                   [class.bg-indigo-500/10]="selectedPaymentMethod === 'credit'">
+              <input 
+                type="radio" 
+                name="paymentMethod" 
+                value="credit"
+                [(ngModel)]="selectedPaymentMethod"
+                class="mr-4 text-indigo-600 focus:ring-indigo-500">
+              <div class="flex items-center justify-between w-full">
+                <span class="text-white font-medium">Tarjeta de Crédito</span>
+                <div class="flex space-x-2">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/200px-Visa_Inc._logo.svg.png" alt="Visa" class="h-6 w-auto">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/200px-MasterCard_Logo.svg.png" alt="Mastercard" class="h-6 w-auto">
+                </div>
+              </div>
+            </label>
+
+            <!-- Debit Card Option -->
+            <label class="flex items-center p-4 border border-slate-600 rounded-lg cursor-pointer hover:border-indigo-400 transition-colors"
+                   [class.border-indigo-400]="selectedPaymentMethod === 'debit'"
+                   [class.bg-indigo-500/10]="selectedPaymentMethod === 'debit'">
+              <input 
+                type="radio" 
+                name="paymentMethod" 
+                value="debit"
+                [(ngModel)]="selectedPaymentMethod"
+                class="mr-4 text-indigo-600 focus:ring-indigo-500">
+              <div class="flex items-center justify-between w-full">
+                <span class="text-white font-medium">Tarjeta de Débito</span>
+                <div class="flex space-x-2">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/200px-Visa_Inc._logo.svg.png" alt="Visa" class="h-6 w-auto">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/200px-MasterCard_Logo.svg.png" alt="Mastercard" class="h-6 w-auto">
+                </div>
+              </div>
+            </label>
+
+            <!-- Mobile Payment Option -->
+            <label class="flex items-center p-4 border border-slate-600 rounded-lg cursor-pointer hover:border-indigo-400 transition-colors"
+                   [class.border-indigo-400]="selectedPaymentMethod === 'mobile'"
+                   [class.bg-indigo-500/10]="selectedPaymentMethod === 'mobile'">
+              <input 
+                type="radio" 
+                name="paymentMethod" 
+                value="mobile"
+                [(ngModel)]="selectedPaymentMethod"
+                class="mr-4 text-indigo-600 focus:ring-indigo-500">
+              <div class="flex items-center justify-between w-full">
+                <span class="text-white font-medium">Pago por Celular</span>
+                <div class="flex space-x-2">
+                  <img src="https://logos-world.net/wp-content/uploads/2023/03/Yape-Logo.png" alt="Yape" class="h-6 w-auto">
+                  <img src="https://play-lh.googleusercontent.com/Q-7Cp3fF9A4cS_5_JG3Qo0oLqLt8LqXY-hg4cXB8v4a7eXl5gx2T-pKwxAVL0QpEWE" alt="Plin" class="h-6 w-auto bg-white rounded">
+                </div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Card Information (shown when credit or debit is selected) -->
+        <div *ngIf="selectedPaymentMethod === 'credit' || selectedPaymentMethod === 'debit'" 
+             class="cosmic-card p-6">
+          <h2 class="text-2xl font-bold text-white mb-6 flex items-center">
+            <span class="mr-3">🔒</span>
+            Información de Tarjeta
+          </h2>
+
+          <form class="space-y-4">
+            <!-- Card Number -->
+            <div>
+              <label class="block text-slate-300 mb-2 font-medium">
+                Número de Tarjeta <span class="text-red-400">*</span>
+              </label>
+              <input 
+                type="text" 
+                [(ngModel)]="cardInfo.cardNumber"
+                name="cardNumber"
+                (input)="formatCardNumber($event)"
+                maxlength="23"
+                required
+                class="cosmic-input w-full bg-slate-800 border border-indigo-500/30 rounded-lg px-4 py-3 text-white focus:border-indigo-400 focus:outline-none transition-all duration-300"
+                placeholder="1234 5678 9012 3456">
+              <p class="text-slate-500 text-sm mt-1">Mínimo 16 dígitos requeridos</p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <!-- Expiration Date -->
+              <div>
+                <label class="block text-slate-300 mb-2 font-medium">
+                  Fecha de Vencimiento <span class="text-red-400">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  [(ngModel)]="cardInfo.expirationDate"
+                  name="expirationDate"
+                  (input)="formatExpirationDate($event)"
+                  maxlength="5"
+                  required
+                  class="cosmic-input w-full bg-slate-800 border border-indigo-500/30 rounded-lg px-4 py-3 text-white focus:border-indigo-400 focus:outline-none transition-all duration-300"
+                  placeholder="MM/AA">
+              </div>
+
+              <!-- CVC -->
+              <div>
+                <label class="block text-slate-300 mb-2 font-medium">
+                  CVC <span class="text-red-400">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  [(ngModel)]="cardInfo.cvc"
+                  name="cvc"
+                  (input)="formatCVC($event)"
+                  maxlength="3"
+                  required
+                  class="cosmic-input w-full bg-slate-800 border border-indigo-500/30 rounded-lg px-4 py-3 text-white focus:border-indigo-400 focus:outline-none transition-all duration-300"
+                  placeholder="123">
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- QR Code Section (shown when mobile payment is selected) -->
+        <div *ngIf="selectedPaymentMethod === 'mobile'" 
+             class="cosmic-card p-6 text-center">
+          <h2 class="text-2xl font-bold text-white mb-6 flex items-center justify-center">
+            <span class="mr-3">📱</span>
+            Código QR para Pago
+          </h2>
+          
+          <div class="flex justify-center mb-6">
+            <div class="bg-white p-4 rounded-lg">
+              <img [src]="qrCodeUrl" alt="QR Code" class="w-32 h-32">
+            </div>
+          </div>
+          
+          <p class="text-slate-300 mb-4">
+            Escanea este código QR con tu aplicación Yape o Plin
+          </p>
+          <p class="text-slate-500 text-sm">
+            Total a pagar: <span class="text-amber-400 font-bold">S/. {{ getCartTotal() | number:'1.2-2' }}</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Column - Order Summary -->
+      <div class="cosmic-card p-6 h-fit sticky top-24">
+        <h2 class="text-2xl font-bold text-white mb-6 flex items-center">
+          <span class="mr-3">🛒</span>
+          Resumen del Pedido
+        </h2>
+
+        <!-- Cart Items -->
+        <div class="space-y-4 mb-6">
+          <div *ngFor="let item of cartItems" 
+               class="flex items-center space-x-4 p-3 bg-slate-800/50 rounded-lg">
+            <img [src]="item.imagen" [alt]="item.nombre" class="w-16 h-16 object-cover rounded-lg">
+            <div class="flex-1">
+              <h4 class="text-white font-medium">{{ item.nombre }}</h4>
+              <p class="text-slate-400 text-sm truncate">{{ item.descripcion }}</p>
+              <div class="text-amber-400 font-bold">S/. {{ item.precio | number:'1.2-2' }}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="border-t border-slate-700 pt-4 space-y-3">
+          <div class="flex justify-between text-slate-300">
+            <span>Subtotal:</span>
+            <span>S/. {{ getCartTotal() | number:'1.2-2' }}</span>
+          </div>
+          <div class="flex justify-between text-slate-300">
+            <span>Impuestos:</span>
+            <span>S/. {{ getTaxes() | number:'1.2-2' }}</span>
+          </div>
+          <div class="border-t border-slate-600 pt-3 flex justify-between text-xl font-bold text-white">
+            <span>Total:</span>
+            <span class="text-transparent bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text">
+              S/. {{ getFinalTotal() | number:'1.2-2' }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Payment Button -->
+        <div class="mt-8">
+          <button 
+            *ngIf="selectedPaymentMethod !== 'mobile'"
+            (click)="processPayment()"
+            [disabled]="!isFormValid()"
+            [class]="isFormValid() ? 'w-full btn-cosmic py-4 rounded-full transition-all duration-300 text-white font-medium' : 'w-full bg-slate-600 text-slate-400 py-4 rounded-full cursor-not-allowed'"
+            class="text-lg">
+            🚀 Pagar Ahora
+          </button>
+
+          <button 
+            *ngIf="selectedPaymentMethod === 'mobile'"
+            (click)="uploadPaymentScreenshot()"
+            [disabled]="!isContactInfoValid()"
+            [class]="isContactInfoValid() ? 'w-full btn-cosmic py-4 rounded-full transition-all duration-300 text-white font-medium' : 'w-full bg-slate-600 text-slate-400 py-4 rounded-full cursor-not-allowed'"
+            class="text-lg">
+            📸 Adjuntar Captura de Pago
+          </button>
+        </div>
+
+        <!-- Security Info -->
+        <div class="mt-6 p-4 bg-green-500/10 border border-green-500/30 rounded-lg">
+          <div class="flex items-center text-green-400 mb-2">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span class="font-medium">Compra 100% Segura</span>
+          </div>
+          <p class="text-green-300 text-sm">
+            Tus datos están protegidos con encriptación de nivel bancario
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
