@@ -3,6 +3,17 @@
 <head>
   <meta charset="utf-8">
   <title>Proyecto Experiencias</title>
+  <meta http-equiv="Content-Security-Policy"
+      content="
+        default-src 'self';
+        script-src 'self';
+        style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;
+        font-src 'self' https://fonts.gstatic.com;
+        img-src 'self' data: https:;
+        object-src 'none';
+        base-uri 'self';
+        form-action 'self';
+      ">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
