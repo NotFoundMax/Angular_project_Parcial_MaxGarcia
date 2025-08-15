@@ -225,35 +225,35 @@
 
   <!-- User Selection Dropdown -->
   <div *ngIf="showUserSelection && !isAuthenticated()"
-       class="absolute top-20 right-6 w-80 cosmic-card p-4 z-50 border border-white/20">
-    <h3 class="text-lg font-semibold text-white mb-4 text-center">Seleccionar Usuario</h3>
+       class="absolute top-20 right-6 w-64 bg-white rounded-lg shadow-lg p-4 z-50 border">
+    <h3 class="text-lg font-semibold text-gray-900 mb-4 text-center">Seleccionar Usuario</h3>
     <div class="grid grid-cols-1 gap-2">
       <button
         (click)="quickLogin('admin@stellarx.space')"
-        class="cosmic-btn-secondary p-3 rounded-lg text-left transition-all duration-300 hover:scale-105">
-        <div class="font-medium">Administrador</div>
-        <div class="text-sm text-slate-400">admin&#64;stellarx.space</div>
+        class="bg-gray-100 hover:bg-gray-200 p-3 rounded text-left transition-colors">
+        <div class="font-medium text-gray-900">Administrador</div>
+        <div class="text-sm text-gray-600">admin&#64;stellarx.space</div>
       </button>
 
       <button
         (click)="quickLogin('manager@stellarx.space')"
-        class="cosmic-btn-secondary p-3 rounded-lg text-left transition-all duration-300 hover:scale-105">
-        <div class="font-medium">Manager</div>
-        <div class="text-sm text-slate-400">manager&#64;stellarx.space</div>
+        class="bg-gray-100 hover:bg-gray-200 p-3 rounded text-left transition-colors">
+        <div class="font-medium text-gray-900">Manager</div>
+        <div class="text-sm text-gray-600">manager&#64;stellarx.space</div>
       </button>
 
       <button
         (click)="quickLogin('ventas@stellarx.space')"
-        class="cosmic-btn-secondary p-3 rounded-lg text-left transition-all duration-300 hover:scale-105">
-        <div class="font-medium">Ventas</div>
-        <div class="text-sm text-slate-400">ventas&#64;stellarx.space</div>
+        class="bg-gray-100 hover:bg-gray-200 p-3 rounded text-left transition-colors">
+        <div class="font-medium text-gray-900">Ventas</div>
+        <div class="text-sm text-gray-600">ventas&#64;stellarx.space</div>
       </button>
 
       <button
         (click)="quickLogin('usuario@stellarx.space')"
-        class="cosmic-btn-secondary p-3 rounded-lg text-left transition-all duration-300 hover:scale-105">
-        <div class="font-medium">Usuario</div>
-        <div class="text-sm text-slate-400">usuario&#64;stellarx.space</div>
+        class="bg-gray-100 hover:bg-gray-200 p-3 rounded text-left transition-colors">
+        <div class="font-medium text-gray-900">Usuario</div>
+        <div class="text-sm text-gray-600">usuario&#64;stellarx.space</div>
       </button>
     </div>
   </div>
