@@ -98,7 +98,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   // Validar información de tarjeta
   isCardInfoValid(): boolean {
     const cardNumberDigits = this.cardInfo.cardNumber.replace(/\s/g, '');
-    const isCardNumberValid = cardNumberDigits.length >= 16;
+    const isCardNumberValid = cardNumberDigits.length === 16;
     const isExpirationValid = this.isValidExpirationDate(this.cardInfo.expirationDate);
     const isCvcValid = this.cardInfo.cvc.length === 3;
 
