@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CartService } from '../../../servicios/cart.service';
 
 // Interfaz para definir la estructura de un producto
 interface Producto {
@@ -22,13 +23,28 @@ export class ProductCardComponent {
     imagen: ''
   };
 
+  // Emite el evento para abrir el modal
+  @Output() abrirModal = new EventEmitter<Producto>();
+
+  constructor(private cartService: CartService) {}
+
   // Método para manejar el evento de "Ver producto"
   verProducto() {
-    console.log(`Ver detalles del producto: ${this.producto.nombre}`);
+    this.abrirModal.emit(this.producto);
   }
 
   // Método para manejar el evento de "Agregar al carrito"
   agregarAlCarrito() {
-    console.log(`Producto ${this.producto.nombre} agregado al carrito`);
+    const success = this.cartService.addToCart(this.producto);
+    if (success) {
+      console.log(`Producto ${this.producto.nombre} agregado al carrito`);
+    } else {
+      alert(`La experiencia "${this.producto.nombre}" ya está en tu carrito espacial.\n\n¡No puedes agregar la misma experiencia dos veces!`);
+    }
+  }
+
+  // Verificar si el producto ya está en el carrito
+  isInCart(): boolean {
+    return this.cartService.isInCart(this.producto.nombre);
   }
 }

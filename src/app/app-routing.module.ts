@@ -6,6 +6,7 @@ import { TablasComponent } from './pages/tablas/tablas.component';
 import { DirectivesComponent } from './pages/directives/directives.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { FetchingComponent } from './pages/fetching/fetching.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -13,8 +14,8 @@ const routes: Routes = [
   { path: 'directives', component: DirectivesComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'tablas', component: TablasComponent },
-  { path: '**', redirectTo: 'home' },
-  { path: '', component: HomeComponent }, // ruta por defecto
+  { path: 'checkout', component: CheckoutComponent },
+  { path: '**', redirectTo: 'home' }
 ];
 
 

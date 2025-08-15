@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from '../product-card/product-card.component';
+import { CartService } from '../../../servicios/cart.service';
 
 // Interfaz para definir la estructura de un producto
 interface Producto {
@@ -15,6 +16,11 @@ interface Producto {
   templateUrl: './product-grid.component.html',
 })
 export class ProductGridComponent {
+  // Variables para el modal
+  mostrarModal = false;
+  productoSeleccionado: Producto | null = null;
+
+  constructor(private cartService: CartService) {}
   // Lista de experiencias espaciales
   productos: Producto[] = [
     {
@@ -72,4 +78,36 @@ export class ProductGridComponent {
       imagen: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop'
     }
   ];
+
+  // Método para abrir el modal con el producto seleccionado
+  abrirModalDetalle(producto: Producto) {
+    this.productoSeleccionado = producto;
+    this.mostrarModal = true;
+  }
+
+  // Método para cerrar el modal
+  cerrarModal() {
+    this.mostrarModal = false;
+    this.productoSeleccionado = null;
+  }
+
+  // Método para comprar el producto
+  comprarProducto() {
+    if (this.productoSeleccionado) {
+      const success = this.cartService.addToCart(this.productoSeleccionado);
+      if (success) {
+        console.log(`Comprando: ${this.productoSeleccionado.nombre}`);
+        alert(`¡Has agregado "${this.productoSeleccionado.nombre}" al carrito espacial!`);
+        this.cerrarModal();
+      } else {
+        alert(`La experiencia "${this.productoSeleccionado.nombre}" ya está en tu carrito espacial.\n\n¡No puedes agregar la misma experiencia dos veces!`);
+      }
+    }
+  }
+
+  // Verificar si el producto ya está en el carrito
+  isProductInCart(): boolean {
+    if (!this.productoSeleccionado) return false;
+    return this.cartService.isInCart(this.productoSeleccionado.nombre);
+  }
 }

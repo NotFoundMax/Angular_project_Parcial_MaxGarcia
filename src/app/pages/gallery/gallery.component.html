@@ -19,11 +19,15 @@
     
     <!-- Botones de acción -->
     <div class="flex justify-center gap-4 flex-wrap">
-      <a href="/tablas" class="btn-cosmic text-white font-medium px-6 py-3">
-        📊 Ver modo Tabla
-      </a>
-      <button class="cosmic-btn-secondary px-6 py-3 font-medium">
+      <button
+        (click)="goToCart()"
+        class="cosmic-btn-secondary px-6 py-3 font-medium relative">
         🛒 Ver Carrito Espacial
+        <span
+          *ngIf="cartCount > 0"
+          class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-bold animate-pulse">
+          {{ cartCount }}
+        </span>
       </button>
     </div>
   </div>
@@ -32,18 +36,8 @@
 <!-- Sección de productos -->
 <section class="py-16 bg-gradient-to-b from-indigo-900/30 to-purple-900/20">
   <div class="max-w-7xl mx-auto px-6">
-    <!-- Filtros y controles -->
-    <div class="flex flex-wrap items-center justify-between mb-12 gap-4">
-      <div class="flex items-center space-x-4">
-        <span class="text-slate-300 font-medium">Filtrar por:</span>
-        <select class="cosmic-select">
-          <option>Todas las Experiencias</option>
-          <option>Viajes Espaciales</option>
-          <option>Exploración Lunar</option>
-          <option>Aventuras Galácticas</option>
-        </select>
-      </div>
-      
+    <!-- Controles de ordenamiento -->
+    <div class="flex justify-end mb-12 gap-4">
       <div class="flex items-center space-x-4">
         <span class="text-slate-400 text-sm">Ordenar por:</span>
         <select class="cosmic-select text-sm">

@@ -1,0 +1,42 @@
+/* Cart modal specific styles */
+.cosmic-modal {
+  backdrop-filter: blur(10px);
+  animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scrollbar styling for cart items */
+.max-h-96::-webkit-scrollbar {
+  width: 4px;
+}
+
+.max-h-96::-webkit-scrollbar-track {
+  background: rgba(30, 41, 59, 0.3);
+  border-radius: 2px;
+}
+
+.max-h-96::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.5);
+  border-radius: 2px;
+}
+
+.max-h-96::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.7);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .w-96 {
+    width: calc(100vw - 2rem);
+  }
+}

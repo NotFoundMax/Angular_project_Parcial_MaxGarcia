@@ -1,6 +1,6 @@
-<div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-20 z-50" *ngIf="visible">
-  <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md text-slate-100">
-    <h3 class="text-xl font-semibold mb-4">Detalles del Producto</h3>
+<div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50" *ngIf="visible">
+  <div class="cosmic-modal bg-slate-900 rounded-xl shadow-2xl p-6 w-full max-w-md text-white border border-indigo-500/30">
+    <h3 class="text-xl font-semibold mb-4 galaxy-text">📱 Detalles del Producto</h3>
     <ng-container *ngIf="producto">
       <p><strong>ID:</strong> {{ producto.id }}</p>
       <p><strong>Titulo:</strong> {{ producto.title }}</p>
@@ -9,8 +9,8 @@
       <p><strong>Stock:</strong> {{ producto.count }}</p>
       <img [src]="producto.image" alt="Imagen del producto" style="max-width: 100%; height: auto; border-radius: 8px;" />
     </ng-container>
-    <div class="mt-4 text-right">
-      <button (click)="cerrar.emit()" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-500">Cerrar</button>
+    <div class="mt-6 text-right">
+      <button (click)="cerrar.emit()" class="cosmic-btn-close px-6 py-2 rounded-full transition-all duration-300">✖ Cerrar</button>
     </div>
   </div>
 </div>
