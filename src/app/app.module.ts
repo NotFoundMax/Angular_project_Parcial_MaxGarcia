@@ -24,6 +24,7 @@ import { CrearProductoComponent } from './modales/producto/crear-producto/crear-
 import { EditarProductoComponent } from './modales/producto/editar-producto/editar-producto.component';
 import { VerProductoComponent } from './modales/producto/ver-producto/ver-producto.component';
 import { CartModalComponent } from './componentes/cart-modal/cart-modal.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { CartModalComponent } from './componentes/cart-modal/cart-modal.componen
     TablaClienteComponent,
     CrearProductoComponent,
     EditarProductoComponent,
-    CartModalComponent
+    CartModalComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
