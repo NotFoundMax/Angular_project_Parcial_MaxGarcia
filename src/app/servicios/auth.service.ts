@@ -48,15 +48,6 @@ export class AuthService {
       roles: [UserRole.USUARIO],
       isActive: true,
       avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face'
-    },
-    {
-      id: '5',
-      nombre: 'David Martín',
-      email: 'manager.ventas@stellarx.space',
-      password: 'managerventas123',
-      roles: [UserRole.MANAGER, UserRole.VENTAS],
-      isActive: true,
-      avatarUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face'
     }
   ];
 

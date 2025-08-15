@@ -91,8 +91,7 @@ export class AuthComponent implements OnInit {
       'admin@stellarx.space': 'admin123',
       'manager@stellarx.space': 'manager123',
       'ventas@stellarx.space': 'ventas123',
-      'usuario@stellarx.space': 'usuario123',
-      'manager.ventas@stellarx.space': 'managerventas123'
+      'usuario@stellarx.space': 'usuario123'
     };
 
     this.loginData.email = email;
