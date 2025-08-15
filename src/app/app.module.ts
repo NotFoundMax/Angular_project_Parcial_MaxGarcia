@@ -68,7 +68,7 @@ import { ToastComponent } from './componentes/toast/toast.component';
     HttpClientModule
     
   ],
-  providers: [],
+  providers: [DomSanitizer],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
