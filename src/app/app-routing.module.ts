@@ -23,16 +23,11 @@ const routes: Routes = [
   
   // Rutas públicas
   { path: 'home', component: HomeComponent },
+  { path: 'gallery', component: GalleryComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'auth/login', component: AuthComponent },
-  
+
   // Rutas para usuarios autenticados
-  { 
-    path: 'gallery', 
-    component: GalleryComponent,
-    canActivate: [AuthGuard, HasRoleGuard],
-    data: { roles: [UserRole.USUARIO] }
-  },
   { 
     path: 'checkout', 
     component: CheckoutComponent,
