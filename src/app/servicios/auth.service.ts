@@ -16,34 +16,33 @@ export class AuthService {
     {
       id: '1',
       nombre: 'Ana García',
-      email: 'admin@stellarx.space',
+      email: 'admin@correo.com',
       password: 'admin123',
       roles: [UserRole.ADMINISTRADOR],
-      isActive: true,
-      avatarUrl: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face'
+      isActive: true
+      
     },
     {
       id: '2',
       nombre: 'Carlos Méndez',
-      email: 'manager@stellarx.space',
+      email: 'manager@correo.com',
       password: 'manager123',
       roles: [UserRole.MANAGER],
       isActive: true,
-      avatarUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face'
-    },
+    },  
     {
       id: '3',
       nombre: 'Laura Rodríguez',
-      email: 'ventas@stellarx.space',
+      email: 'ventas@correo.com',
       password: 'ventas123',
       roles: [UserRole.VENTAS],
       isActive: true,
-      avatarUrl: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face'
+     
     },
     {
       id: '4',
       nombre: 'Miguel Torres',
-      email: 'usuario@stellarx.space',
+      email: 'usuario@correo.com',
       password: 'usuario123',
       roles: [UserRole.USUARIO],
       isActive: true
