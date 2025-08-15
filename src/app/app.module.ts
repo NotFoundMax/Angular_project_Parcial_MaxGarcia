@@ -25,10 +25,10 @@ import { EditarProductoComponent } from './modales/producto/editar-producto/edit
 import { VerProductoComponent } from './modales/producto/ver-producto/ver-producto.component';
 import { CartModalComponent } from './componentes/cart-modal/cart-modal.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
-import { ContactComponent } from './pages/contact/contact.component';
+import { ContactComponent } from './pages/outer/contact/contact.component';
 import { HasRoleDirective } from './directives/has-role.directive';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { AuthComponent } from './pages/auth/auth.component';
+import { DashboardComponent } from './pages/inner/dashboard/dashboard.component';
+import { AuthComponent } from './pages/outer/auth/auth.component';
 import { ToastComponent } from './componentes/toast/toast.component';
 
 
