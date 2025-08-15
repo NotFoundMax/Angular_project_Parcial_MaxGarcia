@@ -232,9 +232,10 @@
           <div *ngFor="let item of cartItems" 
                class="flex items-center space-x-4 p-3 bg-slate-800/50 rounded-lg">
             <img [src]="item.imagen" [alt]="item.nombre" class="w-16 h-16 object-cover rounded-lg">
-            <div class="flex-1">
-              <h4 class="text-white font-medium">{{ item.nombre }}</h4>
-              <p class="text-slate-400 text-sm truncate">{{ item.descripcion }}</p>
+            <div class="flex-1 min-w-0">
+              <h4 class="text-white font-medium truncate">{{ item.nombre }}</h4>
+              <p class="text-slate-400 text-sm break-words leading-tight line-clamp-2"
+                 style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{{ item.descripcion }}</p>
               <div class="text-amber-400 font-bold">S/. {{ item.precio | number:'1.2-2' }}</div>
             </div>
           </div>
