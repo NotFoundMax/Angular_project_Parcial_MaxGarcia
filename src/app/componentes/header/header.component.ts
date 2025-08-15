@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   cartCount = 0;
   showCartModal = false;
   currentUser: User | null = null;
+  showUserSelection = false;
   private cartCountSubscription: Subscription = new Subscription();
   private userSubscription: Subscription = new Subscription();
 
@@ -41,7 +42,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   toggleCartModal(): void {
     if (this.cartCount === 0) {
-      // Si el carrito está vacío, ir directamente a la galería
+      // Si el carrito está vac��o, ir directamente a la galería
       this.router.navigate(['/gallery']);
       return;
     }
@@ -88,7 +89,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   // Método para obtener el saludo según el rol
   getGreeting(): string {
     if (!this.currentUser) return '';
-    
+
     const firstName = this.currentUser.nombre.split(' ')[0];
     if (this.hasRole(UserRole.ADMINISTRADOR)) {
       return `Hola, ${firstName} (Admin)`;
@@ -98,6 +99,26 @@ export class HeaderComponent implements OnInit, OnDestroy {
       return `Hola, ${firstName} (Ventas)`;
     } else {
       return `Hola, ${firstName}`;
+    }
+  }
+
+  // Método para login rápido
+  quickLogin(email: string): void {
+    const passwords: { [key: string]: string } = {
+      'admin@stellarx.space': 'admin123',
+      'manager@stellarx.space': 'manager123',
+      'ventas@stellarx.space': 'ventas123',
+      'usuario@stellarx.space': 'usuario123'
+    };
+
+    const password = passwords[email];
+    if (password) {
+      this.authService.login(email, password).subscribe(user => {
+        if (user) {
+          this.showUserSelection = false;
+          this.router.navigate(['/']);
+        }
+      });
     }
   }
 }
