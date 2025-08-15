@@ -28,6 +28,7 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { HasRoleDirective } from './directives/has-role.directive';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AuthComponent } from './pages/auth/auth.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     CheckoutComponent,
     ContactComponent,
     HasRoleDirective,
-    DashboardComponent
+    DashboardComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
