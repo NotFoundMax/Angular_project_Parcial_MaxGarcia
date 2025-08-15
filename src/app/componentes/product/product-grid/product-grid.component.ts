@@ -15,61 +15,61 @@ interface Producto {
   templateUrl: './product-grid.component.html',
 })
 export class ProductGridComponent {
-  // Lista de productos de ejemplo
+  // Lista de experiencias espaciales
   productos: Producto[] = [
     {
-      nombre: 'Producto 1',
-      descripcion: 'Descripción breve del producto 1 para mostrar en la tarjeta.',
-      precio: 29.99,
-      imagen: 'https://picsum.photos/300/200?random=1'
+      nombre: 'Experiencia 1',
+      descripcion: 'Viaje inmersivo a las constelaciones más lejanas del universo conocido.',
+      precio: 120.50,
+      imagen: 'https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=300&h=200&fit=crop'
     },
     {
-      nombre: 'Producto 2',
-      descripcion: 'Descripción breve del producto 2 para mostrar en la tarjeta.',
-      precio: 39.99,
-      imagen: 'https://picsum.photos/300/200?random=2'
+      nombre: 'Experiencia 2',
+      descripcion: 'Caminata lunar con tecnología de gravedad artificial avanzada.',
+      precio: 180.99,
+      imagen: 'https://images.unsplash.com/photo-1518066431836-dcf0a105c4ea?w=300&h=200&fit=crop'
     },
     {
-      nombre: 'Producto 3',
-      descripcion: 'Descripción breve del producto 3 para mostrar en la tarjeta.',
-      precio: 49.99,
-      imagen: 'https://picsum.photos/300/200?random=3'
+      nombre: 'Experiencia 3',
+      descripcion: 'Observación de auroras boreales desde el espacio exterior.',
+      precio: 95.75,
+      imagen: 'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=300&h=200&fit=crop'
     },
     {
-      nombre: 'Producto 4',
-      descripcion: 'Descripción breve del producto 4 para mostrar en la tarjeta.',
-      precio: 19.99,
-      imagen: 'https://picsum.photos/300/200?random=4'
+      nombre: 'Experiencia 4',
+      descripcion: 'Exploración de nebulosas y nacimiento de nuevas estrellas.',
+      precio: 75.99,
+      imagen: 'https://images.unsplash.com/photo-1502134249126-9f3755a50d78?w=300&h=200&fit=crop'
     },
     {
-      nombre: 'Producto 5',
-      descripcion: 'Descripción breve del producto 5 para mostrar en la tarjeta.',
-      precio: 59.99,
-      imagen: 'https://picsum.photos/300/200?random=5'
+      nombre: 'Experiencia 5',
+      descripcion: 'Aventura épica en la superficie del planeta Marte.',
+      precio: 250.00,
+      imagen: 'https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=300&h=200&fit=crop'
     },
     {
-      nombre: 'Producto 6',
-      descripcion: 'Descripción breve del producto 6 para mostrar en la tarjeta.',
-      precio: 69.99,
-      imagen: 'https://picsum.photos/300/200?random=6'
+      nombre: 'Experiencia 6',
+      descripcion: 'Visita a la Estación Espacial Internacional con actividades científicas.',
+      precio: 320.50,
+      imagen: 'https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=300&h=200&fit=crop'
     },
     {
-      nombre: 'Producto 7',
-      descripcion: 'Descripción breve del producto 7 para mostrar en la tarjeta.',
-      precio: 79.99,
-      imagen: 'https://picsum.photos/300/200?random=7'
+      nombre: 'Experiencia 7',
+      descripcion: 'Tour por los anillos de Saturno con vistas espectaculares.',
+      precio: 199.99,
+      imagen: 'https://images.unsplash.com/photo-1457364983758-510f8afa9f5f?w=300&h=200&fit=crop'
     },
     {
-      nombre: 'Producto 8',
-      descripcion: 'Descripción breve del producto 8 para mostrar en la tarjeta.',
-      precio: 89.99,
-      imagen: 'https://picsum.photos/300/200?random=8'
+      nombre: 'Experiencia 8',
+      descripcion: 'Encuentro con meteoros y lluvia de estrellas en tiempo real.',
+      precio: 140.25,
+      imagen: 'https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?w=300&h=200&fit=crop'
     },
     {
-      nombre: 'Producto 9',
-      descripcion: 'Descripción breve del producto 9 para mostrar en la tarjeta.',
-      precio: 99.99,
-      imagen: 'https://picsum.photos/300/200?random=9'
+      nombre: 'Experiencia 9',
+      descripcion: 'Expedición a los confines de la Vía Láctea y más allá.',
+      precio: 450.00,
+      imagen: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop'
     }
   ];
 }

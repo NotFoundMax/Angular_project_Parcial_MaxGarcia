@@ -1,23 +1,92 @@
-<!--  -->
-  
-<section class="py-10 text-center">
-  <div class="max-w-2xl mx-auto px-4">
-    <h1 class="text-4xl font-light text-slate-100 mb-4">Nuestras Experiencias</h1>
-    <p class="text-lg text-slate-400 mb-6">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis fuga molestiae laborum earum neque suscipit itaque esse exercitationem voluptatum, delectus nemo cupiditate, sint harum dicta tempore omnis dolores. Error, ex.
+<!-- Hero Section de Gallery -->
+<section class="relative py-20 pt-24 bg-gradient-to-b from-slate-900/50 to-indigo-900/30">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <!-- Badge de sección -->
+    <div class="inline-block px-4 py-2 bg-purple-500/20 rounded-full text-purple-300 text-sm font-medium mb-4">
+      🌌 Catálogo Galáctico
+    </div>
+    
+    <!-- Título principal -->
+    <h1 class="text-4xl md:text-6xl font-bold galaxy-text font-['Orbitron'] mb-6">
+      Nuestras Experiencias
+    </h1>
+    
+    <!-- Descripción -->
+    <p class="text-lg md:text-xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+      Explora una colección única de aventuras cósmicas diseñadas para llevarte más allá 
+      de los límites de tu imaginación. Cada experiencia es una puerta hacia lo extraordinario.
     </p>
+    
+    <!-- Botones de acción -->
     <div class="flex justify-center gap-4 flex-wrap">
-      <a href="/tables" class="bg-red-600 hover:bg-red-500 text-white px-5 py-2 rounded shadow">
-        Ver modo Tabla
+      <a href="/tablas" class="btn-cosmic text-white font-medium px-6 py-3">
+        📊 Ver modo Tabla
       </a>
-      <a href="#" class="bg-yellow-400 hover:bg-yellow-300 text-black px-5 py-2 rounded shadow">
-        Ver Carrito de Compras
-      </a>
+      <button class="cosmic-btn-secondary px-6 py-3 font-medium">
+        🛒 Ver Carrito Espacial
+      </button>
     </div>
   </div>
 </section>
-  <app-product-grid>
-  <app-product-card/>
-  </app-product-grid> 
-  
 
+<!-- Sección de productos -->
+<section class="py-16 bg-gradient-to-b from-indigo-900/30 to-purple-900/20">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Filtros y controles -->
+    <div class="flex flex-wrap items-center justify-between mb-12 gap-4">
+      <div class="flex items-center space-x-4">
+        <span class="text-slate-300 font-medium">Filtrar por:</span>
+        <select class="cosmic-select">
+          <option>Todas las Experiencias</option>
+          <option>Viajes Espaciales</option>
+          <option>Exploración Lunar</option>
+          <option>Aventuras Galácticas</option>
+        </select>
+      </div>
+      
+      <div class="flex items-center space-x-4">
+        <span class="text-slate-400 text-sm">Ordenar por:</span>
+        <select class="cosmic-select text-sm">
+          <option>Más Populares</option>
+          <option>Precio: Menor a Mayor</option>
+          <option>Precio: Mayor a Menor</option>
+          <option>Mejor Valorados</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Grid de productos -->
+    <app-product-grid>
+      <app-product-card/>
+    </app-product-grid>
+  </div>
+</section>
+
+<!-- Sección de información adicional -->
+<section class="py-16 bg-gradient-to-b from-purple-900/20 to-slate-900/50">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold galaxy-text font-['Orbitron'] mb-6">
+      ¿Por qué elegir StellarX?
+    </h2>
+    
+    <div class="grid md:grid-cols-3 gap-8 mt-12">
+      <div class="cosmic-card p-6 text-center">
+        <div class="text-4xl mb-4">🛡️</div>
+        <h3 class="text-xl font-bold text-white mb-3">100% Seguro</h3>
+        <p class="text-slate-400">Todas nuestras experiencias están certificadas por la Federación Galáctica</p>
+      </div>
+      
+      <div class="cosmic-card p-6 text-center">
+        <div class="text-4xl mb-4">⭐</div>
+        <h3 class="text-xl font-bold text-white mb-3">Calidad Premium</h3>
+        <p class="text-slate-400">Experiencias diseñadas por los mejores exploradores del cosmos</p>
+      </div>
+      
+      <div class="cosmic-card p-6 text-center">
+        <div class="text-4xl mb-4">🚀</div>
+        <h3 class="text-xl font-bold text-white mb-3">Tecnología Avanzada</h3>
+        <p class="text-slate-400">Equipamiento de última generación para tu seguridad y comodidad</p>
+      </div>
+    </div>
+  </div>
+</section>

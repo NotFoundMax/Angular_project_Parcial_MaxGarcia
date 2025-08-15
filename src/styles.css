@@ -32,9 +32,10 @@ body {
 
 /* Botones con diseño espacial pero sin animaciones pesadas */
 .btn-cosmic {
-  @apply px-8 py-4 rounded-full font-semibold transition-colors duration-300;
+  @apply px-8 py-4 font-semibold transition-colors duration-300;
   background: linear-gradient(45deg, var(--nebula-purple), var(--cosmic-blue));
   border: 2px solid transparent;
+  border-radius: 2rem;
 }
 
 .btn-cosmic:hover {
@@ -102,9 +103,48 @@ body {
   }
 }
 
+/* Botón secundario cósmico global */
+.cosmic-btn-secondary {
+  @apply font-semibold transition-all duration-300;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 2rem;
+}
+
+.cosmic-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(99, 102, 241, 0.5);
+  transform: translateY(-1px);
+}
+
+/* Selector cósmico global */
+.cosmic-select {
+  @apply bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white;
+  @apply focus:outline-none focus:border-indigo-400 transition-colors;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 8px center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  padding-right: 2.5rem;
+  appearance: none;
+}
+
+.cosmic-select option {
+  @apply bg-slate-800 text-white;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .btn-cosmic {
     @apply px-6 py-3 text-sm;
+  }
+
+  .cosmic-btn-secondary {
+    @apply px-4 py-2 text-sm;
+  }
+
+  .cosmic-select {
+    @apply text-sm px-3 py-2;
   }
 }
