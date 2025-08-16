@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AuthService } from '../../../servicios/auth.service';
+import { AuthService } from './auth.service';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-auth',
-  templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.css']
+  templateUrl: './login.html',
+  styleUrls: ['./login.css']
 })
 export class AuthComponent implements OnInit {
   isLoading = false;
