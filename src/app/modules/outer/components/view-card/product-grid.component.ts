@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductCardComponent } from '../product-card/product-card.component';
-import { CartService } from '../../../servicios/cart.service';
-import { ToastService } from '../../../servicios/toast.service';
+import { ProductCardComponent } from '../product-details/product-card.component';
+import { CartService } from '../../../core/services/customers.service';
+import { ToastService } from '../../../core/services/toast.service';
 
 // Interfaz para definir la estructura de un producto
 interface Producto {
