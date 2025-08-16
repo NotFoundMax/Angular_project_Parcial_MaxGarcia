@@ -1,0 +1,33 @@
+/* Estilos simplificados para el footer */
+
+/* Links del footer con efectos hover simples */
+.footer-link {
+  @apply text-slate-400 hover:text-white transition-colors duration-200 text-sm;
+}
+
+/* Iconos de redes sociales */
+.cosmic-social-link {
+  @apply w-10 h-10 bg-white/5 hover:bg-white/15 rounded-full flex items-center justify-center;
+  @apply text-slate-400 hover:text-white transition-colors duration-200;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cosmic-social-link:hover {
+  border-color: rgba(99, 102, 241, 0.5);
+}
+
+/* Efectos básicos para el newsletter */
+.cosmic-card input:focus {
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cosmic-social-link {
+    @apply w-8 h-8;
+  }
+  
+  .footer-link {
+    @apply text-xs;
+  }
+}
