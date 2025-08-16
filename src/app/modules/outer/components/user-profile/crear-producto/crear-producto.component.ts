@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
-import { Producto } from 'src/app/modelos/producto.model';
+import { Producto } from '../../../../interfaces/producto.model';
 
 
 @Component({
@@ -12,4 +12,3 @@ export class CrearProductoComponent {
   @Output() guardar = new EventEmitter<Producto>();
   @Output() cancelar = new EventEmitter<void>();
 }
-
