@@ -9,6 +9,8 @@ interface Producto {
   descripcion: string;
   precio: number;
   imagen: string;
+  categoria: string;
+  duracion: string;
 }
 
 @Component({
@@ -21,7 +23,9 @@ export class ProductCardComponent {
     nombre: '',
     descripcion: '',
     precio: 0,
-    imagen: ''
+    imagen: '',
+    categoria: '',
+    duracion: ''
   };
 
   // Emite el evento para abrir el modal
