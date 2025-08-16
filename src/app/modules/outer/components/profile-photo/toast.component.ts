@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ToastService, Toast } from '../../../core/services/toast.service';
+import { ToastService, Toast } from 'src/app/core/services/toast.service';
 import { Subscription } from 'rxjs';
 
 @Component({
