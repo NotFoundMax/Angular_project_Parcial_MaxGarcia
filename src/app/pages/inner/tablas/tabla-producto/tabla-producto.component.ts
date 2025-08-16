@@ -28,7 +28,10 @@ export class TablaProductoComponent implements OnInit, OnDestroy{
   error: string | null = null;
   private subscription: Subscription | null = null;
 
-  constructor(private productoService: ProductoService) {}
+  constructor(
+    private productoService: ProductoService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
     this.subscription = this.productoService.getProductos().subscribe({
