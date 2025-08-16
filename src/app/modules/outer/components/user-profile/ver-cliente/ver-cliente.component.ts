@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Cliente } from '../../../modelos/cliente.model';
+import { Cliente } from '../../../../interfaces/interfaceCustomer';
 
 @Component({
   selector: 'app-ver-cliente',
