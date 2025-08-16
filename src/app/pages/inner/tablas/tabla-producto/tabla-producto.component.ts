@@ -50,6 +50,17 @@ export class TablaProductoComponent implements OnInit, OnDestroy{
   ngOnDestroy() {
     this.subscription?.unsubscribe();
   }
+
+  // Verificar si el usuario puede editar productos (solo admin y manager)
+  puedeEditarProductos(): boolean {
+    return this.authService.hasAnyRole([UserRole.ADMINISTRADOR, UserRole.MANAGER]);
+  }
+
+  // Verificar si el usuario es solo de ventas
+  esUsuarioVentas(): boolean {
+    return this.authService.hasRole(UserRole.VENTAS) &&
+           !this.authService.hasAnyRole([UserRole.ADMINISTRADOR, UserRole.MANAGER]);
+  }
   
 
   // Variables para los modales
