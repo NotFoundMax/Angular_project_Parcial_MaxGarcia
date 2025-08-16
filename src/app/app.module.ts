@@ -3,13 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './modules/inner/components/header.component';
+import { HeaderComponent } from './modules/inner/components/header-selector';
 import { HomeComponent } from './modules/outer/pages/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './modules/outer/components/footer/footer.component';
-import { DirectivesComponent } from './modules/inner/pages/orders/directives.component';
+import { DirectivesComponent } from './modules/inner/pages/orders/orders';
 import { GalleryComponent } from './modules/outer/pages/gallery/gallery.component';
-import { FetchingComponent } from './modules/inner/pages/reports/fetching.component';
+import { FetchingComponent } from './modules/inner/pages/reports/reports';
 import { ProductCardComponent } from './modules/outer/components/product-details/product-card.component';
 import { ProductGridComponent } from './modules/outer/components/view-card/product-grid.component';
 import { VerClienteComponent } from './modules/outer/components/user-profile/ver-cliente.component';
@@ -19,7 +19,7 @@ import { ListaProductosComponent } from './modules/outer/components/post-form/li
 import { HttpClientModule } from '@angular/common/http';
 import { TablaProductoComponent } from './modules/outer/pages/directives/tabla-producto.component';
 import { TablaClienteComponent } from './modules/outer/pages/tables/tabla-cliente.component';
-import { TablasComponent } from './modules/inner/pages/admin/tablas.component';
+import { TablasComponent } from './modules/inner/pages/admin/admin';
 import { CrearProductoComponent } from './modales/producto/crear-producto/crear-producto.component';
 import { EditarProductoComponent } from './modales/producto/editar-producto/editar-producto.component';
 import { VerProductoComponent } from './modales/producto/ver-producto/ver-producto.component';
@@ -27,7 +27,7 @@ import { CartModalComponent } from './modules/outer/components/modal/cart-modal.
 import { CheckoutComponent } from './modules/outer/pages/login/checkout.component';
 import { ContactComponent } from './modules/outer/pages/customers/contact.component';
 import { HasRoleDirective } from './core/hasRole.directive';
-import { DashboardComponent } from './modules/inner/pages/dashboard/dashboard.component';
+import { DashboardComponent } from './modules/inner/pages/dashboard/dashboard';
 import { AuthComponent } from './auth/login';
 import { ToastComponent } from './modules/outer/components/profile-photo/toast.component';
 import { DomSanitizer } from '@angular/platform-browser'; // Angular provee proteccion integrada XSS 
