@@ -1,6 +1,6 @@
 // Componente para mostrar la tabla de clientes con acciones
 import { Component } from '@angular/core';
-import { Cliente } from '../../../../modelos/cliente.model';
+import { Cliente } from '../../../../interfaces/interfaceCustomer';
 import Swal from 'sweetalert2';
 
 
