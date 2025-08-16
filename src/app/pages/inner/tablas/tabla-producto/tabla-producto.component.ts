@@ -131,6 +131,10 @@ export class TablaProductoComponent implements OnInit, OnDestroy{
 
   // Abrir modal de editar
   editarProducto(producto: Producto) {
+    if (!this.puedeEditarProductos()) {
+      Swal.fire('Acceso denegado', 'No tienes permisos para editar productos', 'warning');
+      return;
+    }
     this.productoEditando = { ...producto };
     this.mostrarModalEditar = true;
   }
