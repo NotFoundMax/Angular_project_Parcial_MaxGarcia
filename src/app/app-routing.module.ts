@@ -2,14 +2,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './modules/outer/pages/home/home.component';
-import { TablasComponent } from './modules/inner/pages/admin/tablas.component';
-import { DirectivesComponent } from './modules/inner/pages/orders/directives.component';
+import { TablasComponent } from './modules/inner/pages/admin/admin';
+import { DirectivesComponent } from './modules/inner/pages/orders/orders';
 import { GalleryComponent } from './modules/outer/pages/gallery/gallery.component';
-import { FetchingComponent } from './modules/inner/pages/reports/fetching.component';
+import { FetchingComponent } from './modules/inner/pages/reports/reports';
 import { CheckoutComponent } from './modules/outer/pages/login/checkout.component';
 import { ContactComponent } from './modules/outer/pages/customers/contact.component';
 import { AuthComponent } from './auth/login';
-import { DashboardComponent } from './modules/inner/pages/dashboard/dashboard.component';
+import { DashboardComponent } from './modules/inner/pages/dashboard/dashboard';
 
 // Guards
 import { AuthGuard } from './core/guards/auth.guard';
