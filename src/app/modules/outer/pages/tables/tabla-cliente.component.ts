@@ -116,7 +116,10 @@ export class TablaClienteComponent {
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Sí, borrar',
-      cancelButtonText: 'Cancelar'
+      cancelButtonText: 'Cancelar',
+      confirmButtonColor: '#6366f1',
+      background: '#1e293b',
+      color: '#f1f5f9'
     }).then((result) => {
       if (result.isConfirmed) {
         this.clientes = this.clientes.filter(c => c.id !== cliente.id);

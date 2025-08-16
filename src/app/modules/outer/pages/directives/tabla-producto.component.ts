@@ -44,6 +44,7 @@ export class TablaProductoComponent implements OnInit, OnDestroy{
           price: item.price,
           count: item.rating?.count || 0, // Stock desde rating.count
           image: item.image
+          
         }));
         this.cargando = false;
       },
@@ -172,7 +173,10 @@ export class TablaProductoComponent implements OnInit, OnDestroy{
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Sí, borrar',
-      cancelButtonText: 'Cancelar'
+      cancelButtonText: 'Cancelar',
+      confirmButtonColor: '#6366f1',
+      background: '#1e293b',
+      color: '#f1f5f9'
     }).then((result) => {
       if (result.isConfirmed) {
         this.productos = this.productos.filter(p => p.id !== producto.id);
