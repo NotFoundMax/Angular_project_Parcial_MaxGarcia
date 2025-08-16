@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { Chart, ChartConfiguration, ChartType, registerables } from 'chart.js';
-import { AuthService } from '../../../auth/auth.service';
-import { User } from '../../../interfaces/user.model';
-import { UserRole } from '../../../interfaces/user-role.enum';
+import { AuthService } from 'src/app/auth/auth.service';
+import { User } from 'src/app/interfaces/user.model';
+import { UserRole } from 'src/app/interfaces/user-role.enum';
 import { Subscription } from 'rxjs';
 
 // Registrar los componentes de Chart.js
