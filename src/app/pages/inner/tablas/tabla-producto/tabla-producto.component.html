@@ -1,6 +1,7 @@
 <section class="p-6 bg-slate-900 min-h-0 rounded-xl shadow-md">
   <h2 class="text-2xl font-semibold text-slate-100 mb-4 text-center">Lista de Productos</h2>
   <button
+    *ngIf="puedeEditarProductos()"
     (click)="abrirModalCrear()"
     class="mb-4 btn-cosmic text-white px-6 py-3 rounded-full transition-all duration-300">
     ✨ Crear Nuevo Producto
@@ -26,12 +27,14 @@
           <td class="py-2 px-4">{{ producto.description }}</td>
           <td class="py-2 px-4">{{ producto.price }}</td>
           <td class="py-2 px-4">{{ producto.count }}</td>
-          <td class="py-2 px-4">{{ producto.image }}</td>
+          <td class="py-2 px-4">
+            <img [src]="producto.image" [alt]="producto.title" class="w-12 h-12 object-cover rounded">
+          </td>
           <td class="py-2 px-4">
             <div class="flex flex-wrap gap-2">
               <button (click)="verProducto(producto)" class="cosmic-btn-view text-white px-3 py-1 rounded-full text-xs transition-all duration-200">👁️ Ver</button>
-              <button (click)="editarProducto(producto)" class="cosmic-btn-edit text-white px-3 py-1 rounded-full text-xs transition-all duration-200">✏️ Editar</button>
-              <button (click)="borrarProducto(producto)" class="cosmic-btn-delete text-white px-3 py-1 rounded-full text-xs transition-all duration-200">🗑️ Borrar</button>
+              <button *ngIf="puedeEditarProductos()" (click)="editarProducto(producto)" class="cosmic-btn-edit text-white px-3 py-1 rounded-full text-xs transition-all duration-200">✏️ Editar</button>
+              <button *ngIf="puedeEditarProductos()" (click)="borrarProducto(producto)" class="cosmic-btn-delete text-white px-3 py-1 rounded-full text-xs transition-all duration-200">🗑️ Borrar</button>
             </div>
           </td>
         </tr>

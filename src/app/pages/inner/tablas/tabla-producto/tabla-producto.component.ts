@@ -2,6 +2,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ProductoService } from 'src/app/servicios/producto.service';
+import { AuthService } from 'src/app/servicios/auth.service';
+import { UserRole } from 'src/app/modelos/user-role.enum';
 import Swal from 'sweetalert2';
 
 export interface Producto {
@@ -26,12 +28,23 @@ export class TablaProductoComponent implements OnInit, OnDestroy{
   error: string | null = null;
   private subscription: Subscription | null = null;
 
-  constructor(private productoService: ProductoService) {}
+  constructor(
+    private productoService: ProductoService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
     this.subscription = this.productoService.getProductos().subscribe({
-      next: (data) => {
-        this.productos = data;
+      next: (data: any[]) => {
+        // Mapear datos de la API a nuestro modelo
+        this.productos = data.map(item => ({
+          id: item.id,
+          title: item.title,
+          description: item.description,
+          price: item.price,
+          count: item.rating?.count || 0, // Stock desde rating.count
+          image: item.image
+        }));
         this.cargando = false;
       },
       error: (err) => {
@@ -44,6 +57,17 @@ export class TablaProductoComponent implements OnInit, OnDestroy{
 
   ngOnDestroy() {
     this.subscription?.unsubscribe();
+  }
+
+  // Verificar si el usuario puede editar productos (solo admin y manager)
+  puedeEditarProductos(): boolean {
+    return this.authService.hasAnyRole([UserRole.ADMINISTRADOR, UserRole.MANAGER]);
+  }
+
+  // Verificar si el usuario es solo de ventas
+  esUsuarioVentas(): boolean {
+    return this.authService.hasRole(UserRole.VENTAS) &&
+           !this.authService.hasAnyRole([UserRole.ADMINISTRADOR, UserRole.MANAGER]);
   }
   
 
@@ -74,6 +98,10 @@ export class TablaProductoComponent implements OnInit, OnDestroy{
 
   // Abrir modal de crear producto
   abrirModalCrear() {
+    if (!this.puedeEditarProductos()) {
+      Swal.fire('Acceso denegado', 'No tienes permisos para crear productos', 'warning');
+      return;
+    }
     const maxId = this.productos.length > 0 ? Math.max(...this.productos.map(p => p.id)) : 0;
     this.nuevoProducto = {
       id: maxId + 1,
@@ -111,6 +139,10 @@ export class TablaProductoComponent implements OnInit, OnDestroy{
 
   // Abrir modal de editar
   editarProducto(producto: Producto) {
+    if (!this.puedeEditarProductos()) {
+      Swal.fire('Acceso denegado', 'No tienes permisos para editar productos', 'warning');
+      return;
+    }
     this.productoEditando = { ...producto };
     this.mostrarModalEditar = true;
   }
@@ -130,6 +162,10 @@ export class TablaProductoComponent implements OnInit, OnDestroy{
 
   // Confirmar borrado con SweetAlert2
   borrarProducto(producto: Producto) {
+    if (!this.puedeEditarProductos()) {
+      Swal.fire('Acceso denegado', 'No tienes permisos para eliminar productos', 'warning');
+      return;
+    }
     Swal.fire({
       title: '¿Estás seguro?',
       text: `¿Deseas borrar el producto "${producto.title}"?`,
@@ -145,6 +181,3 @@ export class TablaProductoComponent implements OnInit, OnDestroy{
     });
   }
 }
-
-
-
