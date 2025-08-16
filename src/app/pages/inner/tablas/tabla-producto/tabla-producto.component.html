@@ -27,7 +27,9 @@
           <td class="py-2 px-4">{{ producto.description }}</td>
           <td class="py-2 px-4">{{ producto.price }}</td>
           <td class="py-2 px-4">{{ producto.count }}</td>
-          <td class="py-2 px-4">{{ producto.image }}</td>
+          <td class="py-2 px-4">
+            <img [src]="producto.image" [alt]="producto.title" class="w-12 h-12 object-cover rounded">
+          </td>
           <td class="py-2 px-4">
             <div class="flex flex-wrap gap-2">
               <button (click)="verProducto(producto)" class="cosmic-btn-view text-white px-3 py-1 rounded-full text-xs transition-all duration-200">👁️ Ver</button>
