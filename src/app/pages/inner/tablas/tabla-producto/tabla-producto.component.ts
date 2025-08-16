@@ -35,8 +35,16 @@ export class TablaProductoComponent implements OnInit, OnDestroy{
 
   ngOnInit() {
     this.subscription = this.productoService.getProductos().subscribe({
-      next: (data) => {
-        this.productos = data;
+      next: (data: any[]) => {
+        // Mapear datos de la API a nuestro modelo
+        this.productos = data.map(item => ({
+          id: item.id,
+          title: item.title,
+          description: item.description,
+          price: item.price,
+          count: item.rating?.count || 0, // Stock desde rating.count
+          image: item.image
+        }));
         this.cargando = false;
       },
       error: (err) => {
