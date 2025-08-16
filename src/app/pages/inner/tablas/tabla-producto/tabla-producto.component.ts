@@ -2,6 +2,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ProductoService } from 'src/app/servicios/producto.service';
+import { AuthService } from 'src/app/servicios/auth.service';
+import { UserRole } from 'src/app/modelos/user-role.enum';
 import Swal from 'sweetalert2';
 
 export interface Producto {
@@ -145,6 +147,3 @@ export class TablaProductoComponent implements OnInit, OnDestroy{
     });
   }
 }
-
-
-
