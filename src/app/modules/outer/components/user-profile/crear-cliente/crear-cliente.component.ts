@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
-import { Cliente } from '../../../modelos/cliente.model';
+import { Cliente } from '../../../../interfaces/interfaceCustomer';
 
 @Component({
   selector: 'app-crear-cliente',
@@ -11,4 +11,3 @@ export class CrearClienteComponent {
   @Output() guardar = new EventEmitter<Cliente>();
   @Output() cancelar = new EventEmitter<void>();
 }
-
