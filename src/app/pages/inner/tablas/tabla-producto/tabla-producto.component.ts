@@ -90,6 +90,10 @@ export class TablaProductoComponent implements OnInit, OnDestroy{
 
   // Abrir modal de crear producto
   abrirModalCrear() {
+    if (!this.puedeEditarProductos()) {
+      Swal.fire('Acceso denegado', 'No tienes permisos para crear productos', 'warning');
+      return;
+    }
     const maxId = this.productos.length > 0 ? Math.max(...this.productos.map(p => p.id)) : 0;
     this.nuevoProducto = {
       id: maxId + 1,
