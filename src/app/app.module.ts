@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,9 +21,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { TablaProductoComponent } from './modules/outer/pages/directives/tabla-producto.component';
 import { TablaClienteComponent } from './modules/outer/pages/tables/tabla-cliente.component';
 import { TablasComponent } from './modules/inner/pages/admin/admin';
-import { CrearProductoComponent } from './modales/producto/crear-producto/crear-producto.component';
-import { EditarProductoComponent } from './modales/producto/editar-producto/editar-producto.component';
-import { VerProductoComponent } from './modales/producto/ver-producto/ver-producto.component';
+import { CrearProductoComponent } from './modules/outer/components/user-profile/crear-producto.component';
+import { EditarProductoComponent } from './modules/outer/components/user-profile/editar-producto.component';
+import { VerProductoComponent } from './modules/outer/components/user-profile/ver-producto.component';
 import { CartModalComponent } from './modules/outer/components/modal/cart-modal.component';
 import { CheckoutComponent } from './modules/outer/pages/login/checkout.component';
 import { ContactComponent } from './modules/outer/pages/customers/contact.component';
@@ -66,10 +67,11 @@ import { DomSanitizer } from '@angular/platform-browser'; // Angular provee prot
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]
