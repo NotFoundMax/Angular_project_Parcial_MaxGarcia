@@ -1,0 +1,87 @@
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from './auth.service';
+import Swal from 'sweetalert2';
+
+@Component({
+  selector: 'app-auth',
+  templateUrl: './login.html',
+  styleUrls: ['./login.css']
+})
+export class AuthComponent implements OnInit {
+  isLoading = false;
+  returnUrl = '/';
+
+  loginData = {
+    email: '',
+    password: ''
+  };
+
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
+
+  ngOnInit(): void {
+    // Obtener la URL de retorno o usar '/' por defecto
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    
+    // Si ya está autenticado, redirigir
+    if (this.authService.isAuthenticated()) {
+      this.router.navigate([this.returnUrl]);
+    }
+  }
+
+  onSubmit(form: NgForm): void {
+    if (form.valid) {
+      this.isLoading = true;
+      
+      this.authService.login(this.loginData.email, this.loginData.password)
+        .subscribe({
+          next: (user) => {
+            this.isLoading = false;
+            
+            if (user) {
+              Swal.fire({
+                title: '¡Bienvenido!',
+                text: `Hola ${user.nombre}, has iniciado sesión exitosamente.`,
+                icon: 'success',
+                confirmButtonText: 'Continuar',
+                confirmButtonColor: '#6366f1',
+                background: 'rgba(15, 23, 42, 0.95)',
+                color: '#f8fafc',
+                timer: 2000
+              }).then(() => {
+                this.router.navigate([this.returnUrl]);
+              });
+            } else {
+              Swal.fire({
+                title: 'Error de Autenticación',
+                text: 'Credenciales incorrectas. Verifica tu email y contraseña.',
+                icon: 'error',
+                confirmButtonText: 'Reintentar',
+                confirmButtonColor: '#ef4444',
+                background: 'rgba(15, 23, 42, 0.95)',
+                color: '#f8fafc'
+              });
+            }
+          },
+          error: (error) => {
+            this.isLoading = false;
+            Swal.fire({
+              title: 'Error del Sistema',
+              text: 'Ocurrió un error inesperado. Por favor, intenta nuevamente.',
+              icon: 'error',
+              confirmButtonText: 'Entendido',
+              confirmButtonColor: '#ef4444',
+              background: 'rgba(15, 23, 42, 0.95)',
+              color: '#f8fafc'
+            });
+          }
+        });
+    }
+  }
+
+}

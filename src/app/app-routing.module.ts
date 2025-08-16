@@ -1,22 +1,22 @@
 // Configuración de rutas principales
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './pages/outer/home/home.component';
-import { TablasComponent } from './pages/inner/tablas/tablas.component';
-import { DirectivesComponent } from './pages/inner/directives/directives.component';
-import { GalleryComponent } from './pages/outer/gallery/gallery.component';
-import { FetchingComponent } from './pages/inner/fetching/fetching.component';
-import { CheckoutComponent } from './pages/checkout/checkout.component';
-import { ContactComponent } from './pages/outer/contact/contact.component';
-import { AuthComponent } from './pages/outer/auth/auth.component';
-import { DashboardComponent } from './pages/inner/dashboard/dashboard.component';
+import { HomeComponent } from './modules/outer/pages/home/home.component';
+import { TablasComponent } from './modules/inner/pages/admin/admin';
+import { DirectivesComponent } from './modules/inner/pages/orders/orders';
+import { GalleryComponent } from './modules/outer/pages/gallery/gallery.component';
+import { FetchingComponent } from './modules/inner/pages/reports/reports';
+import { CheckoutComponent } from './modules/outer/pages/login/checkout.component';
+import { ContactComponent } from './modules/outer/pages/customers/contact.component';
+import { AuthComponent } from './auth/login';
+import { DashboardComponent } from './modules/inner/pages/dashboard/dashboard';
 
 // Guards
-import { AuthGuard } from './guards/auth.guard';
-import { HasRoleGuard } from './guards/has-role.guard';
+import { AuthGuard } from './core/guards/auth.guard';
+import { HasRoleGuard } from './core/guards/has-role.guard';
 
 // Enums
-import { UserRole } from './modelos/user-role.enum';
+import { UserRole } from './interfaces/user-role.enum';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
