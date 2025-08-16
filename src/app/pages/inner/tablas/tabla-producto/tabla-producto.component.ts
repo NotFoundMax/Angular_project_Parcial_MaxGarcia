@@ -154,6 +154,10 @@ export class TablaProductoComponent implements OnInit, OnDestroy{
 
   // Confirmar borrado con SweetAlert2
   borrarProducto(producto: Producto) {
+    if (!this.puedeEditarProductos()) {
+      Swal.fire('Acceso denegado', 'No tienes permisos para eliminar productos', 'warning');
+      return;
+    }
     Swal.fire({
       title: '¿Estás seguro?',
       text: `¿Deseas borrar el producto "${producto.title}"?`,
