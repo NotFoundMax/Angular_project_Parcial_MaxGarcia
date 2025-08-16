@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { User } from '../modelos/user.model';
-import { UserRole } from '../modelos/user-role.enum';
+import { User } from '../interfaces/user.model';
+import { UserRole } from '../interfaces/user-role.enum';
 
 @Injectable({
   providedIn: 'root'
