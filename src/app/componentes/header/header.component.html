@@ -89,12 +89,12 @@
           </a>
         </ng-container>
 
-        <!-- Navegación para ventas (solo dashboard) -->
+        <!-- Navegación para ventas (solo tablas) -->
         <ng-container *ngIf="hasRole(UserRole.VENTAS) && !hasAnyRole([UserRole.ADMINISTRADOR, UserRole.MANAGER])">
-          <a routerLink="/dashboard"
+          <a routerLink="/tablas"
              routerLinkActive="nav-active"
              class="nav-link px-4 py-2 rounded-lg">
-            Dashboard
+            Panel
           </a>
         </ng-container>
       </div>
@@ -211,7 +211,7 @@
 
       <!-- Ventas -->
       <ng-container *ngIf="hasRole(UserRole.VENTAS) && !hasAnyRole([UserRole.ADMINISTRADOR, UserRole.MANAGER])">
-        <a routerLink="/dashboard" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Dashboard</a>
+        <a routerLink="/tablas" class="block px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Panel</a>
       </ng-container>
 
       <!-- Checkout para usuarios con carrito -->
