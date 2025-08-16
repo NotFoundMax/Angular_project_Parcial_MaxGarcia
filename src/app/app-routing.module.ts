@@ -36,17 +36,17 @@ const routes: Routes = [
   },
   
   // Rutas administrativas
-  { 
-    path: 'dashboard', 
+  {
+    path: 'dashboard',
     component: DashboardComponent,
     canActivate: [AuthGuard, HasRoleGuard],
-    data: { roles: [UserRole.ADMINISTRADOR, UserRole.MANAGER, UserRole.VENTAS] }
+    data: { roles: [UserRole.ADMINISTRADOR, UserRole.MANAGER] }
   },
-  { 
-    path: 'tablas', 
+  {
+    path: 'tablas',
     component: TablasComponent,
     canActivate: [AuthGuard, HasRoleGuard],
-    data: { roles: [UserRole.ADMINISTRADOR, UserRole.MANAGER] }
+    data: { roles: [UserRole.ADMINISTRADOR, UserRole.MANAGER, UserRole.VENTAS] }
   },
   { 
     path: 'directives', 
