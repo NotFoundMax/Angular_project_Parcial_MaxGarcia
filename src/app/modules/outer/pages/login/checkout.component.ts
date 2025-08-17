@@ -61,26 +61,31 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     this.cartSubscription.unsubscribe();
   }
 
-  // Formatear número de tarjeta
+  // Formatear número de tarjeta (más simple)
   formatCardNumber(event: any): void {
-    let value = event.target.value.replace(/\s/g, '').replace(/[^0-9]/gi, '');
-    let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
-    this.cardInfo.cardNumber = formattedValue;
+    const input = event.target.value;
+    // Solo números, sin espacios
+    const numbers = input.replace(/[^0-9]/g, '');
+    // Agregar espacios cada 4 dígitos
+    const formatted = numbers.replace(/(.{4})/g, '$1 ');
+    this.cardInfo.cardNumber = formatted.trim();
   }
 
-  // Formatear fecha de vencimiento
+  // Formatear fecha de vencimiento (MM/YY)
   formatExpirationDate(event: any): void {
-    let value = event.target.value.replace(/\D/g, '');
-    if (value.length >= 2) {
-      value = value.substring(0, 2) + '/' + value.substring(2, 4);
+    const input = event.target.value;
+    const numbers = input.replace(/[^0-9]/g, '');
+    if (numbers.length >= 2) {
+      this.cardInfo.expirationDate = numbers.substring(0, 2) + '/' + numbers.substring(2, 4);
+    } else {
+      this.cardInfo.expirationDate = numbers;
     }
-    this.cardInfo.expirationDate = value;
   }
 
-  // Formatear CVC
+  // Formatear CVC (solo números)
   formatCVC(event: any): void {
-    let value = event.target.value.replace(/[^0-9]/gi, '');
-    this.cardInfo.cvc = value;
+    const input = event.target.value;
+    this.cardInfo.cvc = input.replace(/[^0-9]/g, '');
   }
 
   // Validar información de contacto
