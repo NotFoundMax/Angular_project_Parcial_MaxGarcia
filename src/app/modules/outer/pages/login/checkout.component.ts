@@ -88,27 +88,28 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     this.cardInfo.cvc = input.replace(/[^0-9]/g, '');
   }
 
-  // Validar información de contacto
+  // Verificar si los datos de contacto están completos
   isContactInfoValid(): boolean {
-    return this.contactInfo.fullName.trim() !== '' && 
-           this.contactInfo.email.trim() !== '' &&
-           this.isValidEmail(this.contactInfo.email);
+    const hasName = this.contactInfo.fullName.trim().length > 0;
+    const hasEmail = this.contactInfo.email.trim().length > 0;
+    const emailIsValid = this.isValidEmail(this.contactInfo.email);
+
+    return hasName && hasEmail && emailIsValid;
   }
 
-  // Validar email
+  // Verificar si el email tiene formato correcto
   isValidEmail(email: string): boolean {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+    return email.includes('@') && email.includes('.');
   }
 
-  // Validar información de tarjeta
+  // Verificar si los datos de tarjeta están completos
   isCardInfoValid(): boolean {
-    const cardNumberDigits = this.cardInfo.cardNumber.replace(/\s/g, '');
-    const isCardNumberValid = cardNumberDigits.length >= 16;
-    const isExpirationValid = this.isValidExpirationDate(this.cardInfo.expirationDate);
-    const isCvcValid = this.cardInfo.cvc.length === 3;
+    const cardNumbers = this.cardInfo.cardNumber.replace(/\s/g, '');
+    const hasValidCardNumber = cardNumbers.length >= 16;
+    const hasValidDate = this.cardInfo.expirationDate.length === 5;
+    const hasValidCVC = this.cardInfo.cvc.length === 3;
 
-    return isCardNumberValid && isExpirationValid && isCvcValid;
+    return hasValidCardNumber && hasValidDate && hasValidCVC;
   }
 
   // Validar fecha de vencimiento
