@@ -31,31 +31,44 @@ export class ProductCardComponent {
     this.abrirModal.emit(this.producto);
   }
 
-  // Método para manejar el evento de "Agregar/Quitar del carrito"
+  // Agregar o quitar producto del carrito
   agregarAlCarrito() {
-    if (this.isInCart()) {
-      // Si está en el carrito, lo removemos
-      const removed = this.cartService.removeByProductName(this.producto.nombre);
-      if (removed) {
-        this.toastService.info(
-          '🗑️ Experiencia Removida',
-          `"${this.producto.nombre}" ha sido quitada de tu carrito espacial.`
-        );
-      }
+    // Verificar si el producto ya está en el carrito
+    const productoYaEstaEnCarrito = this.isInCart();
+
+    if (productoYaEstaEnCarrito) {
+      // Quitar del carrito
+      this.quitarDelCarrito();
     } else {
-      // Si no está en el carrito, lo agregamos
-      const success = this.cartService.addToCart(this.producto);
-      if (success) {
-        this.toastService.success(
-          '🚀 ¡Experiencia Agregada!',
-          `"${this.producto.nombre}" ha sido añadida a tu carrito espacial.`
-        );
-      } else {
-        this.toastService.warning(
-          '⚠️ Ya en Carrito',
-          `La experiencia "${this.producto.nombre}" ya está en tu carrito espacial.`
-        );
-      }
+      // Agregar al carrito
+      this.añadirAlCarrito();
+    }
+  }
+
+  // Quitar producto del carrito
+  private quitarDelCarrito() {
+    const seQuito = this.cartService.removeByProductName(this.producto.nombre);
+    if (seQuito) {
+      this.toastService.info(
+        '🗑️ Experiencia Removida',
+        `"${this.producto.nombre}" ha sido quitada de tu carrito espacial.`
+      );
+    }
+  }
+
+  // Añadir producto al carrito
+  private añadirAlCarrito() {
+    const seAñadio = this.cartService.addToCart(this.producto);
+    if (seAñadio) {
+      this.toastService.success(
+        '🚀 ¡Experiencia Agregada!',
+        `"${this.producto.nombre}" ha sido añadida a tu carrito espacial.`
+      );
+    } else {
+      this.toastService.warning(
+        '⚠️ Ya en Carrito',
+        `La experiencia "${this.producto.nombre}" ya está en tu carrito espacial.`
+      );
     }
   }
 
