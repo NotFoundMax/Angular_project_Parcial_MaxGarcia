@@ -1,9 +1,9 @@
 <!-- Cart Modal -->
-<div class="fixed inset-0 z-50" *ngIf="isVisible" (click)="closeModal()">
-  <!-- Backdrop -->
-  <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+<div class="fixed inset-3 z-10" *ngIf="isVisible" (click)="closeModal()">
+  <!-- fondo -->
+  <div class="absolute inset-0 bg-black bg-opacity-60"></div>
   
-  <!-- Modal positioned near cart icon -->
+  <!-- Modal posicionado cerca cart icon -->
   <div class="absolute top-20 right-4 w-96 max-w-[90vw]" (click)="$event.stopPropagation()">
     <div class="cosmic-modal bg-slate-900 rounded-xl shadow-2xl border border-indigo-500/30 overflow-hidden">
       <!-- Header -->

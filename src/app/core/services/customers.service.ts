@@ -99,7 +99,7 @@ export class CartService {
   isInCart(productName: string): boolean {
     return this.cartItems.value.some(item => item.nombre === productName);
   }
-
+  //metodo apra actualizar el cartcount teniendo en cuenta la cantidad de items
   private updateCartCount(): void {
     const count = this.cartItems.value.length;
     this.cartCount.next(count);

@@ -1,4 +1,11 @@
 /* Toast animation */
+:host {
+  position: fixed;       /* Se queda pegado en la pantalla */
+  top: 1rem;             /* Separado desde arriba */
+  right: 1rem;           /* Pegado a la derecha */
+  z-index: 9999;         /* Muy por encima de otros elementos */
+  pointer-events: none;  /* (opcional) para que clics pasen por debajo */
+}
 @keyframes slide-in-right {
   from {
     transform: translateX(100%);

@@ -1,5 +1,4 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { CartService } from 'src/app/core/services/customers.service';
 import { ToastService } from 'src/app/core/services/toast.service';
 

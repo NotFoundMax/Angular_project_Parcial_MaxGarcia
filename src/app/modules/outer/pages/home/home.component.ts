@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 /**
  * Componente standalone para la página principal del Marketplace de Experiencias Espaciales
@@ -24,7 +23,15 @@ export class HomeComponent {
     });
   }
 
-  // Experiencias espaciales disponibles
+   // Estadísticas del marketplace
+  estadisticas = [
+    { numero: '50K+', descripcion: 'Exploradores Estelares', icono: '👨‍🚀' },
+    { numero: '200+', descripcion: 'Experiencias Únicas', icono: '🌌' },
+    { numero: '99.8%', descripcion: 'Satisfacción Galáctica', icono: '⭐' },
+    { numero: '25', descripcion: 'Planetas Explorados', icono: '🪐' }
+  ];
+
+  // Experiencias Extaordinarias en home 
   productos = [
     { 
       nombre: 'Viaje a las Estrellas', 
@@ -110,13 +117,7 @@ export class HomeComponent {
     }
   ];
 
-  // Estadísticas del marketplace
-  estadisticas = [
-    { numero: '50K+', descripcion: 'Exploradores Estelares', icono: '👨‍🚀' },
-    { numero: '200+', descripcion: 'Experiencias Únicas', icono: '🌌' },
-    { numero: '99.8%', descripcion: 'Satisfacción Galáctica', icono: '⭐' },
-    { numero: '25', descripcion: 'Planetas Explorados', icono: '🪐' }
-  ];
+ 
 
   navegarASeccion(sectionId: string) {
     const element = document.getElementById(sectionId);
@@ -133,8 +134,4 @@ export class HomeComponent {
     }
   }
 
-  // Método para obtener las estrellas de rating
-  getStarArray(rating: number): boolean[] {
-    return Array(5).fill(false).map((_, i) => rating > i);
-  }
 }

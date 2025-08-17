@@ -30,7 +30,7 @@ import { ContactComponent } from './modules/outer/pages/customers/contact.compon
 import { HasRoleDirective } from './core/hasRole.directive';
 import { DashboardComponent } from './modules/inner/pages/dashboard/dashboard';
 import { AuthComponent } from './auth/login';
-import { ToastComponent } from './modules/outer/components/profile-photo/toast.component';
+import { ToastComponent } from './modules/outer/components/toast/toast.component';
 import { DomSanitizer } from '@angular/platform-browser'; // Angular provee proteccion integrada XSS 
 
 

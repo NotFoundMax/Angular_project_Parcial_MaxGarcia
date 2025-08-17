@@ -46,7 +46,7 @@ export class ToastService {
     this.toastsSubject.next(updatedToasts);
   }
 
-  // Convenience methods
+  // metodos
   success(title: string, message: string, duration?: number): void {
     this.show('success', title, message, duration);
   }
