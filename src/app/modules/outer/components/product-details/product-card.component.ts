@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { CartService } from 'src/app/core/services/customers.service';
+import { CartService } from 'src/app/core/services/cart.service';
 import { ToastService } from 'src/app/core/services/toast.service';
 
 // Interfaz para definir la estructura de un producto

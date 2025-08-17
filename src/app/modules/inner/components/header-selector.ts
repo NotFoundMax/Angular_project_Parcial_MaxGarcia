@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { CartService } from '../../../core/services/customers.service';
+import { CartService } from '../../../core/services/cart.service';
 import { AuthService } from '../../../auth/auth.service';
 import { User } from '../../../interfaces/user.model';
 import { UserRole } from '../../../interfaces/user-role.enum';
