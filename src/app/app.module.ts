@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,8 +29,7 @@ import { ContactComponent } from './modules/outer/pages/customers/contact.compon
 import { HasRoleDirective } from './core/hasRole.directive';
 import { DashboardComponent } from './modules/inner/pages/dashboard/dashboard';
 import { AuthComponent } from './auth/login';
-import { ToastComponent } from './modules/outer/components/toast/toast.component';
-import { DomSanitizer } from '@angular/platform-browser'; // Angular provee proteccion integrada XSS 
+import { ToastComponent } from './modules/outer/components/toast/toast.component'; 
 
 
 
@@ -67,18 +65,11 @@ import { DomSanitizer } from '@angular/platform-browser'; // Angular provee prot
   ],
   imports: [
     BrowserModule,
-    CommonModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
-
-  constructor(private sanitizer: DomSanitizer) {
-    // Angular provee proteccion integrada XSS 
-  }
-}
+export class AppModule { }
