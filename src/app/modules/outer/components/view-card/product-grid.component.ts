@@ -1,16 +1,7 @@
 import { Component } from '@angular/core';
 import { CartService } from 'src/app/core/services/cart.service';
 import { ToastService } from 'src/app/core/services/toast.service';
-
-// Interfaz para definir la estructura de un producto
-interface Producto {
-  nombre: string;
-  descripcion: string;
-  precio: number;
-  imagen: string;
-  categoria: string;
-  duracion: string;
-}
+import { ExperienciaEspacial } from 'src/app/interfaces/producto.model';
 
 @Component({
   selector: 'app-product-grid',
@@ -19,14 +10,14 @@ interface Producto {
 export class ProductGridComponent {
   // Variables para el modal
   mostrarModal = false;
-  productoSeleccionado: Producto | null = null;
+  productoSeleccionado: ExperienciaEspacial | null = null;
 
   constructor(
     private cartService: CartService,
     private toastService: ToastService
   ) {}
   // Lista de experiencias espaciales
-  productos: Producto[] = [
+  productos: ExperienciaEspacial[] = [
     {
       nombre: 'Experiencia 1',
       descripcion: 'Viaje inmersivo a las constelaciones más lejanas del universo conocido.',
@@ -104,7 +95,7 @@ export class ProductGridComponent {
   ];
 
   // Método para abrir el modal con el producto seleccionado
-  abrirModalDetalle(producto: Producto) {
+  abrirModalDetalle(producto: ExperienciaEspacial) {
     this.productoSeleccionado = producto;
     this.mostrarModal = true;
   }
