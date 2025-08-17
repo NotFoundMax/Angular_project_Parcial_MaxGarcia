@@ -4,16 +4,8 @@ import { Subscription } from 'rxjs';
 import { ProductoService } from '../../../../core/services/products.service';
 import { AuthService } from '../../../../auth/auth.service';
 import { UserRole } from '../../../../interfaces/user-role.enum';
+import { Producto } from '../../../../interfaces/producto.model';
 import Swal from 'sweetalert2';
-
-export interface Producto {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  count: number;
-  image: string;
-}
 
 @Component({
   selector: 'app-tabla-producto',
