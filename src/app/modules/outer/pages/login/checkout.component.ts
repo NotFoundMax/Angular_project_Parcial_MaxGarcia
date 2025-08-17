@@ -112,26 +112,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     return hasValidCardNumber && hasValidDate && hasValidCVC;
   }
 
-  // Validar fecha de vencimiento
-  isValidExpirationDate(date: string): boolean {
-    if (date.length !== 5 || !date.includes('/')) return false;
-    
-    const [month, year] = date.split('/');
-    const monthNum = parseInt(month, 10);
-    const yearNum = parseInt('20' + year, 10);
-    
-    if (monthNum < 1 || monthNum > 12) return false;
-    
-    const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth() + 1;
-    
-    if (yearNum < currentYear || (yearNum === currentYear && monthNum < currentMonth)) {
-      return false;
-    }
-    
-    return true;
-  }
 
   // Validar formulario completo
   isFormValid(): boolean {
