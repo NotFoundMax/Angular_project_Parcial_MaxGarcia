@@ -1,16 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CartService } from 'src/app/core/services/cart.service';
 import { ToastService } from 'src/app/core/services/toast.service';
-
-// Interfaz para definir la estructura de un producto
-interface Producto {
-  nombre: string;
-  descripcion: string;
-  precio: number;
-  imagen: string;
-  categoria: string;
-  duracion: string;
-}
+import { ExperienciaEspacial } from 'src/app/interfaces/producto.model';
 
 @Component({
   selector: 'app-product-card',
@@ -18,7 +9,7 @@ interface Producto {
 })
 export class ProductCardComponent {
   // Propiedad de entrada para recibir los datos del producto
-  @Input() producto: Producto = {
+  @Input() producto: ExperienciaEspacial = {
     nombre: '',
     descripcion: '',
     precio: 0,
@@ -28,7 +19,7 @@ export class ProductCardComponent {
   };
 
   // Emite el evento para abrir el modal
-  @Output() abrirModal = new EventEmitter<Producto>();
+  @Output() abrirModal = new EventEmitter<ExperienciaEspacial>();
 
   constructor(
     private cartService: CartService,
