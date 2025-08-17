@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { CartService, CartItem } from '../../../../core/services/customers.service';
+import { CartService, CartItem } from '../../../../core/services/cart.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import Swal from 'sweetalert2';
