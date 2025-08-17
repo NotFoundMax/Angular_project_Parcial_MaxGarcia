@@ -24,7 +24,7 @@ import { CrearProductoComponent } from './modules/outer/components/user-profile/
 import { EditarProductoComponent } from './modules/outer/components/user-profile/editar-producto/editar-producto.component';
 import { VerProductoComponent } from './modules/outer/components/user-profile/ver-producto/ver-producto.component';
 import { CartModalComponent } from './modules/outer/components/modal/cart-modal.component';
-import { CheckoutComponent } from './modules/outer/pages/login/checkout.component';
+import { CheckoutComponent } from './modules/outer/pages/checkout/checkout.component';
 import { ContactComponent } from './modules/outer/pages/customers/contact.component';
 import { HasRoleDirective } from './core/hasRole.directive';
 import { DashboardComponent } from './modules/inner/pages/dashboard/dashboard';

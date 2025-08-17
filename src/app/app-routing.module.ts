@@ -6,7 +6,7 @@ import { TablasComponent } from './modules/inner/pages/admin/admin';
 import { DirectivesComponent } from './modules/inner/pages/orders/orders';
 import { GalleryComponent } from './modules/outer/pages/gallery/gallery.component';
 import { FetchingComponent } from './modules/inner/pages/reports/reports';
-import { CheckoutComponent } from './modules/outer/pages/login/checkout.component';
+import { CheckoutComponent } from './modules/outer/pages/checkout/checkout.component';
 import { ContactComponent } from './modules/outer/pages/customers/contact.component';
 import { AuthComponent } from './auth/login';
 import { DashboardComponent } from './modules/inner/pages/dashboard/dashboard';
