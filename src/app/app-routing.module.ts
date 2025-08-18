@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './modules/outer/pages/home/home.component';
 import { TablasComponent } from './modules/inner/pages/admin/admin';
-import { DirectivesComponent } from './modules/inner/pages/orders/orders';
+import { DirectivesComponent } from './modules/inner/pages/directivas/orders';
 import { GalleryComponent } from './modules/outer/pages/gallery/gallery.component';
 import { FetchingComponent } from './modules/inner/pages/reports/reports';
 import { CheckoutComponent } from './modules/outer/pages/checkout/checkout.component';

@@ -79,7 +79,7 @@
           </h2>
 
           <div class="space-y-4">
-            <!-- Credit Card Option -->
+            <!-- OPCITON TARJETA PAGO CREDITO -->
             <div class="flex items-center p-4 border border-slate-600 rounded-lg cursor-pointer hover:border-indigo-400 transition-colors"
                  [ngClass]="{'border-indigo-400': selectedPaymentMethod === 'credit', 'bg-indigo-500/10': selectedPaymentMethod === 'credit'}">
               <input 
@@ -97,7 +97,7 @@
               </label>
             </div>
 
-            <!-- Debit Card Option -->
+            <!-- OPCION DE PAGO TARJETA DEBIDTO -->
             <div class="flex items-center p-4 border border-slate-600 rounded-lg cursor-pointer hover:border-indigo-400 transition-colors"
                  [ngClass]="{'border-indigo-400': selectedPaymentMethod === 'debit', 'bg-indigo-500/10': selectedPaymentMethod === 'debit'}">
               <input 
@@ -115,7 +115,7 @@
               </label>
             </div>
 
-            <!-- Mobile Payment Option -->
+            <!-- OPCION DE PAGO CON CELULAR -->
             <div class="flex items-center p-4 border border-slate-600 rounded-lg cursor-pointer hover:border-indigo-400 transition-colors"
                  [ngClass]="{'border-indigo-400': selectedPaymentMethod === 'mobile', 'bg-indigo-500/10': selectedPaymentMethod === 'mobile'}">
               <input 
@@ -197,7 +197,7 @@
           </form>
         </div>
 
-        <!-- QR Code Section (shown when mobile payment is selected) -->
+        <!-- SECCION DECODIGO QR -->
         <div *ngIf="selectedPaymentMethod === 'mobile'" 
              class="cosmic-card p-6 text-center">
           <h2 class="text-2xl font-bold text-white mb-6 flex items-center justify-center">

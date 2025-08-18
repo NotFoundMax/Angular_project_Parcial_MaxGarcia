@@ -7,7 +7,7 @@ import { HeaderComponent } from './modules/inner/components/header-selector';
 import { HomeComponent } from './modules/outer/pages/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './modules/outer/components/footer/footer.component';
-import { DirectivesComponent } from './modules/inner/pages/orders/orders';
+import { DirectivesComponent } from './modules/inner/pages/directivas/orders';
 import { GalleryComponent } from './modules/outer/pages/gallery/gallery.component';
 import { FetchingComponent } from './modules/inner/pages/reports/reports';
 import { ProductCardComponent } from './modules/outer/components/product-details/product-card.component';
