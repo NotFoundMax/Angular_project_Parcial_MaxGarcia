@@ -172,7 +172,14 @@ export class TablaProductoComponent implements OnInit, OnDestroy{
     }).then((result) => {
       if (result.isConfirmed) {
         this.productos = this.productos.filter(p => p.id !== producto.id);
-        Swal.fire('¡Borrado!', 'El producto ha sido eliminado.', 'success');
+        Swal.fire({
+        title: '¡Borrado!',
+        text: 'El cliente ha sido eliminado.',
+        icon: 'success',
+        confirmButtonColor: '#6366f1',
+        background: '#1e293b',
+        color: '#f1f5f9'
+      });
       }
     });
   }

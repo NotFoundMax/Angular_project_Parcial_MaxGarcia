@@ -52,7 +52,7 @@ export class TablaClienteComponent {
 
    // Abrir modal de crear cliente
   abrirModalCrear() {
-    // Asignar un nuevo id (puedes mejorar esto según tu lógica)
+    // Asignar un nuevo id 
     const maxId = this.clientes.length > 0 ? Math.max(...this.clientes.map(c => c.id)) : 0;
     this.nuevoCliente = {
       id: maxId + 1,
@@ -123,7 +123,14 @@ export class TablaClienteComponent {
     }).then((result) => {
       if (result.isConfirmed) {
         this.clientes = this.clientes.filter(c => c.id !== cliente.id);
-        Swal.fire('¡Borrado!', 'El cliente ha sido eliminado.', 'success');
+        Swal.fire({
+        title: '¡Borrado!',
+        text: 'El cliente ha sido eliminado.',
+        icon: 'success',
+        confirmButtonColor: '#6366f1',
+        background: '#1e293b',
+        color: '#f1f5f9'
+      });
       }
     });
   }
